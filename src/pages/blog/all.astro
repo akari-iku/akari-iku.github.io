@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const MAGENTA = '#E5007F';
+
+// Same numbering as article pages: per language, oldest = #001.
+const numbered = (await getCollection('blog', (p) => p.data.lang === 'ja'))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .map((post, i) => {
+    const date = post.data.date.toISOString().slice(0, 10);
+    return {
+      num: `#${String(i + 1).padStart(3, '0')}`,
+      date,
+      year: date.slice(0, 4),
+      title: post.data.title,
+      href: `/blog/${post.id.replace(/^ja\//, '')}/`,
+    };
+  })
+  .reverse();
+
+const years = [...new Set(numbered.map((e) => e.year))].map((year) => ({
+  year,
+  entries: numbered.filter((e) => e.year === year),
+}));
+---
+
+<BaseLayout
+  title="Index | akari.log"
+  description="akari.log 全記事の索引（年別・新しい順）"
+  lang="ja"
+  alternate={{ lang: 'en', href: '/en/blog/all/' }}
+>
+  <main class="mx-auto max-w-3xl px-6 py-12">
+    <h1 class="font-display text-5xl">Index</h1>
+    <div class="mt-3 mb-4 h-3 w-28 -skew-x-12" style={`background:${MAGENTA}`}></div>
+    <p class="mb-10 text-sm text-neutral-600">全記事の索引。年別・新しい順。</p>
+
+    {
+      years.map(({ year, entries }) => (
+        <section class="mt-10 first:mt-0">
+          <h2 id={year} class="flex items-baseline gap-3">
+            <span class="font-display text-3xl">{year}</span>
+            <span class="font-mono text-xs text-neutral-500">— {entries.length}</span>
+          </h2>
+          <ul class="mt-4 space-y-2">
+            {entries.map((e) => (
+              <li class="grid grid-cols-[auto_auto_1fr] items-baseline gap-x-4">
+                <span class="font-mono text-xs text-neutral-500">{e.num}</span>
+                <time class="font-mono text-xs text-neutral-500" datetime={e.date}>
+                  {e.date}
+                </time>
+                <a href={e.href} class="font-databook leading-snug font-bold hover:underline">
+                  {e.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+
+    <p class="mt-16 font-mono text-sm">
+      <a href="/blog/" class="underline">← Blog</a>
+    </p>
+  </main>
+</BaseLayout>

@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// GitHub Pages serves this single page for every missing URL (ja and en),
+// so the copy is bilingual instead of locale-switched.
+const links = [
+  { href: '/', label: 'トップ / Top' },
+  { href: '/blog/', label: '記事一覧 / Blog' },
+  { href: '/about/', label: 'About' },
+];
+---
+
+<BaseLayout title="404 Not Found | akari.log" lang="ja">
+  <meta name="robots" content="noindex" slot="head" />
+  <main class="theme-fixed min-h-[75vh] bg-neutral-950 text-white">
+    <div class="mx-auto max-w-5xl px-6 pt-10 pb-20">
+      <p class="flex justify-between font-mono text-sm font-bold">
+        <span>Error / not-found</span>
+        <span>#404</span>
+      </p>
+
+      <div class="broken-404 font-databook" aria-hidden="true">
+        <span class="piece piece-a">404</span>
+        <span class="piece piece-b">404</span>
+      </div>
+      <p class="text-center font-mono text-xs font-bold tracking-widest text-neutral-500">
+        <span class="note-broken">RECORD BROKEN: 復元不可 / UNRECOVERABLE</span>
+        <span class="note-fixed">応急処置に成功。手を離さないでください / FIXED. DO NOT LET GO.</span>
+      </p>
+
+      <h1 class="font-databook mt-12 text-center text-2xl font-bold sm:text-3xl">
+        ページも色も見つかりません
+      </h1>
+      <p class="mt-4 text-center font-serif text-[15px] leading-loose font-medium text-neutral-300">
+        この記録は破損しているか、最初から存在しません。<br />
+        どちらにせよ、ここに読むものはありません。<br />
+        Page not found. Colour not found.<br />
+        Either way, there is nothing to read here.
+      </p>
+
+      <nav
+        aria-label="主要ページ"
+        class="mt-12 flex flex-wrap justify-center gap-3 font-mono text-sm font-bold"
+      >
+        {
+          links.map((l) => (
+            <a
+              href={l.href}
+              class="border-2 border-white px-4 py-2 hover:bg-white hover:text-neutral-900"
+            >
+              → {l.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </main>
+
+  <style>
+    /* the void behind everything on this page is black, not white */
+    :global(body) {
+      background-color: #010101;
+    }
+
+    /* Giant numerals sliced by a single diagonal cut; halves drift apart. */
+    .broken-404 {
+      position: relative;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 0.06em 0.12em;
+      font-size: clamp(9rem, 28vw, 19rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+      user-select: none;
+    }
+    /* while held together, the caption admits the fix is temporary */
+    .note-fixed {
+      display: none;
+    }
+    .broken-404:hover + p .note-broken {
+      display: none;
+    }
+    .broken-404:hover + p .note-fixed {
+      display: inline;
+    }
+    .piece {
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    /* cut line runs at roughly the site's slash angle */
+    .piece-a {
+      clip-path: polygon(0 0, 100% 0, 100% 22%, 0 78%);
+      transform: translate(-0.035em, -0.02em);
+    }
+    .piece-b {
+      position: absolute;
+      inset: 0.06em 0.12em;
+      clip-path: polygon(0 78%, 100% 22%, 100% 100%, 0 100%);
+      transform: translate(0.035em, 0.02em);
+    }
+    /* hover: the record pretends to heal for a moment */
+    .broken-404:hover .piece {
+      transform: none;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .piece-a {
+        animation: cut-a 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s backwards;
+      }
+      .piece-b {
+        animation: cut-b 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s backwards;
+      }
+      @keyframes cut-a {
+        from {
+          transform: none;
+        }
+      }
+      @keyframes cut-b {
+        from {
+          transform: translate(0, 0);
+        }
+      }
+    }
+  </style>
+</BaseLayout>

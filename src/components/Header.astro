@@ -1,0 +1,180 @@
+---
+const path = Astro.url.pathname;
+const isEn = path.startsWith('/en/');
+
+const menuItems = [
+  { label: 'Top', href: isEn ? '/en/' : '/', accent: '#E5007F' },
+  { label: 'About', href: isEn ? '/en/about/' : '/about/', accent: '#E5007F' },
+  { label: 'Career', href: isEn ? '/en/career/' : '/career/', accent: '#F0C000' },
+  { label: 'Blog', href: isEn ? '/en/blog/' : '/blog/', accent: '#E5007F' },
+  { label: 'Tags', href: isEn ? '/en/tags/' : '/tags/', accent: '#00B06B' },
+];
+
+// Language switch keeps the section context (articles fall back to the list page).
+// The current language stays on the exact path; the other side falls back to
+// its matching section list page (or top when no section matches).
+const sections = ['/about', '/career', '/blog', '/tags'];
+const section = sections.find((s) => path.replace(/^\/en/, '').startsWith(s));
+const jaFallback = section ? `${section}/` : '/';
+const enFallback = section ? `/en${section}/` : '/en/';
+const jaHref = isEn ? jaFallback : path;
+const enHref = isEn ? path : enFallback;
+
+function isCurrent(href: string): boolean {
+  if (href === '/' || href === '/en/') return path === '/' || path === '/en/';
+  return path.includes(href.replace(/^\/en/, '').replace(/\/$/, ''));
+}
+---
+
+<header class="border-b-2 border-neutral-900 bg-white">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+    <a href={isEn ? '/en/' : '/'} class="font-mono text-lg font-bold">akari.log</a>
+    <div class="flex items-center gap-5">
+      <button id="theme-toggle" aria-label="ライト/ダークテーマ切替" class="-m-2 cursor-pointer p-2">
+        <svg
+          class="icon-moon"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+        </svg>
+        <svg
+          class="icon-sun"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <path
+            d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"></path>
+        </svg>
+      </button>
+      <span class="border-2 border-neutral-900 font-mono text-xs font-bold">
+        <a
+          href={jaHref}
+          class:list={['inline-block px-2.5 py-2', !isEn && 'bg-neutral-900 text-white']}
+        >
+          JA
+        </a><a
+          href={enHref}
+          class:list={['inline-block px-2.5 py-2', isEn && 'bg-neutral-900 text-white']}
+        >
+          EN
+        </a>
+      </span>
+      <button
+        id="menu-open"
+        aria-label="メニューを開く"
+        aria-controls="site-menu"
+        aria-expanded="false"
+        class="-m-2 cursor-pointer p-2"
+      >
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3 5h18v2.4H3zM3 10.8h18v2.4H3zM3 16.6h18V19H3z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div
+  id="site-menu"
+  role="dialog"
+  aria-modal="true"
+  aria-label="サイト内メニュー"
+  class="theme-fixed fixed inset-0 z-50 hidden flex-col justify-between bg-neutral-950 px-8 py-10 text-white sm:px-24 sm:py-16"
+>
+  <button
+    id="menu-close"
+    aria-label="メニューを閉じる"
+    class="absolute top-8 right-8 -m-2 cursor-pointer p-2 sm:top-12 sm:right-16"
+  >
+    <svg width="34" height="34" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" aria-hidden="true">
+      <path d="M4 4l16 16M20 4L4 20"></path>
+    </svg>
+  </button>
+
+  <nav aria-label="サイト内メニュー" class="mt-10">
+    <ul class="space-y-3">
+      {
+        menuItems.map((m) => (
+          <li class="flex items-center gap-6">
+            <span class="w-12 text-right font-mono text-xs font-bold" style={`color:${m.accent}`}>
+              {isCurrent(m.href) ? 'NOW' : ''}
+            </span>
+            <a
+              href={m.href}
+              class="font-display text-5xl transition-colors sm:text-6xl hover:text-[var(--c)]"
+              style={`--c:${m.accent}; ${isCurrent(m.href) ? `color:${m.accent}` : ''}`}
+            >
+              {m.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <div class="flex items-center justify-between font-mono text-sm">
+    <span class="font-bold">
+      <a href={jaHref} class:list={[!isEn && 'underline']}>JA</a>
+      <span class="mx-1 opacity-50">/</span>
+      <a href={enHref} class:list={[isEn && 'underline']}>EN</a>
+    </span>
+    <span class="flex gap-5 text-xs text-neutral-400">
+      <a href="https://github.com/akari-iku" target="_blank" rel="noopener" class="hover:text-white">GitHub</a>
+      <a href="https://zenn.dev/akari1106" target="_blank" rel="noopener" class="hover:text-white">Zenn</a>
+      <a href="https://dev.to/akari_iku" target="_blank" rel="noopener" class="hover:text-white">Dev.to</a>
+      <a href="https://x.com/akari_iku" target="_blank" rel="noopener" class="hover:text-white">X</a>
+    </span>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const menu = document.getElementById('site-menu');
+    const openBtn = document.getElementById('menu-open');
+    const closeBtn = document.getElementById('menu-close');
+    if (!menu || !openBtn || !closeBtn) return;
+    const setOpen = (open) => {
+      menu.classList.toggle('hidden', !open);
+      menu.classList.toggle('flex', open);
+      openBtn.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      // inert everything behind the dialog: keeps Tab (and screen readers)
+      // inside the menu without a hand-rolled focus trap
+      for (const el of document.body.children) {
+        if (el !== menu) el.toggleAttribute('inert', open);
+      }
+      if (open) closeBtn.focus();
+      else openBtn.focus();
+    };
+    openBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.classList.contains('hidden')) setOpen(false);
+    });
+  })();
+
+  (() => {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') root.dataset.theme = 'dark';
+      else delete root.dataset.theme;
+      try {
+        localStorage.setItem('theme', next);
+      } catch {}
+    });
+  })();
+</script>

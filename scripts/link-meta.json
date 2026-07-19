@@ -1,0 +1,421 @@
+{
+  "https://arxiv.org/abs/2402.07927": {
+    "title": "A Systematic Survey of Prompt Engineering in Large Language Models: Techniques and Applications",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://arxiv.org/abs/2409.01227": {
+    "title": "Prompt Compression with Context-Aware Sentence Encoding for Fast and Improved LLM Inference",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://medium.com/@sahin.samia/prompt-compression-in-large-language-models-llms-making-every-token-count-078a2d1c7e03": {
+    "title": "Prompt Compression in Large Language Models (LLMs): Making Every Token Count"
+  },
+  "https://zenn.dev/acntechjp/articles/4f3961b19c46cd": {
+    "title": "Manus なんかすげーぞ！！",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--Xy9Z2bm4--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Manus%2520%25E3%2581%25AA%25E3%2582%2593%25E3%2581%258B%25E3%2581%2599%25E3%2581%2592%25E3%2583%25BC%25E3%2581%259E%25EF%25BC%2581%25EF%25BC%2581%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:akinobukato%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2U2ZDA4MDY5ODcuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Accenture%2520Japan%2520%2528%25E6%259C%2589%25E5%25BF%2597%2529%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSXNhaXdwVk0zSWJZQlRyVnFpS3pkNWxGQ3hvU0xiLVN4eHlxQldQVG43X2RiWlZ0WGY9czk2LWM=%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://zenn.dev/akari1106/articles/31e8aa938a214c": {
+    "title": "RAGを選ぶ時代 - GPT-5の失敗から学ぶ認知負荷とアーキテクチャ設計",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--c3wB1L_T--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:RAG%25E3%2582%2592%25E9%2581%25B8%25E3%2581%25B6%25E6%2599%2582%25E4%25BB%25A3%2520-%2520GPT-5%25E3%2581%25AE%25E5%25A4%25B1%25E6%2595%2597%25E3%2581%258B%25E3%2582%2589%25E5%25AD%25A6%25E3%2581%25B6%25E8%25AA%258D%25E7%259F%25A5%25E8%25B2%25A0%25E8%258D%25B7%25E3%2581%25A8%25E3%2582%25A2%25E3%2583%25BC%25E3%2582%25AD%25E3%2583%2586%25E3%2582%25AF%25E3%2583%2581%25E3%2583%25A3%25E8%25A8%25AD%25E8%25A8%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2581%25AF%25E9%2587%258C%2528akari%2529%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZTcxYTI4M2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://arxiv.org/abs/2402.14848": {
+    "title": "Same Task, More Tokens: the Impact of Input Length on the Reasoning Performance of Large Language Models",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://arxiv.org/abs/2410.12388": {
+    "title": "Prompt Compression for Large Language Models: A Survey",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://arxiv.org/html/2502.11560v1": {
+    "title": "A Survey of Automatic Prompt Engineering: An Optimization Perspective"
+  },
+  "https://aws.amazon.com/jp/what-is/prompt-engineering/": {
+    "title": "プロンプトエンジニアリングとは何ですか? - AI プロンプトエンジニアリングの説明 - AWS"
+  },
+  "https://www.prompthub.us/blog/a-complete-guide-to-meta-prompting": {
+    "title": "PromptHub Blog: A Complete Guide to Meta Prompting",
+    "image": "https://cdn.prod.website-files.com/646e63db3a42c618e0a9935c/66fdc2207a87b31d29f93e63_Meta%20Prompting%20OG%20Image.png"
+  },
+  "https://macrolingo.com/japanese-fukatsu-shunsuke-ai-prompting-methods/": {
+    "title": "AI Prompting Methods from Japan: Fukatsu and Shunsuke Methods | MacroLingo Global Content Solutions",
+    "image": "https://macrolingo.com/wp-content/uploads/2025/02/robot-gen-AI.jpeg"
+  },
+  "https://www.sciencedirect.com/topics/psychology/cognitive-load-theory": {
+    "title": "Cognitive Load Theory — ScienceDirect Topics"
+  },
+  "https://aicompetence.org/cognitive-load-theory-ai/": {
+    "title": "Cognitive Load Theory × AI — aicompetence.org"
+  },
+  "https://arxiv.org/abs/1703.05175": {
+    "title": "Prototypical Networks for Few-shot Learning",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://www.researchgate.net/publication/361651196_A_Self-determination_Theory_SDT_Design_Approach_for_Inclusive_and_Diverse_Artificial_Intelligence_AI_Education": {
+    "title": "A Self-determination Theory (SDT) Design Approach for Inclusive and Diverse AI Education"
+  },
+  "https://www.researchgate.net/publication/349156548_Design_Foundations_for_AI_Assisted_Decision_Making_A_Self_Determination_Theory_Approach": {
+    "title": "Design Foundations for AI Assisted Decision Making: A Self Determination Theory Approach"
+  },
+  "https://arxiv.org/abs/2403.00811": {
+    "title": "Cognitive Bias in Decision-Making with LLMs",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://arxiv.org/html/2412.00323v1": {
+    "title": "Cognitive Biases in Large Language Models: A Survey and Mitigation Experiments"
+  },
+  "https://x.com/dpaluy/status/1887385427687965102": {
+    "title": "David Paluy (@dpaluy) on X",
+    "image": "https://pbs.twimg.com/profile_images/361111559/david_200x200.png"
+  },
+  "https://latitude-blog.ghost.io/blog/how-to-measure-prompt-ambiguity-in-llms/": {
+    "title": "How to Measure Prompt Ambiguity in LLMs"
+  },
+  "https://dspy.ai/": {
+    "title": "DSPy",
+    "image": "https://dspy.ai/assets/images/social/index.png"
+  },
+  "https://www.datacamp.com/tutorial/prompt-compression": {
+    "title": "Prompt Compression Tutorial — DataCamp"
+  },
+  "https://blog.promptlayer.com/how-to-reduce-llm-costs/": {
+    "title": "How to Reduce LLM Costs: Effective Strategies | PromptLayer",
+    "image": "https://storage.ghost.io/c/1f/f0/1ff09fb9-4fa4-47e4-8c61-4315612abe4e/content/images/size/w1200/2024/11/How-a-Prompt-Engineering-Tool-Improves-AI-Model-Performance--17-.png"
+  },
+  "https://papers.nips.cc/paper/6996-prototypical-networks-for-few-shot-learning": {
+    "title": "Prototypical Networks for Few-shot Learning"
+  },
+  "https://miptgirl.medium.com/programming-not-prompting-a-hands-on-guide-to-dspy-04ea2d966e6d": {
+    "title": "Programming, Not Prompting: A Hands-on Guide to DSPy",
+    "image": "https://miro.medium.com/v2/resize:fit:1200/1*2pbtqqZmyx7NiQxMABW0wg.jpeg"
+  },
+  "https://www.linkedin.com/pulse/understanding-prompt-formats-xml-markdown-yaml-made-simple-paluy-fgtkc/": {
+    "title": "Decoding the Prompt: XML, Markdown, or YAML – Which Format Reigns Supreme for Reasoning Models?",
+    "image": "https://media.licdn.com/dms/image/v2/D5612AQH506aZ9448HA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1738820584702?e=2147483647&v=beta&t=MoD0LI6CvkyF5D1Erb7Js-GxJ4H8k2Ig9jf7Hf48ffE"
+  },
+  "https://arxiv.org/abs/2312.07910": {
+    "title": "PromptBench: A Unified Library for Evaluation of Large Language Models",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/": {
+    "title": "PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts",
+    "image": "https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-TWLIFB-1200x627-1.jpg"
+  },
+  "https://github.com/stanford-crfm/helm": {
+    "title": "GitHub - stanford-crfm/helm: Holistic Evaluation of Language Models (HELM) is an open source Python framework created by the Center for Research on Foundation Models (CRFM) at Stanford for holistic, reproducible and transparent evaluation of foundation models, including large language models (LLMs) and multimodal models.",
+    "image": "https://opengraph.githubassets.com/fa38cb3e28099db2dd8bbd7aa62663e0d21237d37143e60146d1d85fda1551e4/stanford-crfm/helm"
+  },
+  "https://www.nature.com/articles/s41586-024-07421-0": {
+    "title": "Client Challenge"
+  },
+  "https://simple.ai/p/the-manus-breakthrough-nobody-saw-coming": {
+    "title": "The Manus Breakthrough Nobody Saw Coming",
+    "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/42cff1d0-1f14-42fc-bb5c-3af32f46e16c/a-cartoon-medium-shot-of-a-man-with-his-_BzfAtmkAS1KL1_T81JjnKw_0-HZhtXrTWmjidysO3bk-w.png?t=1742340083"
+  },
+  "https://zenn.dev/yuki_2021/articles/5368532831f6ab": {
+    "title": "長すぎるMermaidの図表を修正する方法",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--AG7DZzA---/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E9%2595%25B7%25E3%2581%2599%25E3%2581%258E%25E3%2582%258BMermaid%25E3%2581%25AE%25E5%259B%25B3%25E8%25A1%25A8%25E3%2582%2592%25E4%25BF%25AE%25E6%25AD%25A3%25E3%2581%2599%25E3%2582%258B%25E6%2596%25B9%25E6%25B3%2595%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2582%2586%25E3%2581%258D%25E3%2581%25AB%25E3%2583%25BC%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzBjMjM1Zjc1OWEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://x.com/GoogleLabs/status/1975627276575498338": {
+    "title": "Google Labs (@GoogleLabs) on X",
+    "image": "https://pbs.twimg.com/amplify_video_thumb/1975627219935633410/img/O83Ri7HGeOIbEYGE.jpg"
+  },
+  "https://zenn.dev/manase/scraps/415300a7a0631f": {
+    "title": "Mermaid記法とPlantUMLを比較する、どちらを採用すべきか？",
+    "image": "https://static.zenn.studio/user-upload/avatar/e02c9a9f0e.jpeg"
+  },
+  "https://arxiv.org/": {
+    "title": "arXiv.org e-Print archive"
+  },
+  "https://www.a3logics.com/blog/prompt-engineering-use-cases/": {
+    "title": "Top Use Cases of AI Prompt Engineering Solutions For Success",
+    "image": "https://www.a3logics.com/wp-content/uploads/2024/05/Prompt-engineering.jpg"
+  },
+  "https://dev.to/pinishv/building-ai-systems-that-dont-break-under-attack-be3": {
+    "title": "Building AI Systems That Don't Break Under Attack",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpe2kfzawr6n4v6k2s20f.png"
+  },
+  "https://dev.to/pinishv/prompt-injection-20-the-new-frontier-of-ai-attacks-33mp": {
+    "title": "Prompt Injection 2.0: The New Frontier of AI Attacks",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpmlbj2jqzcbe0ghy74fg.png"
+  },
+  "https://zenn.dev/akari1106/articles/8326ade3b0a2db": {
+    "title": "APIコストが気になるので、トークンをなんとかしたい。「数式×論理構造」でプロンプトを圧縮する話とその限界とか",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--GtAylk0k--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:API%25E3%2582%25B3%25E3%2582%25B9%25E3%2583%2588%25E3%2581%258C%25E6%25B0%2597%25E3%2581%25AB%25E3%2581%25AA%25E3%2582%258B%25E3%2581%25AE%25E3%2581%25A7%25E3%2580%2581%25E3%2583%2588%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25B3%25E3%2582%2592%25E3%2581%25AA%25E3%2582%2593%25E3%2581%25A8%25E3%2581%258B%25E3%2581%2597%25E3%2581%259F%25E3%2581%2584%25E3%2580%2582%25E3%2580%258C%25E6%2595%25B0%25E5%25BC%258F%25C3%2597%25E8%25AB%2596%25E7%2590%2586%25E6%25A7%258B%25E9%2580%25A0%25E3%2580%258D%25E3%2581%25A7%25E3%2583%2597%25E3%2583%25AD%25E3%2583%25B3%25E3%2583%2597%25E3%2583%2588%25E3%2582%2592%25E5%259C%25A7%25E7%25B8%25AE%25E3%2581%2599%25E3%2582%258B%25E8%25A9%25B1%25E3%2581%25A8%25E3%2581%259D%25E3%2581%25AE%25E9%2599%2590%25E7%2595%258C%25E3%2581%25A8%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2581%25AF%25E9%2587%258C%2528akari%2529%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZTcxYTI4M2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://aclanthology.org/2025.genaik-1.6/": {
+    "title": "GraphRAG: Leveraging Graph-Based Efficiency to Minimize Hallucinations in LLM-Driven RAG for Finance Data",
+    "image": "https://aclanthology.org/thumb/2025.genaik-1.6.jpg"
+  },
+  "https://www.drawio.com/": {
+    "title": "Security-first diagramming for teams | draw.io"
+  },
+  "https://mermaid.js.org/": {
+    "title": "Mermaid",
+    "image": "https://mermaid.js.org/mermaid-logo-horizontal.svg"
+  },
+  "https://blog.abdellatif.io/production-rag-processing-5m-documents": {
+    "title": "Production RAG: what I learned from processing 5M+ documents",
+    "image": "https://blog.abdellatif.io/og/production-rag-processing-5m-documents.png"
+  },
+  "https://mermaid.live/edit#": {
+    "title": "Online FlowChart & Diagrams Editor - Mermaid Live Editor"
+  },
+  "https://vixra.org/": {
+    "title": "viXra.org open e-Print archive",
+    "image": "http://vixra.org/vicons/icon.jpg"
+  },
+  "https://zenn.dev/akari1106/articles/18c0d7f205f8a7": {
+    "title": "【検証】LLM時代に最適な作図ツールをトークン効率で考える",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--4WraQnqq--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590%25E6%25A4%259C%25E8%25A8%25BC%25E3%2580%2591LLM%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AB%25E6%259C%2580%25E9%2581%25A9%25E3%2581%25AA%25E4%25BD%259C%25E5%259B%25B3%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%2592%25E3%2583%2588%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25B3%25E5%258A%25B9%25E7%258E%2587%25E3%2581%25A7%25E8%2580%2583%25E3%2581%2588%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2581%25AF%25E9%2587%258C%2528akari%2529%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZTcxYTI4M2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://arxiv.org/abs/2307.03172": {
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://platform.openai.com/tokenizer": {
+    "title": "OpenAI Tokenizer"
+  },
+  "https://zenn.dev/akari1106/articles/7dc075e5f5cf6f": {
+    "title": "LLMは「トンデモ論文」も学習している - AI開発者が知っておくべき情報源の品質管理",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--tT_z1m1c--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:LLM%25E3%2581%25AF%25E3%2580%258C%25E3%2583%2588%25E3%2583%25B3%25E3%2583%2587%25E3%2583%25A2%25E8%25AB%2596%25E6%2596%2587%25E3%2580%258D%25E3%2582%2582%25E5%25AD%25A6%25E7%25BF%2592%25E3%2581%2597%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258B%2520-%2520AI%25E9%2596%258B%25E7%2599%25BA%25E8%2580%2585%25E3%2581%258C%25E7%259F%25A5%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%258A%25E3%2581%258F%25E3%2581%25B9%25E3%2581%258D%25E6%2583%2585%25E5%25A0%25B1%25E6%25BA%2590%25E3%2581%25AE%25E5%2593%2581%25E8%25B3%25AA%25E7%25AE%25A1%25E7%2590%2586%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2581%25AF%25E9%2587%258C%2528akari%2529%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZTcxYTI4M2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://x.com/GussieTech/status/1984195601471594908": {
+    "title": "ガッシー｜Repsona (@GussieTech) on X",
+    "image": "https://pbs.twimg.com/media/G4lHYb1bkAA9xZr.jpg:large"
+  },
+  "https://info.zenn.dev/2026-01-09-translate-articles": {
+    "title": "記事の英語版生成の実験的な提供を開始します（Beta） | What's New in Zenn",
+    "image": "https://info.zenn.dev/images/og/square-default.png"
+  },
+  "https://plantuml.com/ja/": {
+    "title": "シンプルなテキストファイルで UML が書ける、オープンソースのツール",
+    "image": "https://plantuml.com/og-index"
+  },
+  "https://prtimes.jp/main/html/rd/p/000000008.000160942.html?fbclid=IwdGRjcAPGs2pleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xNzM4NDc2NDI2NzAzNzAAAR4x5hpnY4OpCywdWt3dmYCWIUMIOZdcfDv92dE1MCxIBl1qD0F2t_1X1AB5VQ_aem__w-IXYbIg4knL066xBELZg": {
+    "title": "2025年調査で判明、「ググる」時代の終焉とAI検索の覇者。AIに「指名される企業」引用元ランキング日本版を公開",
+    "image": "https://prcdn.freetls.fastly.net/release_image/160942/8/160942-8-3c20cac17c74bee0ec7c9b3a433608a1-2816x1536.png?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260"
+  },
+  "https://www.asahi.com/articles/AST8V11XCT8VUTIL00JM.html": {
+    "title": "朝日・日経の2紙、米AI企業を提訴　「記事無断利用で著作権侵害」：朝日新聞",
+    "image": "https://imgopt.asahi.com/ogp/AS20250826001623_comm.jpg"
+  },
+  "https://x.com/zenn_dev/status/2009649601671016678": {
+    "title": "Zenn公式 (@zenn_dev) on X",
+    "image": "https://pbs.twimg.com/profile_images/1192775453498494977/pb8Shc8G_200x200.jpg"
+  },
+  "https://catnose.me/notes/zenn-with-classmethod": {
+    "title": "ZennとClassmethod",
+    "image": "https://catnose.me/og-cat.png"
+  },
+  "https://catnose.me/notes/zenn": {
+    "title": "Zennの前線から退きます",
+    "image": "https://catnose.me/og-cat.png"
+  },
+  "https://x.com/zenn_dev/status/2009523822085722497": {
+    "title": "Zenn公式 (@zenn_dev) on X",
+    "image": "https://pbs.twimg.com/profile_images/1192775453498494977/pb8Shc8G_200x200.jpg"
+  },
+  "https://x.com/simplifyinAI/status/2007484329262493860": {
+    "title": "Simplifying AI (@simplifyinAI) on X",
+    "image": "https://pbs.twimg.com/amplify_video_thumb/2007483987468447744/img/QwXRaa8gdLcC0HIQ.jpg"
+  },
+  "https://philomagi.dev/articles/2026-01-11_zenn%E3%81%AE%E8%87%AA%E5%8B%95%E7%BF%BB%E8%A8%B3%E3%81%8B%E3%82%89%E8%80%83%E3%81%88%E3%82%8B%E5%85%AC%E9%96%8B%E3%81%AE%E6%A6%82%E5%BF%B5/": {
+    "title": "Zennの自動翻訳から考える『公開』の概念 - Philomagi.dev",
+    "image": "https://philomagi.dev/og-image.jpg"
+  },
+  "https://zenn.dev/akari1106/articles/993e42b4430f36": {
+    "title": "Zennの自動翻訳機能から学ぶプロダクト開発の難しさ",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--ArWI8tJu--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Zenn%25E3%2581%25AE%25E8%2587%25AA%25E5%258B%2595%25E7%25BF%25BB%25E8%25A8%25B3%25E6%25A9%259F%25E8%2583%25BD%25E3%2581%258B%25E3%2582%2589%25E5%25AD%25A6%25E3%2581%25B6%25E3%2583%2597%25E3%2583%25AD%25E3%2583%2580%25E3%2582%25AF%25E3%2583%2588%25E9%2596%258B%25E7%2599%25BA%25E3%2581%25AE%25E9%259B%25A3%25E3%2581%2597%25E3%2581%2595%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2581%25AF%25E9%2587%258C%2528akari%2529%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZTcxYTI4M2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://x.com/DarioAmodei/status/2015833046327402527": {
+    "title": "Dario Amodei (@DarioAmodei) on X",
+    "image": "https://pbs.twimg.com/profile_images/2015835742577012736/uOwdzrEz_200x200.jpg"
+  },
+  "https://gigazine.net/news/20260129-linux-conclave-linus-torvalds/": {
+    "title": "リーナス・トーバルズの後任を決める緊急時対応計画をLinuxカーネル開発コミュニティが策定、ファイル名は「コンクラーベ」",
+    "image": "https://i.gzn.jp/img/2026/01/29/linux-conclave-linus-torvalds/00.png"
+  },
+  "https://zenn.dev/shio_shoppaize/articles/5fee11d03a11a1": {
+    "title": "Claude Codeで「AI部下10人」を作ったら、勝手にバグ直して「違反は切腹」ルールを追加してきて、オレは適当にしゃべるだけになった",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--nHca18lH--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25A7%25E3%2580%258CAI%25E9%2583%25A8%25E4%25B8%258B10%25E4%25BA%25BA%25E3%2580%258D%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%25E3%2582%2589%25E3%2580%2581%25E5%258B%259D%25E6%2589%258B%25E3%2581%25AB%25E3%2583%2590%25E3%2582%25B0%25E7%259B%25B4%25E3%2581%2597%25E3%2581%25A6%25E3%2580%258C%25E9%2581%2595%25E5%258F%258D%25E3%2581%25AF%25E5%2588%2587%25E8%2585%25B9%25E3%2580%258D%25E3%2583%25AB%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%2592%25E8%25BF%25BD%25E5%258A%25A0%25E3%2581%2597%25E3%2581%25A6%25E3%2581%258D%25E3%2581%25A6%25E3%2580%2581%25E3%2582%25AA%25E3%2583%25AC%25E3%2581%25AF%25E9%2581%25A9...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%258A%25E3%2581%2597%25E3%2581%258A%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E2NjUxYjFhMDUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://justin.poehnelt.com/posts/rewrite-your-cli-for-ai-agents/": {
+    "title": "You Need to Rewrite Your CLI for AI Agents",
+    "image": "https://justin.poehnelt.com/posts/rewrite-your-cli-for-ai-agents/og.png"
+  },
+  "https://www.youtube.com/watch?v=Uq41qdjJ8Xs&t=520s": {
+    "title": "The Untold Story of Git"
+  },
+  "https://script.google.com/macros/s/AKfycbzsxl41uQuDdR3Ouyanh7-MNhuNcA-FpQwEO05y0Ca_DD805H63fppanEPdWBgIhuxrPQ/exec": null,
+  "https://about.google/intl/ja_ALL/company-info/philosophy/": {
+    "title": "Google が掲げる 10 の事実 - Google",
+    "image": "https://www.gstatic.com/marketing-cms/assets/images/6c/44/b8bfd893482d9f977f33cd7afd49/g-3a-socialshare.png=n-w1440-h810-fcrop64=1,0000114effffee75-rw"
+  },
+  "https://zenn.dev/akari1106/articles/dfd7e3650e15ff": {
+    "title": "Claude Code Skillの出力に「そうじゃない」を減らす、ステップ別制約設計",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s---RhJiyu6--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520Skill%25E3%2581%25AE%25E5%2587%25BA%25E5%258A%259B%25E3%2581%25AB%25E3%2580%258C%25E3%2581%259D%25E3%2581%2586%25E3%2581%2598%25E3%2582%2583%25E3%2581%25AA%25E3%2581%2584%25E3%2580%258D%25E3%2582%2592%25E6%25B8%259B%25E3%2582%2589%25E3%2581%2599%25E3%2580%2581%25E3%2582%25B9%25E3%2583%2586%25E3%2583%2583%25E3%2583%2597%25E5%2588%25A5%25E5%2588%25B6%25E7%25B4%2584%25E8%25A8%25AD%25E8%25A8%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2581%25AF%25E9%2587%258C%2528akari%2529%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZTcxYTI4M2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://ones.com/ja/blog/knowledge/mermaid-plantuml-comparison/": {
+    "title": "MermaidとPlantUMLの対比：図表作成ツールの王者対決！どちらが開発効率を上げるか",
+    "image": "https://ones.com/ja/blog/wp-content/uploads/2025/04/JA-Blog.png"
+  },
+  "https://arxiv.org/abs/2504.13171": {
+    "title": "Sleep-time Compute: Beyond Inference Scaling at Test-time",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://www.zolkos.com/2026/02/04/deep-dive-how-claude-codes-insights-command-works.html": {
+    "title": "Deep Dive: How Claude Code's insights Command Works"
+  },
+  "https://github.com/googleworkspace/cli": {
+    "title": "GitHub - googleworkspace/cli: Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.",
+    "image": "https://opengraph.githubassets.com/f4bbd9871eca461ba26d3d8ee411e130569b89b56d91bb0d541d4266663a7d8d/googleworkspace/cli"
+  },
+  "https://arxiv.org/abs/2310.08560": {
+    "title": "MemGPT: Towards LLMs as Operating Systems",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://code.claude.com/docs/en/scheduled-tasks": {
+    "title": "Run prompts on a schedule - Claude Code Docs",
+    "image": "https://claude-code.mintlify.app/_next/image?url=%2F_mintlify%2Fapi%2Fog%3Fdivision%3DAutomation%26appearance%3Dsystem%26title%3DRun%2Bprompts%2Bon%2Ba%2Bschedule%26description%3DUse%2B%252Floop%2Band%2Bthe%2Bcron%2Bscheduling%2Btools%2Bto%2Brun%2Bprompts%2Brepeatedly%252C%2Bpoll%2Bfor%2Bstatus%252C%2Bor%2Bset%2Bone-time%2Breminders%2Bwithin%2Ba%2BClaude%2BCode%2Bsession.%26logoLight%3Dhttps%253A%252F%252Fmintcdn.com%252Fclaude-code%252Fc5r9_6tjPMzFdDDT%252Flogo%252Flight.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253Dc5r9_6tjPMzFdDDT%2526q%253D85%2526s%253D78fd01ff4f4340295a4f66e2ea54903c%26logoDark%3Dhttps%253A%252F%252Fmintcdn.com%252Fclaude-code%252Fc5r9_6tjPMzFdDDT%252Flogo%252Fdark.svg%253Ffit%253Dmax%2526auto%253Dformat%2526n%253Dc5r9_6tjPMzFdDDT%2526q%253D85%2526s%253D1298a0c3b3a1da603b190d0de0e31712%26primaryColor%3D%25230E0E0E%26lightColor%3D%2523D4A27F%26darkColor%3D%25230E0E0E%26backgroundLight%3D%2523FDFDF7%26backgroundDark%3D%252309090B&w=1200&q=100"
+  },
+  "https://arxiv.org/abs/2408.03314": {
+    "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+  },
+  "https://x.com/pascaljp/status/2029575066950975639": {
+    "title": "gpascal (@pascaljp) on X",
+    "image": "https://pbs.twimg.com/media/HCp_BQqbIAAjGt2.jpg:large"
+  },
+  "https://www.veracode.com/blog/malicious-npm-package-hiding-in-plain-pixels/": {
+    "title": "Hiding in Plain Pixels: Malicious NPM Package Found | Veracode",
+    "image": "https://www.veracode.com/wp-content/uploads/2025/04/freepik__menacing-ai-code-displayed-on-a-cracked-screen-uns__23038.png"
+  },
+  "https://zenn.dev/akari1106/articles/f73d60144bf877": {
+    "title": "BASE64と私の親密度をあげる",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--A7M5nQaT--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:BASE64%25E3%2581%25A8%25E7%25A7%2581%25E3%2581%25AE%25E8%25A6%25AA%25E5%25AF%2586%25E5%25BA%25A6%25E3%2582%2592%25E3%2581%2582%25E3%2581%2592%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2581%25AF%25E9%2587%258C%2528akari%2529%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZTcxYTI4M2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  "https://blogs.jpcert.or.jp/ja/2020/02/LODEINFO.html": {
+    "title": "日本国内の組織を狙ったマルウエアLODEINFO - JPCERT/CC Eyes",
+    "image": "https://blogs.jpcert.or.jp/ja/.assets/thumbnail/%E5%8B%95%E4%BD%9C%E6%A6%82%E8%A6%81-800wi.png"
+  },
+  "https://jfrog.com/blog/malicious-npm-packages-chrome-browser-information-stealer/": {
+    "title": "8 Malicious npm Packages Deliver Multi-Layered Chrome Browser Information Stealer",
+    "image": "https://media.jfrog.com/wp-content/uploads/2025/08/26212424/Sec-Research_1200x628.png"
+  },
+  "https://dev.to/toxy4ny/github-developers-targeted-in-sophisticated-openclaw-phishing-scam-1lei": {
+    "title": "GitHub Developers Targeted in Sophisticated OpenClaw Phishing Scam",
+    "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fy9ajubvo36y55k6gxaxy.webp"
+  },
+  "https://www.praetorian.com/blog/mcp-server-security-the-hidden-ai-attack-surface/": {
+    "title": "MCP Server Security: The Hidden AI Attack Surface",
+    "image": "https://www.praetorian.com/wp-content/uploads/2026/02/MCP-HIdden-AI-Attack-Surface-Blog-Hero.webp"
+  },
+  "https://www.koi.ai/blog/postmark-mcp-npm-malicious-backdoor-email-theft": {
+    "title": "First Malicious MCP in the Wild: The Postmark Backdoor That's Stealing Your Emails",
+    "image": "https://cdn.prod.website-files.com/689ad8c5d13f40cf59df0e0c/68f992125e31af81b7b7befe_First%20Malicious%20MCP.webp"
+  },
+  "https://docs.cloud.google.com/security-command-center/docs/model-armor-overview?hl=ja": {
+    "title": "Model Armor の概要 &nbsp;|&nbsp; Security Command Center &nbsp;|&nbsp; Google Cloud Documentation",
+    "image": "https://docs.cloud.google.com/_static/cloud/images/social-icon-google-cloud-1200-630.png?hl=ja"
+  },
+  "https://adversa.ai/blog/openclaw-security-101-vulnerabilities-hardening-2026/": {
+    "title": "OpenClaw security guide 2026: CVE-2026-25253, Moltbook breach & hardening",
+    "image": "https://adversa.ai/wp-content/uploads/2026/02/openclawsecurity-101-notext.jpeg"
+  },
+  "https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare": {
+    "title": "Personal AI Agents like OpenClaw Are a Security Nightmare",
+    "image": "https://blogs.cisco.com/gcs/ciscoblogs/1/2026/01/Hybrid-Office_GettyPartner-1461321198_v2-301x169-6a9edce.jpg"
+  },
+  "https://yara.readthedocs.io/en/stable/writingrules.html": {
+    "title": "Writing YARA rules &mdash; yara 4.4.0 documentation"
+  },
+  "https://socket.dev/": {
+    "title": "Socket — Secure your dependencies"
+  },
+  "https://www.elastic.co/security-labs/detecting-cicd-pipeline-abuse-with-llm-augmented-analysis": {
+    "title": "CI/CD pipeline abuse: the problem no one is watching — Elastic Security Labs",
+    "image": "https://www.elastic.co/security-labs/assets/images/detecting-cicd-pipeline-abuse-with-llm-augmented-analysis/detecting-cicd-pipeline-abuse-with-llm-augmented-analysis.webp?a8a9a6c6aae8de90d46e74460c717c57"
+  },
+  "https://attack.mitre.org/techniques/T1027/013/": {
+    "title": "Obfuscated Files or Information: Encrypted/Encoded File, Sub-technique T1027.013 - Enterprise | MITRE ATT&CK&reg;"
+  },
+  "https://thehackernews.com/2025/06/zero-click-ai-vulnerability-exposes.html": {
+    "title": "Zero-Click AI Vulnerability Exposes Microsoft 365 Copilot Data Without User Interaction",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjVBqg5EYl4J3F4ssXr70jhFtH896HKzzDj9axgdrUBmssE6NJnt3QARKe1QzpkevArgkNQJO44LiXo1pysC_Op6REeYVOVkoKNkzANRS9cTHIVGVin7hyphenhyphenCiM23Bm0orCfoQUIhtMIxzYftSRoPh72n9tQFdf4boGkywU7f1nyO1UcHvibRLsCh_Mtuo6s/s1600/echoleak.jpg"
+  },
+  "https://plantuml.com/en/": {
+    "title": "Open-source tool that uses simple textual descriptions to draw beautiful UML diagrams.",
+    "image": "https://plantuml.com/og-index"
+  },
+  "https://dev.to/_768dd7ab130016ab8b0a/analyzing-the-best-diagramming-tools-for-the-llm-age-based-on-token-efficiency-5891": {
+    "title": "Analyzing the Best Diagramming Tools for the LLM Age Based on Token Efficiency",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fq2ewlq8luaa7e93e5l8s.png"
+  },
+  "https://thehackernews.com/2026/04/bitwarden-cli-compromised-in-ongoing.html": {
+    "title": "Bitwarden CLI Compromised in Ongoing Checkmarx Supply Chain Campaign",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3GuK50sJwMRH4ad8bcUVRSBm1Wk0X5Gj1dSalza49wWxFY9g3_E32271zOeqx6vsqrWY2SWAVnnXTKiJZvKbhxynk018zLTIlZpBNhFA_QVi6kzn7vATBe419m222ZMUcTToaSn19L4DgElrI9luwUv2EJk0efy5TLDIqIUyGcOnTvVU2KKZw9AMsMipz/s1600/bitwarden.jpg"
+  },
+  "https://dev.to/_768dd7ab130016ab8b0a/the-era-of-choosing-rag-learning-cognitive-load-and-architecture-design-from-gpt-5s-failures-5dl3": {
+    "title": "The Era of Choosing RAG — Learning Cognitive Load and Architecture Design from GPT-5’s Failures",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhjbbuvp27e700uxg7uw2.png"
+  },
+  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xap8pu59ex5a7mqkan0e.png": null,
+  "https://about.google/intl/en/company-info/philosophy/": {
+    "title": "Ten things we know to be true - Google",
+    "image": "https://www.gstatic.com/marketing-cms/assets/images/34/97/256eede64e73b4b62a43ce313200/g-3a-socialshare.png=n-w1440-h810-fcrop64=1,0000114effffee75-rw"
+  },
+  "https://dev.to/akari1106/how-to-stop-claude-code-skills-from-drifting-with-per-step-constraint-design-o0g": null,
+  "https://script.google.com/macros/s/AKfycbyQXBptLNkxcBBmKTTPWjy7mE_eXMAGqNcfFOsYQTvQwuPxYKuqpAs3O3Bu__ZM4lT2/exec": null,
+  "https://docs.cloud.google.com/security-command-center/docs/manage-model-armor-templates?hl=ja": {
+    "title": "Model Armor テンプレートを作成して管理する &nbsp;|&nbsp; Security Command Center &nbsp;|&nbsp; Google Cloud Documentation",
+    "image": "https://docs.cloud.google.com/_static/cloud/images/social-icon-google-cloud-1200-630.png?hl=ja"
+  },
+  "https://cloud.google.com/security-command-center/docs/model-armor-overview": {
+    "title": "Model Armor overview &nbsp;|&nbsp; Google Cloud Documentation",
+    "image": "https://docs.cloud.google.com/_static/cloud/images/social-icon-google-cloud-1200-630.png"
+  },
+  "https://github.com/anthropics/claude-code/issues/9124": {
+    "title": "[BUG]  Image paste with Ctrl+V not working on Windows (drag-and-drop works) · Issue #9124 · anthropics/claude-code",
+    "image": "https://opengraph.githubassets.com/bd0c5d6d0368f1625d9a7f7e1e27aad0ba3c94852f5610649d5bef73af645d12/anthropics/claude-code/issues/9124"
+  },
+  "https://dev.to/akari_iku/increase-my-familiarity-with-base64-1e6b": {
+    "title": "Increase my familiarity with BASE64.",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmiar87j9h0jl7vhvev30.png"
+  },
+  "https://cloud.google.com/security-command-center/docs/manage-model-armor-templates": {
+    "title": "Create and manage templates &nbsp;|&nbsp; Model Armor &nbsp;|&nbsp; Google Cloud Documentation",
+    "image": "https://docs.cloud.google.com/_static/cloud/images/social-icon-google-cloud-1200-630.png"
+  },
+  "https://github.com/anthropics/claude-code/issues/22377": {
+    "title": "[VS Code] Cannot paste screenshot images with Ctrl+V · Issue #22377 · anthropics/claude-code",
+    "image": "https://opengraph.githubassets.com/bbc64a670b74d550d2f168c20e625a0337b0e34f8e888ae982366612bb4e52a3/anthropics/claude-code/issues/22377"
+  },
+  "https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/": {
+    "title": "Running OpenClaw safely: identity, isolation, and runtime risk | Microsoft Security Blog",
+    "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/02/Running-OpenClaw-safely-identity-isolation-and-runtime-risk.png"
+  },
+  "https://www.armosec.io/blog/cve-2026-32922-openclaw-privilege-escalation-cloud-security/": {
+    "title": "CVE-2026-32922: Critical Privilege Escalation in OpenClaw - What Cloud Security Teams Need to Know - ARMO",
+    "image": "https://www.armosec.io/wp-content/uploads/2026/03/CVE-Ingress-Nginx_X_Li-7.png"
+  },
+  "https://github.com/jgamblin/OpenClawCVEs": {
+    "title": "GitHub - jgamblin/OpenClawCVEs: Tracking OpenClaw CVEs",
+    "image": "https://opengraph.githubassets.com/00ba5550ba13fe33f45508d9ac72bc1f1842395789a248d141b83494ed09e1d4/jgamblin/OpenClawCVEs"
+  },
+  "https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html": {
+    "title": "Researchers Find 341 Malicious ClawHub Skills Stealing Data from OpenClaw Users",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrHsgrh_iIHVwJdfZ-6tSVag1fs71bd15QISN82bzqvxchcyJGuWdbtZRqQ25tJC_HoeaGAMI3phpFy_TAy2NYbSpJTwuTJ5jIz_QKmNPTv_zqA2GNvuozLGpKCqTa-OI1Hp-zOy_B8wjkvoYcBn56g09PpoQOMd568LfGiH7J0Ee0hg65eBaHSWxDe92m/s1600/OpenClaw-skills.jpg"
+  },
+  "https://www.anthropic.com/news/claude-partner-network": {
+    "title": "Anthropic invests $100 million into the Claude Partner Network",
+    "image": "https://www.anthropic.com/api/opengraph-illustration?name=Hand%20ShapeBuild&backgroundColor=fig"
+  },
+  "https://cafe-dc.com/cloud/openai-asks-trump-administration-to-offer-ai-tax-cuts-proposes-govt-focused-classified-stargate/": {
+    "title": "OpenAIがトランプ政権にAI減税を要請、「Classified Stargate」を政府向けに提案 | Data Center Café",
+    "image": "https://cafe-dc.com/wp-content/uploads/2025/11/アメリカ②.jpg"
+  },
+  "https://dev.to/akari_iku/how-to-stop-claude-code-skills-from-drifting-with-per-step-constraint-design-2ogd": {
+    "title": "How to Stop Claude Code Skills from Drifting with Per-Step Constraint Design",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5whwisb7ald4ku0edb8h.png"
+  }
+}

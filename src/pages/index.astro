@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import StripeMarquee from '../components/StripeMarquee.astro';
+import { profile } from '../data/profile';
+import { ACCENT } from '../lib/tag-colors';
+
+const posts = (await getCollection('blog', (p) => p.data.lang === 'ja'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'akari.log',
+  url: Astro.site?.href,
+  author: { '@type': 'Person', name: '灯里' },
+};
+---
+
+<BaseLayout
+  alternate={{ lang: 'en', href: '/en/' }}
+  title="akari.log"
+  description={`${profile.name}（${profile.romaji}）の個人サイト。${profile.role}`}
+  lang="ja"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
+  <main>
+    <section class="mx-auto max-w-5xl px-6 pt-20 pb-14">
+      <p class="relative inline-block px-7 py-4">
+        <span class="absolute top-0 left-0 h-5 w-5 border-t-4 border-l-4" style={`border-color:${ACCENT.magenta}`}></span>
+        <span class="absolute top-0 right-0 h-5 w-5 border-t-4 border-r-4" style={`border-color:${ACCENT.magenta}`}></span>
+        <span class="absolute bottom-0 left-0 h-5 w-5 border-b-4 border-l-4" style={`border-color:${ACCENT.magenta}`}></span>
+        <span class="absolute right-0 bottom-0 h-5 w-5 border-b-4 border-r-4" style={`border-color:${ACCENT.magenta}`}></span>
+        <span class="font-display text-6xl sm:text-7xl">{profile.name}</span>
+        <span class="ml-3 font-mono text-base text-neutral-500">/ {profile.romaji}</span>
+      </p>
+
+      <p class="relative mt-8 flex flex-wrap gap-2" id="verbs-focus">
+        {
+          profile.verbs.map((v) => (
+            <span
+              data-verb
+              class="-skew-x-6 bg-neutral-900 px-3 py-1 text-sm font-bold text-white transition-[filter,opacity] duration-300"
+            >
+              {v}
+            </span>
+          ))
+        }
+        <span
+          id="verbs-frame"
+          aria-hidden="true"
+          class="pointer-events-none absolute opacity-0 transition-all duration-500"
+        >
+          <span class="absolute top-0 left-0 h-2.5 w-2.5 border-t-3 border-l-3" style={`border-color:${ACCENT.magenta}`} />
+          <span class="absolute top-0 right-0 h-2.5 w-2.5 border-t-3 border-r-3" style={`border-color:${ACCENT.magenta}`} />
+          <span class="absolute bottom-0 left-0 h-2.5 w-2.5 border-b-3 border-l-3" style={`border-color:${ACCENT.magenta}`} />
+          <span class="absolute right-0 bottom-0 h-2.5 w-2.5 border-r-3 border-b-3" style={`border-color:${ACCENT.magenta}`} />
+        </span>
+      </p>
+
+      <p class="mt-6 max-w-xl leading-relaxed text-neutral-700">{profile.role}</p>
+    </section>
+
+    <StripeMarquee />
+
+    <section class="mx-auto max-w-5xl px-6 py-14">
+      <p class="flex items-center gap-3">
+        <span class="inline-block h-6 w-8 -skew-x-12" style={`background:${ACCENT.magenta}`}></span>
+        <span class="font-display bg-neutral-900 px-4 py-1 text-white">最新記事</span>
+      </p>
+
+      <div class="mt-8 grid gap-6 sm:grid-cols-3">
+        {posts.map((post) => <PostCard post={post} />)}
+      </div>
+
+      <p class="mt-8 font-mono text-sm font-bold">
+        <a href="/blog/" class="hover:underline" style={`color:${ACCENT.magenta}`}>
+          → すべての記事
+        </a>
+      </p>
+    </section>
+  </main>
+  <script is:inline>
+    (() => {
+      const wrap = document.getElementById('verbs-focus');
+      const frame = document.getElementById('verbs-frame');
+      if (!wrap || !frame) return;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const chips = Array.from(wrap.querySelectorAll('[data-verb]'));
+      if (chips.length < 2) return;
+      let i = 0;
+      const pad = 5;
+      const move = () => {
+        chips.forEach((c, j) => {
+          c.style.filter = j === i ? 'none' : 'blur(2px)';
+          c.style.opacity = j === i ? '1' : '0.45';
+        });
+        const r = chips[i].getBoundingClientRect();
+        const w = wrap.getBoundingClientRect();
+        frame.style.opacity = '1';
+        frame.style.left = `${r.left - w.left - pad}px`;
+        frame.style.top = `${r.top - w.top - pad}px`;
+        frame.style.width = `${r.width + pad * 2}px`;
+        frame.style.height = `${r.height + pad * 2}px`;
+        i = (i + 1) % chips.length;
+      };
+      move();
+      setInterval(move, 1800);
+    })();
+  </script>
+</BaseLayout>

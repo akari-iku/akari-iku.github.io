@@ -1,0 +1,29 @@
+---
+// GA4 tag: emitted only in production builds, and only once an ID is set.
+// Dev / preview builds stay measurement-free by design (see .plan phase 6).
+const GA_MEASUREMENT_ID: string = 'G-VEE1WXXC7V';
+const enabled = import.meta.env.PROD && GA_MEASUREMENT_ID !== '';
+
+// hostname guard keeps local `astro preview` (also a PROD build) out of the data
+const gtagInit = `
+if (location.hostname === 'akari-iku.github.io') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_MEASUREMENT_ID}');
+}
+`;
+---
+
+{
+  enabled && (
+    <>
+      <script
+        is:inline
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
+      <script is:inline set:html={gtagInit} />
+    </>
+  )
+}

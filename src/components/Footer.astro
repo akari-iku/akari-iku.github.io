@@ -1,0 +1,19 @@
+---
+const year = new Date().getFullYear();
+const rssHref = Astro.url.pathname.startsWith('/en/') ? '/en/rss.xml' : '/rss.xml';
+---
+
+<footer class="theme-fixed mt-auto bg-neutral-950 text-white">
+  <div
+    class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 px-6 py-6 font-mono text-xs sm:flex-row"
+  >
+    <p>(c) {year} akari.log</p>
+    <p class="flex gap-5 text-neutral-400">
+      <a href={rssHref} class="hover:text-white">RSS</a>
+      <a href="https://github.com/akari-iku" target="_blank" rel="noopener" class="hover:text-white">GitHub</a>
+      <a href="https://zenn.dev/akari1106" target="_blank" rel="noopener" class="hover:text-white">Zenn</a>
+      <a href="https://dev.to/akari_iku" target="_blank" rel="noopener" class="hover:text-white">Dev.to</a>
+      <a href="https://x.com/akari_iku" target="_blank" rel="noopener" class="hover:text-white">X</a>
+    </p>
+  </div>
+</footer>

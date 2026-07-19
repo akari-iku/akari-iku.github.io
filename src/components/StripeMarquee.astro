@@ -1,0 +1,47 @@
+---
+import { ACCENT } from '../lib/tag-colors';
+
+// One pattern period: the six accents (cyan meets red again at the loop seam).
+const stripes = [
+  ACCENT.red,
+  ACCENT.magenta,
+  ACCENT.orange,
+  ACCENT.yellow,
+  ACCENT.green,
+  ACCENT.cyan,
+];
+---
+
+<div class="h-16 overflow-hidden border-y-2 border-neutral-900 sm:h-20" aria-hidden="true">
+  <div class="h-full -skew-x-12">
+    <div class="stripe-track flex h-full w-max">
+      {
+        [0, 1].map(() => (
+          <div class="flex h-full">
+            {stripes.map((c) => (
+              <span class="h-full w-[22vw]" style={`background:${c}`} />
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .stripe-track {
+    /* two identical copies: sliding by -50% (= one copy) loops seamlessly */
+    margin-left: -1.5rem; /* keep the skewed left edge outside the viewport */
+    animation: stripe-flow 36s linear infinite;
+  }
+  @keyframes stripe-flow {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .stripe-track {
+      animation: none;
+    }
+  }
+</style>

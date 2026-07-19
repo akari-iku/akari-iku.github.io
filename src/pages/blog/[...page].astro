@@ -1,0 +1,93 @@
+---
+import type { GetStaticPaths, Page } from 'astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = (await getCollection('blog', (p) => p.data.lang === 'ja')).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
+  return paginate(posts, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page: Page<CollectionEntry<'blog'>>;
+}
+
+const { page } = Astro.props;
+const MAGENTA = '#E5007F';
+const pageNums = Array.from({ length: page.lastPage }, (_, i) => i + 1);
+---
+
+<BaseLayout
+  title={page.currentPage === 1 ? 'Blog | akari.log' : `Blog ${page.currentPage}/${page.lastPage} | akari.log`}
+  description="akari.log の記事一覧"
+  lang="ja"
+  alternate={page.currentPage === 1 ? { lang: 'en', href: '/en/blog/' } : null}
+>
+  <main class="mx-auto max-w-5xl px-6 py-12">
+    <div class="flex items-baseline justify-between">
+      <h1 class="font-display text-5xl">Blog</h1>
+      <a
+        href="/blog/all/"
+        class="font-mono text-sm font-bold hover:underline"
+        style={`color:${MAGENTA}`}
+      >
+        INDEX →
+      </a>
+    </div>
+    <div class="mt-3 mb-10 h-3 w-28 -skew-x-12" style={`background:${MAGENTA}`}></div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {page.data.map((post) => <PostCard post={post} />)}
+    </div>
+
+    {
+      page.lastPage > 1 && (
+        <nav
+          aria-label="ページ切り替え"
+          class="mt-12 flex flex-wrap items-center justify-center gap-2 font-mono text-sm font-bold"
+        >
+          {page.url.prev ? (
+            <a
+              href={page.url.prev}
+              class="border-2 border-neutral-900 px-3 py-1.5 transition-colors hover:bg-neutral-900 hover:text-white"
+            >
+              ← PREV
+            </a>
+          ) : (
+            <span class="border-2 border-neutral-300 px-3 py-1.5 text-neutral-300">← PREV</span>
+          )}
+          {pageNums.map((n) =>
+            n === page.currentPage ? (
+              <span
+                aria-current="page"
+                class="border-2 border-neutral-900 bg-neutral-900 px-3 py-1.5 text-white"
+              >
+                {n}
+              </span>
+            ) : (
+              <a
+                href={n === 1 ? '/blog/' : `/blog/${n}/`}
+                class="border-2 border-neutral-900 px-3 py-1.5 transition-colors hover:bg-neutral-900 hover:text-white"
+              >
+                {n}
+              </a>
+            ),
+          )}
+          {page.url.next ? (
+            <a
+              href={page.url.next}
+              class="border-2 border-neutral-900 px-3 py-1.5 transition-colors hover:bg-neutral-900 hover:text-white"
+            >
+              NEXT →
+            </a>
+          ) : (
+            <span class="border-2 border-neutral-300 px-3 py-1.5 text-neutral-300">NEXT →</span>
+          )}
+        </nav>
+      )
+    }
+  </main>
+</BaseLayout>

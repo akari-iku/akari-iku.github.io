@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import { tagCounts } from '../../../lib/tags';
+import { accentFor } from '../../../lib/tag-colors';
+
+export async function getStaticPaths() {
+  const [tags, jaTags] = await Promise.all([tagCounts('en'), tagCounts('ja')]);
+  const jaSet = new Set(jaTags.map((t) => t.tag));
+  return tags.map(({ tag }) => ({
+    params: { tag },
+    props: { hasPair: jaSet.has(tag) },
+  }));
+}
+
+const { tag } = Astro.params;
+const { hasPair } = Astro.props;
+const posts = (
+  await getCollection('blog', (p) => p.data.lang === 'en' && p.data.tags.includes(tag))
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const accent = accentFor([tag]);
+---
+
+<BaseLayout
+  title={`Tag: ${tag} | akari.log`}
+  description={`Posts tagged "${tag}" (${posts.length})`}
+  lang="en"
+  alternate={hasPair ? { lang: 'ja', href: `/tags/${tag}/` } : null}
+>
+  <main class="mx-auto max-w-5xl px-6 py-12">
+    <p class="font-mono text-sm font-bold">
+      <a href="/en/tags/" class="hover:underline">Tags</a> /
+    </p>
+    <h1 class="font-display mt-2 text-4xl sm:text-5xl">{tag}</h1>
+    <div class="mt-3 h-3 w-28 -skew-x-12" style={`background:${accent}`}></div>
+    <p class="mt-4 mb-10 font-mono text-xs text-neutral-500">{posts.length} posts</p>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </main>
+</BaseLayout>

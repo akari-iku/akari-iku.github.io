@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { primaryTag } from '../lib/tag-colors';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const en = post.data.lang === 'en';
+const slug = post.id.replace(/^(ja|en)\//, '');
+const href = en ? `/en/blog/${slug}/` : `/blog/${slug}/`;
+const badge = post.data.pair ? (en ? 'JA' : 'EN') : null;
+---
+
+<a
+  href={href}
+  class="group block border-2 border-neutral-900 bg-white transition-transform hover:-translate-y-0.5"
+>
+  <div
+    class="theme-fixed relative flex min-h-52 flex-col justify-between gap-4 overflow-hidden p-5"
+    style={`background:${post.data.accent}`}
+  >
+    <span
+      class="self-start bg-neutral-900 px-2 py-0.5 font-mono text-xs font-bold text-white"
+    >
+      {primaryTag(post.data.tags)}
+    </span>
+    <span class="absolute top-5 right-5 h-4 w-6 -skew-x-12 bg-neutral-900"></span>
+    <span
+      aria-hidden="true"
+      class="pointer-events-none absolute top-[24%] left-[-15%] w-[130%] -translate-x-1/4 -rotate-6 bg-white/25 py-1.5 text-center font-mono text-sm font-bold whitespace-nowrap text-white opacity-0 transition-[transform,opacity] duration-300 group-hover:translate-x-0 group-hover:opacity-100 motion-reduce:translate-x-0 motion-reduce:transition-none"
+    >
+      READ MORE&ensp;READ MORE&ensp;READ MORE&ensp;READ MORE&ensp;READ MORE&ensp;READ MORE
+    </span>
+    <span class="font-databook text-xl leading-snug font-bold text-neutral-900">
+      {post.data.title}
+    </span>
+  </div>
+  <div
+    class="flex items-center gap-2 border-t-2 border-neutral-900 bg-white px-4 py-2 font-mono text-xs text-neutral-600"
+  >
+    <time datetime={post.data.date.toISOString()}>
+      {post.data.date.toISOString().slice(0, 10)}
+    </time>
+    {
+      badge && (
+        <span class="bg-neutral-900 px-1.5 py-0.5 font-bold text-white">
+          {badge}
+        </span>
+      )
+    }
+  </div>
+</a>

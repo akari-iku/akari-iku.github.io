@@ -1,0 +1,23 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# environment / secrets
+.env
+.env.*
+
+# local-only files (personal paths, drafts, planning)
+.plan/
+CLAUDE.md
+CLAUDE.local.md
+import.config.json
+
+# generated cross-post material (dev.to paste files)
+exports/
+
+# OS
+.DS_Store
+Thumbs.db

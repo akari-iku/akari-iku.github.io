@@ -1,0 +1,45 @@
+{
+  "https://x.com/GoogleLabs/status/1975627276575498338": {
+    "name": "Google Labs",
+    "screenName": "GoogleLabs",
+    "text": "Opal is going global! 🌎 We're expanding access to 15 new countries so more people can build AI-powered mini-apps — no code required. Inspired by user feedback, we're also launching new features like advanced debugging and a faster building experience.\n\nLearn more ➡️",
+    "date": "2025-10-07"
+  },
+  "https://x.com/GussieTech/status/1984195601471594908": {
+    "name": "ガッシー｜Repsona",
+    "screenName": "GussieTech",
+    "text": "みんなこういうの何で作ってる？",
+    "date": "2025-10-31"
+  },
+  "https://x.com/zenn_dev/status/2009523822085722497": {
+    "name": "Zenn公式",
+    "screenName": "zenn_dev",
+    "text": "📢 お知らせ 📢\n\nZennは、記事の英語版生成の実験的な提供を開始します！\n\n記事が多言語に翻訳、展開されることで、著者のコンテンツが海外の読者にもアプローチできるようになることを期待しています。",
+    "date": "2026-01-09"
+  },
+  "https://x.com/zenn_dev/status/2009649601671016678": {
+    "name": "Zenn公式",
+    "screenName": "zenn_dev",
+    "text": "記事の英語版生成のデフォルト設定を「有効」としていたことについて、多くのご意見をいただきました。ユーザーの皆様にご不安とご心配をおかけしたことを深くお詫び申し上げます。\n\nご指摘を受け、デフォルト設定および全ユーザーの設定を「無効」に変更いたしました（オプトイン方式）。",
+    "date": "2026-01-09"
+  },
+  "https://x.com/simplifyinAI/status/2007484329262493860": {
+    "name": "Simplifying AI",
+    "screenName": "simplifyinAI",
+    "text": "Wow. \n\nThis is a real-time webcam demo built with HuggingFace SmolVLM and llama.cpp.",
+    "date": "2026-01-03"
+  },
+  "https://x.com/DarioAmodei/status/2015833046327402527": {
+    "name": "Dario Amodei",
+    "screenName": "DarioAmodei",
+    "text": "The Adolescence of Technology: an essay on the risks posed by powerful AI to national security, economies and democracy—and how we can defend against them:",
+    "date": "2026-01-26"
+  },
+  "https://x.com/pascaljp/status/2029575066950975639": {
+    "name": "gpascal",
+    "screenName": "pascaljp",
+    "text": "gogとgwsの速度比較。\n\ngmailのメール本文を10件取得ではgwsのほうが遅い。\n→ gwsはGoogle APIの単純なwrapperなので、threadの取得+メール本文の取得で2コマンドになる。HTTP/2コネクションを2回張っているので遅い？\n\nAI的にはgwsコマンドのほうがgoogleapi準拠なので使いやすい可能性あり。",
+    "date": "2026-03-05"
+  },
+  "https://x.com/dpaluy/status/1887385427687965102": null
+}

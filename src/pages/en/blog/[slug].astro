@@ -1,0 +1,215 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { primaryTag, romajiLabel } from '../../../lib/tag-colors';
+import { readingTime } from '../../../lib/reading-time';
+import PostCard from '../../../components/PostCard.astro';
+import { hasMath, KATEX_CSS_HREF } from '../../../lib/katex-css';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog', (p) => p.data.lang === 'en')).sort(
+    (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
+  );
+  return posts.map((post, i) => ({
+    params: { slug: post.id.replace(/^en\//, '') },
+    props: { post, num: i + 1 },
+  }));
+}
+
+const { post, num } = Astro.props;
+const { Content, headings } = await render(post);
+const date = post.data.date.toISOString().slice(0, 10);
+const tag = primaryTag(post.data.tags);
+const numLabel = `#${String(num).padStart(3, '0')}`;
+const vertical = romajiLabel(post.data.tags);
+const rt = readingTime(post.body ?? '', 'en');
+const others = await getCollection('blog', (p) => p.data.lang === 'en' && p.id !== post.id);
+const related = others
+  .map((p) => ({ p, score: p.data.tags.filter((t) => post.data.tags.includes(t)).length }))
+  .filter((x) => x.score > 0)
+  .sort((a, b) => b.score - a.score || b.p.data.date.valueOf() - a.p.data.date.valueOf())
+  .slice(0, 3)
+  .map((x) => x.p);
+const permalink = new URL(Astro.url.pathname, Astro.site).href;
+const toc = headings.filter((h) => h.depth === 2);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: date,
+  inLanguage: 'en',
+  author: { '@type': 'Person', name: '灯里', url: new URL('/about/', Astro.site).href },
+  mainEntityOfPage: permalink,
+};
+---
+
+<BaseLayout
+  title={`${post.data.title} | akari.log`}
+  description={post.data.description}
+  lang="en"
+  ogType="article"
+  ogImage={`/og/en/blog/${Astro.params.slug}.png`}
+  alternate={post.data.pair ? { lang: 'ja', href: `/blog/${post.data.pair}/` } : null}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
+  {hasMath(post.body) && <link rel="stylesheet" href={KATEX_CSS_HREF} slot="head" />}
+  <section
+    class="theme-fixed relative overflow-hidden border-b-2 border-neutral-900"
+    style={`background:${post.data.accent}`}
+  >
+    <div class="mx-auto max-w-3xl px-6 py-14 sm:flex sm:min-h-[28rem] sm:flex-col">
+      <p class="flex justify-between font-mono text-sm font-bold text-neutral-900">
+        <span>
+          <a href="/en/blog/" class="hover:underline">Blog</a> / {tag}
+        </span>
+        <span>{numLabel}</span>
+      </p>
+      <h1
+        class="font-databook mt-6 max-w-xl text-3xl leading-snug font-bold text-neutral-900 sm:text-4xl"
+      >
+        {post.data.title}
+      </h1>
+      {
+        post.data.description && (
+          <p class="mt-6 max-w-xl font-serif text-[15px] leading-loose font-medium text-neutral-900">
+            {post.data.description}
+          </p>
+        )
+      }
+    </div>
+    <span
+      class:list={[
+        'font-databook pointer-events-none absolute top-0 right-0 hidden leading-[0.85] text-neutral-900 select-none sm:block',
+        vertical.length > 9 ? 'text-[5rem]' : 'text-[6.5rem]',
+      ]}
+      style="writing-mode: vertical-rl"
+      aria-hidden="true"
+    >
+      {vertical}
+    </span>
+  </section>
+
+  <main class="mx-auto max-w-3xl px-6 py-12">
+    <p class="flex flex-wrap items-center gap-2 font-mono text-xs">
+      <time class="text-neutral-500" datetime={date}>{date}</time>
+      <span class="text-neutral-500">/ {rt}</span>
+      {
+        post.data.tags.map((t) => (
+          <a
+            href={`/en/tags/${t}/`}
+            class="border border-neutral-400 px-2 py-0.5 text-neutral-600 hover:border-neutral-900 hover:text-neutral-900"
+          >
+            {t}
+          </a>
+        ))
+      }
+      {
+        post.data.pair && (
+          <a
+            class="bg-neutral-900 px-2 py-0.5 font-bold text-white"
+            href={`/blog/${post.data.pair}/`}
+          >
+            JA version →
+          </a>
+        )
+      }
+    </p>
+    <div class="mt-6 mb-10 border-t-2 border-neutral-900"></div>
+    {
+      toc.length >= 3 && (
+        <nav class="mb-10 border-2 border-neutral-900 p-4 font-mono text-sm" aria-label="Contents">
+          <p class="mb-2 font-bold">Contents</p>
+          <ol class="space-y-1">
+            {toc.map((h) => (
+              <li>
+                <a class="hover:underline" href={`#${h.slug}`}>
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+    <article class="article-body" lang="en" style={`--accent:${post.data.accent}`}>
+      <Content />
+    </article>
+
+    <div class="mt-12 flex items-center gap-3 border-t-2 border-neutral-900 pt-6 font-mono text-xs font-bold">
+      <button
+        id="copy-link"
+        data-url={permalink}
+        class="cursor-pointer border-2 border-neutral-900 px-3 py-1.5 hover:bg-neutral-900 hover:text-white"
+      >
+        Copy link
+      </button>
+      <a
+        class="border-2 border-neutral-900 px-3 py-1.5 hover:bg-neutral-900 hover:text-white"
+        target="_blank"
+        rel="noopener"
+        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(permalink)}`}
+      >
+        Share on X
+      </a>
+    </div>
+
+    {
+      related.length > 0 && (
+        <section class="mt-14">
+          <p class="flex items-center gap-3">
+            <span class="inline-block h-6 w-8 -skew-x-12" style={`background:${post.data.accent}`} />
+            <span class="font-display bg-neutral-900 px-4 py-1 text-white">Related</span>
+          </p>
+          <div class="mt-6 grid gap-6 sm:grid-cols-3">
+            {related.map((p) => (
+              <PostCard post={p} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </main>
+
+  <script type="module" is:inline>
+    const blocks = document.querySelectorAll('pre[data-language="mermaid"]');
+    if (blocks.length > 0) {
+      // defer the mermaid bundle until a diagram nears the viewport (keeps initial load light)
+      const render = async () => {
+        const { default: mermaid } = await import(
+          'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'
+        );
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'neutral',
+        });
+        for (const pre of blocks) {
+          const div = document.createElement('div');
+          div.className = 'mermaid';
+          div.textContent = pre.textContent ?? '';
+          pre.replaceWith(div);
+        }
+        await mermaid.run();
+      };
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            io.disconnect();
+            render();
+          }
+        },
+        { rootMargin: '400px' }
+      );
+      for (const pre of blocks) io.observe(pre);
+    }
+    const copyBtn = document.getElementById('copy-link');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        await navigator.clipboard.writeText(copyBtn.dataset.url);
+        const t = copyBtn.textContent;
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => (copyBtn.textContent = t), 1500);
+      });
+    }
+  </script>
+</BaseLayout>

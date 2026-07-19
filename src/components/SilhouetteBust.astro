@@ -1,0 +1,27 @@
+---
+// Top slice of the full-body persona silhouette (alpha-mask PNG, 438x900).
+// `crop` is how many mask units of the height to show: the container's aspect
+// ratio does the cutting, so the cut line is a flat edge that can sink into a
+// same-coloured section band (tawatawashi.com-style bleed).
+interface Props {
+  color?: string;
+  crop?: number;
+  class?: string;
+}
+
+const { color = '#E5007F', crop = 540, class: className } = Astro.props;
+---
+
+<span
+  aria-hidden="true"
+  class:list={['silhouette pointer-events-none', className]}
+  style={`background:${color}; aspect-ratio: 438 / ${crop};`}></span>
+
+<style>
+  .silhouette {
+    mask-image: url('/img/silhouette.png');
+    mask-size: 100% auto;
+    mask-repeat: no-repeat;
+    mask-position: top;
+  }
+</style>
