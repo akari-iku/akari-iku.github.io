@@ -18,7 +18,7 @@
 - [Astro](https://astro.build/) + Tailwind CSS + TypeScript (strict)
 - 記事は執筆用の正典リポジトリ（非公開）から `scripts/import-articles.ts` で取り込み。Zenn 記法と Dev.to Liquid Tags を標準 Markdown + コンポーネントに変換
 - OGP 画像はビルド時に自動生成（記事ヒーローと同一のデザイン言語）
-- 同じ記事を [Zenn](https://zenn.dev/akari110) / [Dev.to](https://dev.to/akari_iku) にもクロスポスト（canonical はこのサイト）
+- 同じ記事を [Zenn](https://zenn.dev/akari1106) / [Dev.to](https://dev.to/akari_iku) にもクロスポスト（canonical はこのサイト）
 - GitHub Actions → GitHub Pages で自動デプロイ
 
 ## ライセンス

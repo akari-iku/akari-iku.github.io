@@ -23,7 +23,7 @@ the entire rule set.
   into standard Markdown + components
 - OG images are generated at build time in the same design language as the
   article heroes
-- Posts are cross-posted to [Zenn](https://zenn.dev/akari110) /
+- Posts are cross-posted to [Zenn](https://zenn.dev/akari1106) /
   [Dev.to](https://dev.to/akari_iku) with canonical URLs pointing here
 - Deployed to GitHub Pages via GitHub Actions
 
