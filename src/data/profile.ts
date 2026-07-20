@@ -282,9 +282,9 @@ export const skillGroups: SkillGroup[] = [
 // Numbers rot (views/likes drift the moment they're written down), so
 // highlights carry only evergreen facts.
 export const highlights: Fact[] = [
-  { label: 'Talk', value: '「TECH BATON in 東京」（Findy主催、2026-04）に指名登壇' },
+  { label: 'Talk', value: '「TECH BATON in 東京」（Findy主催、2026-04）に登壇' },
 ];
 
 export const highlightsEn: Fact[] = [
-  { label: 'Talk', value: 'Invited speaker at TECH BATON in Tokyo (hosted by Findy, April 2026)' },
+  { label: 'Talk', value: 'Speaker at TECH BATON in Tokyo (hosted by Findy, April 2026)' },
 ];
