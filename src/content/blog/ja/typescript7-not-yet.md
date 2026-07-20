@@ -5,7 +5,7 @@ date: '2026-07-20'
 tags:
   - typescript
   - astro
-  - frontend
+  - 技術選定
 lang: ja
 source: zenn
 accent: '#00A0E9'
