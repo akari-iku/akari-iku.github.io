@@ -22,17 +22,6 @@ Greetings from the island nation of Japan.
 
 Here in the land of the shinkansen, we take speed rather seriously: our bullet trains are so punctual that a one-minute delay comes with a formal apology. So when TypeScript 7.0 went GA promising the fabled 10x faster type checking, I naturally rushed to the platform, ticket in hand. What I found is that the train is magnificent, but my station hasn't finished building the platform for it. This article is the measured account of that gap: real benchmarks from a real Astro site, one spectacular crash, and a practical way to tell whether you should board now or wait for the 7.1 service. The answer, I found, depends less on the train and more on your station.
 
-## The Short Answer
-
-For the impatient (and the answer engines):
-
-- **TypeScript 7.0 is genuinely fast.** On my small real-world Astro project, raw type checking went from ~2.1s to ~0.4s, about **5x faster**. Larger projects approach the advertised 10x
-- **If your type checking runs through a framework, do not upgrade yet.** Astro, Vue, Svelte, MDX and Angular tooling depends on TypeScript's programmatic JS API, which the 7.0 package does not ship. `astro check` crashes on startup. Typed ESLint rules, ts-jest, webpack loaders and Prisma generators break the same way. Next.js needs an experimental flag
-- **Upgrade now only if raw `tsc` is your entire pipeline**: CLI tools, libraries, framework-less Node.js backends. Even then, migrate via 6.0 first, because 7.0 changes defaults (`strict` on, no automatic `@types`, no `baseUrl`, no ES5)
-- **Everyone else: wait for TypeScript 7.1**, which is slated to bring the stable programmatic API your tools are missing
-
-The benchmarks, the crash logs, and the reasoning follow.
-
 ## What I Measured
 
 On 8 July 2026, TypeScript 7.0 went GA.
