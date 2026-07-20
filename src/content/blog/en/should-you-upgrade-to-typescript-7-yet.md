@@ -1,7 +1,5 @@
 ---
-title: >-
-  Is TypeScript 7 Ready for Your Stack? 5x Faster, but Astro, Vue and Next.js
-  Say Wait
+title: 'Is TypeScript 7 Ready? 5x Faster, but Astro and Vue Say Wait'
 description: >-
   TypeScript 7.0 is GA and genuinely fast. I benchmarked it on a real Astro site
   (5x faster), watched astro check crash, and mapped out who can upgrade now and
