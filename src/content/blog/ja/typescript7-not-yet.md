@@ -7,6 +7,7 @@ tags:
   - astro
   - 技術選定
 lang: ja
+pair: should-you-upgrade-to-typescript-7-yet
 source: zenn
 accent: '#00A0E9'
 ---

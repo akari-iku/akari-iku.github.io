@@ -361,7 +361,7 @@ What the whole episode taught me, or re-taught me:
 
 ## Where I Landed
 
-I turned it off. My reasons: I already write my English versions by hand (you're reading the evidence), I want nuance control, and I have my own SEO/AEO experiments running that machine translation would muddy.
+I turned it off. My reasons: I already write my English versions by hand (you're reading the evidence, and [the latest specimen](https://akari-iku.github.io/en/blog/should-you-upgrade-to-typescript-7-yet/), a TypeScript 7 field report, is over there), I want nuance control, and I have my own SEO/AEO experiments running that machine translation would muddy.
 
 But the deepest reason is not technical at all.
 
