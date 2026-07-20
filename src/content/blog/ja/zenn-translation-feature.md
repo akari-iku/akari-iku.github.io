@@ -8,6 +8,7 @@ tags:
   - ポエム
   - 備忘録
 lang: ja
+pair: zenn-auto-translation
 source: zenn
 accent: '#00B06B'
 ---
