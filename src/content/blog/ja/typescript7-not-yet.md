@@ -1,5 +1,5 @@
 ---
-title: TypeScript 7、めっちゃ速い。で、うちのサイトには入れなかった話
+title: TypeScript 7、結局いつ乗る？Astroで実測したら5倍速なのに「7.1待ち」だった話
 description: >-
   GA直後のTypeScript 7を個人サイトに入れようとした実録。実測5倍速に浮かれた10分後、astro
   checkがクラッシュした。急いで乗るべき人と待つべき人の見分け方つき。
