@@ -335,6 +335,21 @@ function convertLiquidInline(line: string): string {
     .replace(/\{%\s*(?:embed|link|gist|codepen|codesandbox|stackblitz)\s+(\S+)\s*%\}/g, '[$1]($1)');
 }
 
+/**
+ * <!-- site-only --> / <!-- devto-only --> blocks let one source serve both
+ * targets (e.g. rendered mermaid on the site vs a text diagram on dev.to,
+ * or a comments call-to-action that only makes sense where comments exist).
+ * Content for the other target is dropped; markers for the matching target
+ * are stripped, keeping their content.
+ */
+function filterTarget(body: string, target: 'site' | 'devto'): string {
+  const drop = target === 'site' ? 'devto-only' : 'site-only';
+  const keep = target === 'site' ? 'site-only' : 'devto-only';
+  return body
+    .replace(new RegExp(`<!--\\s*${drop}\\s*-->[\\s\\S]*?<!--\\s*/${drop}\\s*-->\\n?`, 'g'), '')
+    .replace(new RegExp(`<!--\\s*/?${keep}\\s*-->\\n?`, 'g'), '');
+}
+
 /** Convert Dev.to article body (Liquid Tags, manual ToC, anchors, fences). */
 function convertDevBody(body: string): string {
   const out: string[] = [];
@@ -538,7 +553,7 @@ function run(): void {
         source: 'zenn',
         accent: jaAccent[a.slug],
       },
-      convertZennBody(raw.content),
+      convertZennBody(filterTarget(raw.content, 'site')),
       `zenn/${path.basename(a.file)}`,
     );
   }
@@ -553,7 +568,7 @@ function run(): void {
     const tags = normalizeTags(raw.data.tags);
     trackTagGaps(`en/${a.slug}`, tags);
     const pairJa = enToJa[a.slug];
-    writeDevtoExport(a.slug, raw.data, raw.content);
+    writeDevtoExport(a.slug, raw.data, filterTarget(raw.content, 'devto'));
     writePost(
       outEn,
       a.slug,
@@ -568,7 +583,7 @@ function run(): void {
         // paired articles share the ja article's color (card = article identity)
         accent: (pairJa && jaAccent[pairJa]) || accentFor(tags),
       },
-      convertDevBody(raw.content),
+      convertDevBody(filterTarget(raw.content, 'site')),
       `dev/${path.basename(a.file)}`,
     );
   }
