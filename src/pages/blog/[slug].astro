@@ -24,12 +24,14 @@ const numLabel = `#${String(num).padStart(3, '0')}`;
 const vertical = romajiLabel(post.data.tags);
 const rt = readingTime(post.body ?? '', 'ja');
 const others = await getCollection('blog', (p) => p.data.lang === 'ja' && p.id !== post.id);
-const related = others
+const byTag = others
   .map((p) => ({ p, score: p.data.tags.filter((t) => post.data.tags.includes(t)).length }))
   .filter((x) => x.score > 0)
   .sort((a, b) => b.score - a.score || b.p.data.date.valueOf() - a.p.data.date.valueOf())
-  .slice(0, 3)
   .map((x) => x.p);
+// Pad with the newest posts so the section never disappears on fresh tags
+const recent = [...others].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const related = [...byTag, ...recent.filter((p) => !byTag.includes(p))].slice(0, 3);
 const permalink = new URL(Astro.url.pathname, Astro.site).href;
 const toc = headings.filter((h) => h.depth === 2);
 const jsonLd = {
