@@ -515,7 +515,12 @@ function run(): void {
   const jaAccent: Record<string, string> = {};
   for (const a of zenn) {
     const raw = readSource(a.file);
-    const description = extractDescription(raw.content);
+    // Hand-written description in the source frontmatter wins over auto-extraction
+    // (same behaviour as dev articles; Zenn itself ignores the extra key).
+    const description =
+      typeof raw.data.description === 'string' && raw.data.description.trim()
+        ? raw.data.description.trim()
+        : extractDescription(raw.content);
     descriptions[`ja/${a.slug}`] = description;
     const tags = normalizeTags(raw.data.topics);
     trackTagGaps(`ja/${a.slug}`, tags);

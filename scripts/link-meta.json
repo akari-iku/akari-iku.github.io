@@ -417,5 +417,13 @@
   "https://dev.to/akari_iku/how-to-stop-claude-code-skills-from-drifting-with-per-step-constraint-design-2ogd": {
     "title": "How to Stop Claude Code Skills from Drifting with Per-Step Constraint Design",
     "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5whwisb7ald4ku0edb8h.png"
+  },
+  "https://devblogs.microsoft.com/typescript/typescript-native-port/": {
+    "title": "A 10x Faster TypeScript - TypeScript",
+    "image": "https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2018/08/typescriptfeature.png"
+  },
+  "https://www.developersdigest.tech/blog/typescript-7-native-compiler-migration-guide": {
+    "title": "TypeScript 7.0 Native Compiler: What Breaks, What Gets 10x Faster, and How to Migrate",
+    "image": "https://www.developersdigest.tech/og/blog/typescript-7-native-compiler-migration-guide?title=TypeScript+7.0+Native+Compiler%3A+What+Breaks%2C+What+Gets+10x+Faster%2C+and+How+to+Migrate&subtitle=TypeScript"
   }
 }

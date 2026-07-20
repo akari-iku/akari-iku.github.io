@@ -47,6 +47,7 @@ const TAG_COLORS: Record<string, string> = {
   devops: ACCENT.cyan,
   api: ACCENT.cyan,
   python: ACCENT.cyan,
+  typescript: ACCENT.cyan,
   json: ACCENT.cyan,
   toon: ACCENT.cyan,
   tokenefficiency: ACCENT.cyan,
@@ -67,6 +68,8 @@ const TAG_COLORS: Record<string, string> = {
   作図ツール: ACCENT.green,
   diagrams: ACCENT.green,
   webapp: ACCENT.green,
+  astro: ACCENT.green,
+  frontend: ACCENT.green,
   uiux: ACCENT.green,
   nocode: ACCENT.green,
   zenn: ACCENT.green,
@@ -158,6 +161,7 @@ const ROMAJI_LABELS: Record<string, string> = {
 /** Short forms for long Latin tags. */
 const LATIN_ABBREV: Record<string, string> = {
   architecture: 'ARCH',
+  typescript: 'TS',
   claudecode: 'CLAUDE',
   promptengineering: 'PROMPT',
   machinelearning: 'ML',
