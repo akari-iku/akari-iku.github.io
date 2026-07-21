@@ -10,6 +10,7 @@ tags:
   - seo
   - 個人開発
 lang: ja
+pair: why-i-chose-astro-and-github-pages
 source: zenn
 accent: '#00A0E9'
 ---
