@@ -60,11 +60,19 @@ The full JSON-LD spread (BlogPosting / BreadcrumbList / Person / WebSite), recip
 
 So my personal site is, to me, **an SEO/AEO testing ground.** There's a nice paradox in there: "building a site with SEO genuinely front of mind is, honestly, something you can only do as a hobby."
 
-And a testing ground includes measurement. I register Search Console and drop in the GA4 tag with my own hands, so I **own the data myself.** On a borrowed platform, your measurement stops wherever the service decides to show you. Dev.to's built-in analytics are on the better end of the spectrum (I could see traffic coming in from claude.ai and perplexity.ai, which was genuinely fun). note, on the other hand, shows you roughly view counts and likes, with almost no visibility into referrers. Even when I ran experiments with long technical articles that named specific APIs and models, **coarse instruments give you coarse-resolution results.** For someone who wants to run tests, not being able to choose your instruments is quite painful.
+And a testing ground includes measurement. I register Search Console and drop in the GA4 tag with my own hands, so I **own the data myself.** On a borrowed platform, your measurement stops wherever the service decides to show you.
 
-Zenn is peculiar in this regard. Its built-in stats are just view counts, but **you can connect your own GA4.** It's a rare case of being able to bring your own instruments onto borrowed land, and that's exactly how I run my Zenn traffic analysis today. With my own site plus GA4, I'm free to design things like a custom channel group that pulls out AI-referred traffic as its own independent channel.
+Dev.to's built-in analytics are on the better end of the spectrum (I could see traffic coming in from claude.ai and perplexity.ai, which was genuinely fun). note, on the other hand, shows you roughly view counts and likes, with almost no visibility into referrers.
 
-The experiment I most want to run, personally, is **measuring Gemini.** I should be able to capture the standalone referrer for gemini.google.com. But traffic coming via Google Search's AI Mode / AI Overviews gets mixed in with google.com and (I believe) can't be distinguished. How far this "Gemini inside Google" can be teased apart is something I can only verify with my own data, on my own site.
+Even when I ran experiments with long technical articles that named specific APIs and models, **coarse instruments give you coarse-resolution results.** For someone who wants to run tests, not being able to choose your instruments is quite painful.
+
+Zenn is peculiar in this regard. Its built-in stats are just view counts, but **you can connect your own GA4.** A rare case of being able to bring your own instruments onto borrowed land. That's exactly how I run my Zenn traffic analysis today.
+
+With my own site plus GA4, I'm free to design things like a custom channel group that pulls out AI-referred traffic as its own independent channel.
+
+The experiment I most want to run, personally, is **measuring Gemini.** I should be able to capture the standalone referrer for gemini.google.com. But traffic coming via Google Search's AI Mode / AI Overviews gets mixed in with google.com and (I believe) can't be distinguished.
+
+How far this "Gemini inside Google" can be teased apart is something I can only verify with my own data, on my own site.
 
 So the single most important requirement in this whole selection was: **being able to freely build a structure that's easy for search engines and AI to read.**
 
@@ -74,7 +82,9 @@ Before that, let me nail down one premise.
 
 This site is fully static not out of endurance or compromise, but because **there was not a single reason it needed to be dynamic.** No comment section, tag indexes are enough for search, no three.js razzle-dazzle required.
 
-(The no-comments call comes from lived experience, by the way. The moment an article of mine popped off a little on Dev.to, the AI bots and repo-promo accounts came charging in, and I ended up having to consult the moderators each time. There's a strange sense of "ah, so I've reached the level where that happens," but the point stands: open an inbox and you inherit an obligation to manage it. Reactions I can receive perfectly well through the reposted articles on the platform side.)
+(The no-comments call comes from lived experience, by the way. The moment an article of mine popped off a little on Dev.to, the AI bots and repo-promo accounts came charging in, and I ended up having to consult the moderators each time. There's a strange sense of "ah, so I've reached the level where that happens," but the point stands: open an inbox and you inherit an obligation to manage it.)
+
+(Reactions I can receive perfectly well through the reposted articles on the platform side.)
 
 To be clear, it's not that the site has no motion. Theme switching, a full-screen menu, hover effects: my site moves plenty. It's just that **that level of motion is entirely covered by CSS and plain JS.** There simply wasn't any motion in a blog that required shipping a framework runtime to produce.
 
@@ -98,7 +108,9 @@ The reason I passed was the direction of extensibility. My preference is to writ
 
 In the earliest days of my career, my job was building sites in WordPress. So there's real nostalgia there. But it falls out the moment "operations" (a server, a database, security updates) attaches itself to a requirement that's perfectly happy being static. I'm not paying dynamic upkeep for something that can be static.
 
-And on top of that, security. WordPress reigns over global CMS market share, which, from an attacker's point of view, also makes it **the single most cost-effective target.** Brute-forcing wp-login, plugin vulnerabilities, themes that stopped getting updates. Bots don't discriminate about who they crawl, so **merely owning it generates a duty to defend it.** As much as my old home once looked after me, I couldn't find a reason to shoulder that defensive burden for a personal blog today.
+And on top of that, security. WordPress reigns over global CMS market share, which, from an attacker's point of view, also makes it **the single most cost-effective target.** Brute-forcing wp-login, plugin vulnerabilities, themes that stopped getting updates. Bots don't discriminate about who they crawl, so **merely owning it generates a duty to defend it.**
+
+As much as my old home once looked after me, I couldn't find a reason to shoulder that defensive burden for a personal blog today.
 
 ### Astro: a philosophy that lined up with mine
 
@@ -112,7 +124,9 @@ That third one looks like a joke, but I mean it.
 
 Touching a new framework is, in itself, an asset. Case in point: because I'd been playing with Astro, when TypeScript 7 hit GA I could immediately do the "verify it in a real project and write an article about it" thing. **The more tools you've actually touched, the more current events you can react to.**
 
-It also happened to be a moment where I wanted to poke around architecture. The islands architecture: I'd heard about it, but what's it actually like in practice? Frameworks are tools, but architecture is a way of thinking, so once you've learned it by hand you can carry it back to any other job. A **casual "let's give the islands architecture a go" challenge** is a perfectly respectable selection reason on its own. (How that actually turned out, incidentally, has a rather amusing punchline, so I'll save it for its own article.)
+It also happened to be a moment where I wanted to poke around architecture. The islands architecture: I'd heard about it, but what's it actually like in practice? Frameworks are tools, but architecture is a way of thinking, so once you've learned it by hand you can carry it back to any other job.
+
+A **casual "let's give the islands architecture a go" challenge** is a perfectly respectable selection reason on its own. (How that actually turned out, incidentally, has a rather amusing punchline, so I'll save it for its own article.)
 
 The vibe of an ecosystem (what's active, what's waiting on 7.1, that sort of thing) doesn't reach you from reading the docs. It only reaches you from the place where your hands are actually moving.
 
@@ -155,19 +169,31 @@ For what it's worth, there are plenty of Cloudflare people around me too. They w
 
 And here's where I cash in one of the requirement's setups. As someone already writing and running articles in two languages, there's enormous value in **having all my article assets unified as plain text + git.** Managing, updating, and migrating two languages' worth of articles and their pair relationships all happens inside one repository.
 
-This "it's in my own hands" value is something note taught me the hard way. Between what's published and the mountain of drafts I haven't yet set adrift on the internet, I've got four digits' worth of writing piled up over there. And around the point the count reached that size, the accuracy of the in-account search noticeably dropped. The search leans toward exact matching, so get a single particle wrong and it won't surface. I'm the type who remembers what I wrote, so I search by typing a passage in verbatim, and even then it sometimes just won't come up (occasionally it won't appear even when it should, somehow, be an exact match).
+This "it's in my own hands" value is something note taught me the hard way. Between what's published and the mountain of drafts I haven't yet set adrift on the internet, I've got four digits' worth of writing piled up over there.
 
-Incidentally, this "matches but won't show up" isn't me misremembering. There's a [record from someone who actually chased down the cause](https://note.com/thracia776/n/n28d32520c712). A user running 1,348 articles found pieces that wouldn't surface even on an exact match, reported it to the platform, and it was ultimately fixed as a "search display bug." And their hypothesis, remarkably, was that "a misfire in the AI auto-translation feature's filter might be involved." So the aftershocks of a translation feature reach even here.
+Around the point the count reached that size, the accuracy of the in-account search noticeably dropped. The search leans toward exact matching, so get a single particle wrong and it won't surface. I'm the type who remembers what I wrote, so I search by typing a passage in verbatim, and even then it sometimes just won't come up (occasionally it won't appear even when it should, somehow, be an exact match).
+
+Incidentally, this "matches but won't show up" isn't me misremembering. There's a [record from someone who actually chased down the cause](https://note.com/thracia776/n/n28d32520c712). A user running 1,348 articles found pieces that wouldn't surface even on an exact match, reported it to the platform, and it was ultimately fixed as a "search display bug."
+
+And their hypothesis, remarkably, was that "a misfire in the AI auto-translation feature's filter might be involved." So the aftershocks of a translation feature reach even here.
 
 **Being unable to dig up your own writing yourself.**
 
 A platform's search is borrowed, so however inconvenient it gets, you can't fix it yourself. With plain text + git, it's a single grep.
 
-The same applies to the search on the outside. Even if an article of mine failed to get indexed by Google, on my own site I can check the sitemap, look at the indexing status in Search Console, and go from URL inspection all the way to re-requesting, **all with my own hands.** That's in stark contrast to a platform, where "report it to the operators and pray" is just about the only move available. Articles going missing from search can happen. The difference between borrowed and owned land is whether, when it happens, you can act yourself.
+The same applies to the search on the outside. Even if an article of mine failed to get indexed by Google, on my own site I can check the sitemap, look at the indexing status in Search Console, and go from URL inspection all the way to re-requesting, **all with my own hands.** That's in stark contrast to a platform, where "report it to the operators and pray" is just about the only move available.
+
+Articles going missing from search can happen. The difference between borrowed and owned land is whether, when it happens, you can act yourself.
 
 And being under git management also means hosting lock-in is effectively zero. If I want to move to Cloudflare, I just reconnect the repo. "Choosing GitHub Pages" is actually **choosing while staying in a state where I can switch away at any time.** I chose it on friction, yet I've kept my escape route open. A slightly sneaky setup, having it both ways.
 
-This escape route, as insurance, I take fairly seriously. I wrote earlier that "GitHub won't blow up," but that's about the service. **An account getting suspended is entirely plausible.** I recently watched an acquaintance get their account banned over something adjacent to security research. Whatever the circumstances, a single operator judgement can freeze an account. And then it doesn't come back. AI-driven moderation and enforcement have grown, for better or worse. Platform-dependency risk isn't something GitHub is exempt from either. But git is distributed, so a complete copy of the repo always lives locally too. **The land may be borrowed, but the luggage is always in my hands.** Even if my account froze tomorrow, not a single byte of my article assets would be lost.
+This escape route, as insurance, I take fairly seriously. I wrote earlier that "GitHub won't blow up," but that's about the service. **An account getting suspended is entirely plausible.** I recently watched an acquaintance get their account banned over something adjacent to security research. Whatever the circumstances, a single operator judgement can freeze an account.
+
+And then it doesn't come back.
+
+AI-driven moderation and enforcement have grown, for better or worse. Platform-dependency risk isn't something GitHub is exempt from either.
+
+But git is distributed, so a complete copy of the repo always lives locally too. **The land may be borrowed, but the luggage is always in my hands.** Even if my account froze tomorrow, not a single byte of my article assets would be lost.
 
 ## The github.io subdomain and the SEO zero-start
 
@@ -183,7 +209,9 @@ From an SEO standpoint, a github.io subdomain and a freshly registered custom do
 
 But there's a reason I'm not all that afraid of the zero-start. Across note, Zenn, and Dev.to (all borrowed domains), **I've already finished verifying every angle of attack other than domain authority.** Title design tuned to search intent, structures that get quoted by AI, a writing style where 90% of traffic ends up organic. The playbook is in my hands.
 
-(The write-up I did as the capstone of that verification is [my AEO findings as of January 2026](https://note.com/akari_iku/n/na35d6107b77c). I'd been running character-count experiments long before that, and the article itself is the final specimen for "what happens if I deliberately pack character count and information density to the limit." It happened to coincide with note officially announcing "you can now write more characters," and the measured answer was: "the appropriate character-count line lies elsewhere. Even if the ceiling rises, there's no point using all of it." Curiously, the biggest catch I left behind on note, my old testing ground, is that very verification article.)
+(The write-up I did as the capstone of that verification is [my AEO findings as of January 2026](https://note.com/akari_iku/n/na35d6107b77c). I'd been running character-count experiments long before that, and the article itself is the final specimen for "what happens if I deliberately pack character count and information density to the limit.")
+
+(It happened to coincide with note officially announcing "you can now write more characters," and the measured answer was: "the appropriate character-count line lies elsewhere. Even if the ceiling rises, there's no point using all of it." Curiously, the biggest catch I left behind on note, my old testing ground, is that very verification article.)
 
 The only remaining variable is domain trust, and that only grows with time and article count. Article count alone won't do it, and the number of likes is another variable, mind you. So I've made peace with this being a phase of growing things slowly, without rushing.
 
