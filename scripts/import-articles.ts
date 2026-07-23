@@ -375,21 +375,30 @@ function convertDevBody(body: string): string {
   const out: string[] = [];
   const stack: ('aside' | 'details')[] = [];
   let inCode = false;
+  let fenceTicks = '';
   let inKatex = false;
   let skippingToc = false;
 
   for (const rawLine of body.split('\n')) {
     let line = rawLine;
 
-    const fence = line.match(/^```(.*)$/);
+    const fence = line.match(/^(`{3,})(.*)$/);
     if (fence) {
       skippingToc = false;
       if (!inCode) {
         inCode = true;
-        out.push(...openFence(fence[1]).lines);
-      } else {
+        fenceTicks = fence[1];
+        if (fenceTicks.length > 3) {
+          out.push(line);
+        } else {
+          out.push(...openFence(fence[2]).lines);
+        }
+      } else if (line.startsWith(fenceTicks) && line.trim() === fenceTicks) {
         inCode = false;
-        out.push('```');
+        out.push(fenceTicks);
+        fenceTicks = '';
+      } else {
+        out.push(line);
       }
       continue;
     }

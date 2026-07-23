@@ -11,6 +11,7 @@ tags:
   - seo
   - frontend
 lang: ja
+pair: astro-bilingual-blog-implementation
 source: zenn
 accent: '#00B06B'
 ---

@@ -19,5 +19,6 @@
   "base64-bad-friends": "base64-fell-in-with-the-wrong-crowd",
   "zenn-translation-feature": "zenn-auto-translation",
   "typescript7-not-yet": "should-you-upgrade-to-typescript-7-yet",
-  "personal-site-tech-selection": "why-i-chose-astro-and-github-pages"
+  "personal-site-tech-selection": "why-i-chose-astro-and-github-pages",
+  "astro-bilingual-blog-implementation": "astro-bilingual-blog-implementation"
 }
