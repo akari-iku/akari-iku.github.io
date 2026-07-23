@@ -24,29 +24,39 @@ There is a peculiar kind of hubris in deciding to build your own blog from scrat
 
 ## Introduction
 
-In [my previous article](/blog/why-i-chose-astro-and-github-pages/), I wrote about why I chose Astro + GitHub Pages. This is the follow-up: the **implementation edition**.
+As a prelude, I wrote about [why I chose Astro + GitHub Pages](https://akari-iku.github.io/en/blog/why-i-chose-astro-and-github-pages/). The thinking behind choosing a stack for a personal site, including comparisons with Cloudflare Pages and the PSL cold-start story.
+
+This is the follow-up: the **implementation edition**.
 
 ### What Is Astro?
 
-**[Astro](https://astro.build/)** is a static site generator designed for content-driven websites. It converts Markdown into HTML, same as Hugo or Jekyll. The difference is its design philosophy: **zero client-side JavaScript by default**.
+**[Astro](https://astro.build/)** is a static site generator designed for content-driven websites. It converts Markdown into HTML, same as Hugo or Jekyll.
+The difference is its design philosophy: **zero client-side JavaScript by default**.
 
-At the core of this design is the **island architecture**. Pages are output as static HTML, and only the parts that need interactivity are embedded as React or Vue "islands". If you don't add islands, you get pure static HTML.
+At the core of this design is the **island architecture**.
+Pages are output as static HTML, and only the parts that need interactivity are embedded as React or Vue "islands".
+If you don't add islands, you get pure static HTML.
+TypeScript-first, with powerful build-time data fetching and content type validation.
+Blogs, documentation sites, and portfolios are its sweet spot.
 
-Astro is TypeScript-first, with powerful build-time data fetching and content type validation. Blogs, documentation sites, and portfolios are its sweet spot.
+Its v1.0 was released in August 2022.
+As a latecomer to the static site generator space, Astro neatly sidestepped the mines that Hugo (2013) and Gatsby (2015) stepped on.
+Where Gatsby made GraphQL mandatory and raised the barrier to entry, Astro lets you use plain `fetch` or file reads. Where Hugo confined you to its template language, Astro lets you write ordinary TypeScript inside `.astro` files.
 
-Its v1.0 was released in August 2022. As a latecomer to the static site generator space, Astro neatly sidestepped the mines that Hugo (2013) and Gatsby (2015) stepped on. Where Gatsby made GraphQL mandatory and raised the barrier to entry, Astro lets you use plain `fetch` or file reads. Where Hugo confined you to its template language, Astro lets you write ordinary TypeScript inside `.astro` files.
-
-It also plays well with AI-assisted coding. An `.astro` file packs frontmatter (logic), template (HTML), and styles into a single-purpose component, so **the context you hand to a coding agent is small**. Most components on this site are around 100 lines, and "change this file like so" just works.
+It also plays well with AI-assisted coding.
+An `.astro` file packs frontmatter (logic), template (HTML), and styles into a single-purpose component, so **the context you hand to a coding agent is small**.
+Most components on my site are around 100 lines, and "change this file like so" just works.
 
 ### What This Article Covers
 
-I built a Japanese-English bilingual tech blog + personal site. Fully static, near-zero runtime JS.
+I built a Japanese-English bilingual tech blog + personal site.
+Fully static, near-zero runtime JS.
 
 I've distilled the implementation into 5 patterns that I think are broadly reusable. Hopefully useful if you're evaluating Astro as a candidate for your next project.
 
 ## 1. Content Collections Schema Design
 
-Astro's Content Collections let you **attach a Zod schema to Markdown frontmatter**. This is incredibly effective when developing TypeScript-first.
+Astro's Content Collections let you **attach a Zod schema to Markdown frontmatter**. This is incredibly effective when developing TypeScript-first. A real help.
 
 ```ts
 // src/content.config.ts
@@ -75,6 +85,7 @@ Split Japanese and English into directories (`blog/ja/`, `blog/en/`) and also de
 
 **`pair` to link translations**.
 Just store the partner article's slug. At build time, show an EN badge if `pair` exists, hide it otherwise. Making it nullable is crucial. If you assume every article has a pair, the workflow breaks down fast.
+I have strong opinions about translation quality, so I'm not keen on automatic or machine translation. The EN versions get quite a bit of manual reworking. (I turned off [Zenn's auto-translation feature](https://akari-iku.github.io/en/blog/zenn-auto-translation/) immediately.)
 
 **`date` with `z.coerce.date()`**.
 Automatically converts the frontmatter string `'2026-07-23'` into a Date object. Small thing, but saves you from writing `new Date()` everywhere.
@@ -275,14 +286,15 @@ The problem where dark mode users see a white flash when a page loads. Place an 
 ```
 
 `is:inline` excludes it from Astro's bundling. Without this, the script won't execute in time.
+A funny phenomenon where being too fast is what makes it too late.
 
 ### The Contrast Ratio Pitfall
 
 Don't assume you're safe just because you inverted the tokens. **In dark mode, colours that passed WCAG AA contrast ratios (4.5:1 for normal text, 3:1 for large text) can fall below the threshold**.
 
-On this site, `neutral-500` (`#737373`) was fine in light mode but only had a 4.40:1 ratio against the dark mode background (`#010101`), failing the AA standard. Adjusted to `#7a7a7a` for 4.86:1. A tiny numerical difference, but you can't catch it without tools.
-
-And honestly, AI-generated code tends to miss this perspective entirely. Had to catch it myself.
+On my site, `neutral-500` (`#737373`) was fine in light mode but only had a 4.40:1 ratio against the dark mode background (`#010101`), failing the AA standard.
+Adjusted to `#7a7a7a` for 4.86:1. A tiny numerical difference, but you can't catch it without tools.
+And honestly, AI-generated code tends to miss this perspective entirely. Had to catch it myself. A classic blind spot when you're doing AI-assisted coding.
 
 Token redefinition is convenient, but **you need to re-verify contrast ratios for all combinations after inversion**. Frankly, plenty of sites ignore this entirely, but if you're going to do it, do it properly. Use Chrome DevTools' accessibility panel or [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/).
 
@@ -294,7 +306,7 @@ This isn't specific to dark mode, but the legal treatment of web accessibility v
 - **US**: Court precedents applying the ADA (Americans with Disabilities Act) to websites have been piling up. Litigation risk is real
 - **Japan**: JIS X 8341-3 (WCAG-based) exists, but it's only a non-binding effort for public institutions. Legal force on the private sector is weak
 
-Whether legal risk applies to a personal site is a separate question, but **if you're publishing content for an English-speaking audience, it's better to treat this as a "standard" rather than a "nice-to-have"**. I developed the habit of caring about this because I was publishing in both Japanese and English, but anyone building a site with English articles should keep it in mind.
+Whether legal risk applies to a personal site or one primarily targeting a Japanese audience is a separate question, but **if you're publishing content for an English-speaking audience, it's better to treat this as a "standard" rather than a "nice-to-have"**. I developed the habit of caring about this because I was publishing in both Japanese and English, but anyone building a site with English articles should keep it in mind.
 
 References:
 
@@ -304,13 +316,16 @@ References:
 
 ## 5. Island Architecture and Zero-JS Patterns
 
-Astro's "island architecture" keeps most of the page as static HTML, with only interactive parts becoming React or Vue "islands". I'd heard the concept before, but actually implementing it, I found it **good as a philosophy** and **good as code**.
+Astro's "island architecture" keeps most of the page as static HTML, with only interactive parts becoming React or Vue "islands".
+I'd heard the concept before, but actually implementing it, I found it **good as a philosophy** and **good as code**.
 
 As a philosophy, I like that it's an **additive design**. SPA frameworks start with everything in JS and then optimise away the static parts (subtraction). Astro starts with everything static and you add JS only where needed (addition). The default is on the lightweight side, so if you do nothing, nothing breaks.
 
-As code, it was interesting that **most islands turned out to be unnecessary**. I'd originally planned React islands for text animations, but the menu, dark mode toggle, copy button: all done with vanilla JS. Mermaid was handled with dynamic import. The moment you're forced to decide "should this be an island?", you reconsider whether JS is truly needed. Result: this site has zero React dependencies.
+As code, it was interesting that **most islands turned out to be unnecessary**. I'd originally planned React islands for text animations, but the menu, dark mode toggle, copy button: all done with vanilla JS. Mermaid was handled with dynamic import. The moment you're forced to decide "should this be an island?", you reconsider whether JS is truly needed. Result: my site has zero React dependencies.
 
-This is a performance story, but it's also a **maintainability story**. If there's no client-side JS, there's no state management needed, no hydration mismatches. The parts that can break physically don't exist.
+This is a performance story, but it's also a **maintainability story**.
+If there's no client-side JS, there's no state management needed, no hydration mismatches.
+The parts that can break physically don't exist.
 
 So how do you handle interactivity? Here are a few patterns where vanilla JS was more than enough.
 
@@ -334,6 +349,7 @@ Elements with `inert` are completely skipped by Tab navigation and screen reader
 ### Mermaid: Lazy Loading
 
 Mermaid.js has a large bundle size (600KB+). Loading it on every page is out of the question.
+Painful on multiple levels.
 
 ```js
 // Only when a mermaid block exists in the article,
@@ -370,12 +386,18 @@ The `media="print"` + `onload` trick. Browsers don't render-block print CSS, so 
 
 ## Wrapping Up
 
+Zenn is fine. Dev.to is fine. There's no shortage of blogging platforms and tech writing services out there, and there never has been.
+But sometimes the product changes out from under you, the features shift, the rules shift, and you get tired of being at someone else's mercy.
+Having your own little playground, a space you control, is worth something. Especially now, when AI-assisted tooling makes spinning up a site genuinely trivial.
+So this isn't a "everyone should go back to personal sites" manifesto. More like: having a playground of your own turns out to be useful sometimes.
+Particularly when you want to understand architecture or design philosophies, there's no substitute for actually building something with them.
+
 Looking back at the five patterns, the common thread is "**if you can do it at build time, do it at build time**".
 
 OGP images, link cards, tweet quotes: generate them at build time and you don't need client-side JS. Dark mode is just CSS custom property redefinition. Massive libraries like Mermaid are loaded only on the pages that need them, at the moment they're needed.
 
 Astro's "zero JS by default" isn't a constraint, it's a design compass. Follow it, and your site naturally ends up lightweight.
 
-I wrote about the technology selection process in [my previous article](/blog/why-i-chose-astro-and-github-pages/), if you're interested.
+I wrote about the technology selection process in [my previous article](https://akari-iku.github.io/en/blog/why-i-chose-astro-and-github-pages/), if you're interested.
 
-This site itself is the source code. All code is published on [GitHub](https://github.com/akari-iku/akari-iku.github.io/blob/main/README.en.md).
+All source code is published on [GitHub](https://github.com/akari-iku/akari-iku.github.io/blob/main/README.en.md).
