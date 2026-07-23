@@ -284,16 +284,25 @@ function convertZennBody(body: string): string {
   const out: string[] = [];
   const stack: ('aside' | 'details')[] = [];
   let inCode = false;
+  let fenceTicks = '';
 
   for (const line of body.split('\n')) {
-    const fence = line.match(/^```(.*)$/);
+    const fence = line.match(/^(`{3,})(.*)$/);
     if (fence) {
       if (!inCode) {
         inCode = true;
-        out.push(...openFence(fence[1]).lines);
-      } else {
+        fenceTicks = fence[1];
+        if (fenceTicks.length > 3) {
+          out.push(line);
+        } else {
+          out.push(...openFence(fence[2]).lines);
+        }
+      } else if (line.startsWith(fenceTicks) && line.trim() === fenceTicks) {
         inCode = false;
-        out.push('```');
+        out.push(fenceTicks);
+        fenceTicks = '';
+      } else {
+        out.push(line);
       }
       continue;
     }
@@ -341,13 +350,24 @@ function convertLiquidInline(line: string): string {
  * or a comments call-to-action that only makes sense where comments exist).
  * Content for the other target is dropped; markers for the matching target
  * are stripped, keeping their content.
+ * Code fences (``` or more backticks) are left untouched so that markers
+ * appearing inside example code blocks are not processed.
  */
 function filterTarget(body: string, target: 'site' | 'devto'): string {
   const drop = target === 'site' ? 'devto-only' : 'site-only';
   const keep = target === 'site' ? 'site-only' : 'devto-only';
-  return body
-    .replace(new RegExp(`<!--\\s*${drop}\\s*-->[\\s\\S]*?<!--\\s*/${drop}\\s*-->\\n?`, 'g'), '')
-    .replace(new RegExp(`<!--\\s*/?${keep}\\s*-->\\n?`, 'g'), '');
+  const dropRe = new RegExp(`<!--\\s*${drop}\\s*-->[\\s\\S]*?<!--\\s*/${drop}\\s*-->\\n?`, 'g');
+  const keepRe = new RegExp(`<!--\\s*/?${keep}\\s*-->\\n?`, 'g');
+
+  const fenceRe = /^(`{3,})[^\n]*\n[\s\S]*?^\1\s*$/gm;
+  const fences: string[] = [];
+  const placeholder = (i: number) => `\x00FENCE${i}\x00`;
+  const masked = body.replace(fenceRe, (match) => {
+    fences.push(match);
+    return placeholder(fences.length - 1);
+  });
+  const filtered = masked.replace(dropRe, '').replace(keepRe, '');
+  return filtered.replace(/\x00FENCE(\d+)\x00/g, (_, i) => fences[Number(i)]);
 }
 
 /** Convert Dev.to article body (Liquid Tags, manual ToC, anchors, fences). */
