@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const MAGENTA = '#E5007F';
+const YELLOW = '#FFD400';
 
 // Same numbering as article pages: per language, oldest = #001.
 const numbered = (await getCollection('blog', (p) => p.data.lang === 'ja'))
@@ -33,7 +33,7 @@ const years = [...new Set(numbered.map((e) => e.year))].map((year) => ({
 >
   <main class="mx-auto max-w-3xl px-6 py-12">
     <h1 class="font-display text-5xl">Index</h1>
-    <div class="mt-3 mb-4 h-3 w-28 -skew-x-12" style={`background:${MAGENTA}`}></div>
+    <div class="mt-3 mb-4 h-3 w-28 -skew-x-12" style={`background:${YELLOW}`}></div>
     <p class="mb-10 text-sm text-neutral-600">全記事の索引。年別・新しい順。</p>
 
     {

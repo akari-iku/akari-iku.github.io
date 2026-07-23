@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { page } = Astro.props;
-const MAGENTA = '#E5007F';
+const YELLOW = '#FFD400';
 const pageNums = Array.from({ length: page.lastPage }, (_, i) => i + 1);
 ---
 
@@ -32,12 +32,11 @@ const pageNums = Array.from({ length: page.lastPage }, (_, i) => i + 1);
       <a
         href="/en/blog/all/"
         class="font-mono text-sm font-bold hover:underline"
-        style={`color:${MAGENTA}`}
       >
         INDEX →
       </a>
     </div>
-    <div class="mt-3 mb-10 h-3 w-28 -skew-x-12" style={`background:${MAGENTA}`}></div>
+    <div class="mt-3 mb-10 h-3 w-28 -skew-x-12" style={`background:${YELLOW}`}></div>
 
     <div class="grid gap-6 sm:grid-cols-2">
       {page.data.map((post) => <PostCard post={post} />)}
