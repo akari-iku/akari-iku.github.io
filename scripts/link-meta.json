@@ -467,5 +467,9 @@
   "https://akari-iku.github.io/blog/cloudflare-os-local-llm/": {
     "title": "Cloudflare OSをVRAM 8GBのゲーミングPCで動かしたら、三目並べ1個に5ラウンドかかった話 | akari.log",
     "image": "https://akari-iku.github.io/og/blog/cloudflare-os-local-llm.png"
+  },
+  "https://akari-iku.github.io/blog/multi-model-handoff/": {
+    "title": "複数モデルで開発するなら、受け渡し方法も設計しておくといい | akari.log",
+    "image": "https://akari-iku.github.io/og/blog/multi-model-handoff.png"
   }
 }
