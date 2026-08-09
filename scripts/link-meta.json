@@ -425,5 +425,43 @@
   "https://www.developersdigest.tech/blog/typescript-7-native-compiler-migration-guide": {
     "title": "TypeScript 7.0 Native Compiler: What Breaks, What Gets 10x Faster, and How to Migrate",
     "image": "https://www.developersdigest.tech/og/blog/typescript-7-native-compiler-migration-guide?title=TypeScript+7.0+Native+Compiler%3A+What+Breaks%2C+What+Gets+10x+Faster%2C+and+How+to+Migrate&subtitle=TypeScript"
+  },
+  "https://docs.astro.build/en/concepts/islands/": {
+    "title": "Islands architecture",
+    "image": "https://docs.astro.build/open-graph/en/concepts/islands.webp"
+  },
+  "https://developer.mozilla.org/en-US/docs/Glossary/SPA": {
+    "title": "SPA (Single-page application) - Glossary | MDN"
+  },
+  "https://nextjs.org/docs/pages/building-your-application/rendering/static-site-generation": {
+    "title": "Rendering: Static Site Generation (SSG) | Next.js",
+    "image": "https://nextjs.org/api/docs-og?title=Rendering:%20Static%20Site%20Generation%20(SSG)&sig=91424d4013e24250"
+  },
+  "https://react.dev/reference/rsc/server-components": {
+    "title": "Server Components – React",
+    "image": "https://react.dev/images/og/reference-rsc-server-components.png"
+  },
+  "https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering": {
+    "title": "Rendering: Server-side Rendering (SSR) | Next.js",
+    "image": "https://nextjs.org/api/docs-og?title=Rendering:%20Server-side%20Rendering%20(SSR)&sig=8a5a2f2163300dad"
+  },
+  "https://nextjs.org/docs/pages/guides/incremental-static-regeneration": {
+    "title": "Guides: ISR | Next.js",
+    "image": "https://nextjs.org/api/docs-og?title=Guides:%20ISR&sig=c90bff20ef113753"
+  },
+  "https://github.com/akari-iku/akari-iku.github.io": {
+    "title": "GitHub - akari-iku/akari-iku.github.io: akari.log - personal site & bilingual tech blog",
+    "image": "https://opengraph.githubassets.com/8888105a4a22d026f016e1bf359fb9584cd133a768131983fb89c36e9d0a71ed/akari-iku/akari-iku.github.io"
+  },
+  "https://web.dev/articles/rendering-on-the-web": {
+    "title": "Rendering on the Web &nbsp;|&nbsp; Articles &nbsp;|&nbsp; web.dev"
+  },
+  "https://blog.cloudflare.com/cloudflare-os/": {
+    "title": "Cloudflare OS: an open platform for agents, apps, and work",
+    "image": "https://blog.cloudflare.com/_emdash/api/media/file/01KZ7PN06AYFEQJN4FBVAE8WHH.png"
+  },
+  "https://github.com/cloudflare/cloudflare-os": {
+    "title": "GitHub - cloudflare/cloudflare-os: Agent workspace built on Cloudflare Workers for creating documents, building apps, and running agents with your company’s context and systems.",
+    "image": "https://opengraph.githubassets.com/816bd697e47eb6f91ce3f021bf5a006daa6a97b84aefc62977d84638f482bc11/cloudflare/cloudflare-os"
   }
 }
