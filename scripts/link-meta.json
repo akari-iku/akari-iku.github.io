@@ -463,5 +463,9 @@
   "https://github.com/cloudflare/cloudflare-os": {
     "title": "GitHub - cloudflare/cloudflare-os: Agent workspace built on Cloudflare Workers for creating documents, building apps, and running agents with your company’s context and systems.",
     "image": "https://opengraph.githubassets.com/816bd697e47eb6f91ce3f021bf5a006daa6a97b84aefc62977d84638f482bc11/cloudflare/cloudflare-os"
+  },
+  "https://akari-iku.github.io/blog/cloudflare-os-local-llm/": {
+    "title": "Cloudflare OSをVRAM 8GBのゲーミングPCで動かしたら、三目並べ1個に5ラウンドかかった話 | akari.log",
+    "image": "https://akari-iku.github.io/og/blog/cloudflare-os-local-llm.png"
   }
 }
