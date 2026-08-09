@@ -139,7 +139,7 @@ export function primaryTag(tags: string[]): string {
  * max ~8 chars so the full-bleed clipping never eats most of the word).
  */
 const ROMAJI_LABELS: Record<string, string> = {
-  アーキテクチャ: 'ARCH',
+  アーキテクチャ: 'ARCHI',
   作図ツール: 'DIAGRAM',
   備忘録: 'MEMO',
   ポエム: 'POEM',
