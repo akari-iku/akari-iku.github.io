@@ -471,5 +471,9 @@
   "https://akari-iku.github.io/blog/multi-model-handoff/": {
     "title": "複数モデルで開発するなら、受け渡し方法も設計しておくといい | akari.log",
     "image": "https://akari-iku.github.io/og/blog/multi-model-handoff.png"
+  },
+  "https://akari-iku.github.io/blog/cloudflare-os-security-design/": {
+    "title": "AIエージェントを「安全に暴れさせる」設計。Cloudflare OSのセキュリティとガバナンスを読む | akari.log",
+    "image": "https://akari-iku.github.io/og/blog/cloudflare-os-security-design.png"
   }
 }

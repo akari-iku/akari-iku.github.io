@@ -10,6 +10,7 @@ node_modules/
 .env.*
 
 # local-only files (personal paths, drafts, planning)
+.claude/
 .plan/
 CLAUDE.md
 CLAUDE.local.md
