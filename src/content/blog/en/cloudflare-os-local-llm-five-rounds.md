@@ -1,9 +1,9 @@
 ---
-title: 'Running Cloudflare OS on a Local LLM, and Why One Tic Tac Toe Took Five Rounds'
+title: 'Running Cloudflare OS on a Local LLM, and Why One Tic-Tac-Toe Took Five Rounds'
 description: >-
   Cloudflare OS went open source, so I ran it entirely locally with Ollama and
-  Qwen3 on an 8GB gaming PC. Getting one playable tic tac toe out of it took
-  five rounds, and every single failure had a different and interesting reason.
+  Qwen3 on an 8GB gaming PC. Getting one playable tic-tac-toe out of it took
+  five rounds, and each one went wrong in its own way.
 date: '2026-08-09'
 tags:
   - cloudflare
@@ -20,13 +20,9 @@ accent: '#E5007F'
 
 ## Introduction
 
-Greetings from the island nation of Japan.
+In August 2026, Cloudflare open-sourced Cloudflare OS.
 
-I asked a small local model to build me a game of tic tac toe. It took five rounds, about 16,000 tokens and an hour and a half. In fairness, it also cost me exactly zero yen, which meant I could watch the whole disaster unfold with the calm of someone whose wallet is not on fire.
-
-In August 2026, Cloudflare open sourced Cloudflare OS.
-
-It is the AI agent environment thousands of their own staff use, published in full. Write documents, build apps, automate work. The pitch is that you can deploy the whole thing to your own Cloudflare account.
+Essentially, they released their entire AI agent environment, which is used by thousands of people internally. It writes documentation, builds apps, and automates tasks. Their pitch is that you can deploy all of this directly to your own Cloudflare account.
 
 
 <a class="link-card" href="https://blog.cloudflare.com/cloudflare-os/" target="_blank" rel="noopener">
@@ -38,56 +34,56 @@ It is the AI agent environment thousands of their own staff use, published in fu
 </a>
 
 
-But then I read the repository README, and it said this.
+However, while reading the README in the repository, I noticed this:
 
 > To quickly run Cloudflare OS locally, install pnpm, then do: `pnpm run-local`
 
-You do not have to deploy it? It runs locally?
+Wait, do I not need to deploy it? Can it run locally?
 
-If it does, the bill is zero. And if you swap the model out for Ollama, inference stays local too. No Workers charges, no API keys, no rate limits.
+If it can run locally, the cost is zero. Furthermore, if you swap the model out for Ollama, everything can be handled entirely locally, right down to inference. No charges for Workers, no API keys used, and no hitting rate limits.
 
-So I tried it.
+So, I decided to give it a go.
 
-The short version: **it works**. Getting from "make me a tic tac toe game" to something actually playable took five rounds, roughly 16,000 tokens and about ninety minutes. I was watching over its shoulder and stepping in at various points, to be fair.
+To cut a long story short, it did work. However, it took 5 rounds, about 16,000 tokens, and an hour and a half to go from saying "create a tic-tac-toe game" to actually having something playable.
 
-And every one of those five failures was interesting for a completely different reason. Each time it fell over, another layer of Cloudflare OS's design philosophy peeled away and became visible.
+Granted, that included me keeping an eye on things and giving instructions at various points.
 
-This is a hands-on field report with real numbers, for anyone wondering where exactly a local LLM gets stuck when you point it at an agent environment.
+What is more, those 5 failures were each interesting for different reasons, which is why I am writing this article. It felt like peeling back the design philosophy of the Cloudflare OS product one layer at a time with every failure.
 
-## The Test Machine
+This is a struggle report complete with actual measurements, aimed at anyone who wants to know where things actually get stuck when running an agent environment on a local LLM.
 
-Let me get this out of the way first.
+## Testing Environment
 
-> RTX 5060 (8GB VRAM) / 32GB RAM. A Windows box I built for gaming, not for AI.
+Let me state this beforehand.
 
-This is not a generous setup. It is rough going. For games it is entirely sufficient, mind you.
+> RTX 5060 (VRAM 8GB) / RAM 32GB. This is a Windows machine built for gaming (not set up specifically for AI).
 
-But precisely because it is not generous for AI work, I can tell you concretely where things break.
+It is not an abundance of resources. It is tough. Though for gaming purposes, it is more than enough.
+
+However, precisely because the environment is not lavish for running AI, I can write specifically about where things get stuck.
 
 - OS: Windows 11
 - Node.js 24.13.0 / pnpm 11.15.1
-- Cloudflare OS: the August 2026 early access release (v2)
-- Model: Ollama + qwen3:8b, then qwen3:30b-a3b partway through
+- Cloudflare OS: Early access version released in August 2026 (v2)
+- Model: Ollama + qwen3:8b, switched to qwen3:30b-a3b midway
 
-> **Note:** Cloudflare OS is explicitly labelled early access. Everything here reflects August 2026, and you should read the rough edges as things that will get smoothed out. The licence is Apache-2.0.
+> **Note:** Cloudflare OS is software that is officially stated to be in early access. Please read this article with the understanding that the contents are as of August 2026, and rough edges will likely be fixed in the future. The licence is Apache-2.0.
 
-## What Cloudflare OS Actually Is
+## What is Cloudflare OS
 
-The detailed design discussion belongs in its own article, so just two pieces here.
+I will cover the detailed design in another post, so I'll just mention two things here.
 
-**Gadget** is a small app that spins up a private instance per user. Building slides, building a dashboard, building a game. All of it takes this shape.
+A **Gadget** is a small app where a private instance runs for each user. Whether you are making slides, building a dashboard, or creating a game, it's all in this format.
 
-Rather than sharing one SaaS instance, a copy just for you is generated inside a sandbox. Which means you can rewrite the code inside it however you like without affecting anyone else.
+Instead of sharing a SaaS, a dedicated copy for yourself is generated inside a sandbox. Because of this, even if you rewrite the internal code however you like, it won't affect anyone else.
 
-**Gatekeeper** is the intermediary for each external service. When you connect to GitHub or Google, Gatekeeper narrows the access scope, logs every operation, and inserts human approval for anything with side effects.
+**Gatekeeper** acts as an intermediary for each external service. When connecting to GitHub or Google, Gatekeeper narrows down the access scope, logs all operations, and inserts human approval for operations that have side effects.
 
-The way that approval works is the interesting part, because **it does not stop the agent**.
+The way Gatekeeper handles this approval is interesting in that it does not stop the agent. Operations waiting for approval return a simulated result as if they were executed, and the agent moves on. Humans review and approve or reject them later in bulk.
 
-An operation waiting for approval gets simulated, a plausible result comes back, and the agent carries on. The human approves or rejects the batch afterwards. The selling point is that nothing has stalled while you were away getting coffee.
+The selling point is that it doesn't stop while you go to get a coffee. The expression "going to get a coffee" feels very American. I rather like it.
 
-"Getting coffee" as the unit of measurement feels very American to me, and I rather like it.
-
-That "approve it later" design is going to matter later in this article.
+This "approve later" sets the stage for today.
 
 
 <a class="link-card" href="https://github.com/cloudflare/cloudflare-os" target="_blank" rel="noopener">
@@ -99,11 +95,11 @@ That "approve it later" design is going to matter later in this article.
 </a>
 
 
-## pnpm run-local Does Not Work on Windows
+## pnpm run-local doesn't work on Windows
 
-The README says one line is enough: `pnpm run-local`.
+The README claims that `pnpm run-local` is all you need.
 
-It is not.
+I beg to differ.
 
 ```text
 Error: spawnSync pnpm ENOENT
@@ -111,23 +107,23 @@ Error: spawnSync pnpm ENOENT
     at run (file:///.../scripts/run-local.mjs:118:3)
 ```
 
-The usual. The cause is that the script spawns pnpm directly.
+Classic. The culprit here is that the script spawns `pnpm` directly.
 
 ```js
 execFileSync("pnpm", ["install"], { stdio: "inherit", cwd: ROOT });
 ```
 
-What actually exists on Windows is `pnpm.cmd`, so going looking for a binary named `pnpm` finds nothing and you get ENOENT. Node's `execFileSync` does not go through a shell, so it will not resolve the `.cmd` for you.
+On Windows, the executable is actually `pnpm.cmd`, so trying to look for a binary named `pnpm` fails and throws `ENOENT`. Node.js's `execFileSync` bypasses the shell, meaning it won't automatically resolve `.cmd` extensions.
 
-Honestly, once you have used Windows for a while you stop being surprised by this sort of thing. And these days an AI will sort it out for you. What a time to be alive.
+Using Windows means getting used to hitting these speed bumps, but at least these days AI can sort it out for you. What a time to be alive.
 
-Three files were affected.
+I found three affected files:
 
 - `run-dev-server.js`
 - `packages/gatekeeper-context/build-app.mjs`
 - `packages/gatekeeper-scheduler/build-app.mjs`
 
-The fix is one line.
+It's a one-line fix:
 
 ```diff
   execFileSync("pnpm", ["exec", "wrangler", "dev", ...args],
@@ -135,7 +131,7 @@ The fix is one line.
 +     { stdio: "inherit", cwd: ROOT, shell: process.platform === "win32" });
 ```
 
-If you would rather not patch anything, walking the same steps by hand works fine.
+If you'd rather not patch it, running the steps manually works just as well:
 
 ```bash
 pnpm install
@@ -144,163 +140,165 @@ pnpm --filter @gadgets/workshop-frontend exec vite build
 node run-dev-server.js --serve-frontend-assets
 ```
 
-That brings up `http://localhost:8787`. Everything runs locally on wrangler and workerd, with no connection to a Cloudflare account whatsoever. It works while you are not even logged in.
+And that spins up `http://localhost:8787`. Since everything runs locally on wrangler and workerd, it doesn't touch a Cloudflare account at all. You don't even need to be logged in.
 
-While watching the startup log, I spotted this.
+Incidentally, while skimming the startup logs, I spotted this:
 
 ```text
 Wrangler detected this dev session is running in an AI agent.
 The Local Explorer API is available at http://127.0.0.1:8787/cdn-cgi/local/explorer/api
 ```
 
-Wrangler works out that it is being run from an AI agent and helpfully grows an HTTP API for peeking at KV, D1 and Durable Objects.
+Wrangler notices that "this session is running inside an AI agent" and spins up an API out of nowhere that lets you inspect KV, D1, and Durable Objects over HTTP.
 
-We now live in an era where the on-ramp for agents ships as standard. I had a small moment about that.
+It really feels like we've entered an era where dedicated entry points for AI agents come standard.
 
-Also, the local build uses simple username and password auth, and the development default is `ADMINS=["admin"]`. Which means creating an account called `admin` makes you an administrator. I did that.
+Also, the local build uses simple username/password auth, and the dev default is `ADMINS=["admin"]`. That means if you register an account with the username `admin`, you get instant admin privileges. So I did just that.
 
-Being able to bulldoze your way in as admin is one of the joys of local. Obviously change it if you expose anything.
+Being able to brute-force your way through with `admin` is the best part of running locally. Just make sure to change it if you ever push it to production.
 
-## Wiring an Ollama Model into Cloudflare OS
+## Connecting Ollama Models to Cloudflare OS
 
-Cloudflare OS supports five provider types (`packages/workshop-backend/src/ai-models.ts`).
+Cloudflare OS supports five LLM providers (defined in `packages/workshop-backend/src/ai-models.ts`):
 
 | Provider | Notes |
 | ---- | ---- |
-| `anthropic` / `openai` / `google` | Each vendor's API key |
+| `anthropic` / `openai` / `google` | API keys for each service |
 | `cloudflare` | Workers AI (BYOK) |
-| `ollama` | **You can specify the API URL freely** |
+| `ollama` | **Custom API URL allowed** |
 
-That last one is effectively a socket for any OpenAI-compatible endpoint, so that is where local Ollama goes.
+That last option, `ollama`, essentially acts as a hook to plug in any OpenAI-compatible endpoint. We'll use it to point to a local Ollama instance.
 
 ```bash
 winget install Ollama.Ollama
 ollama pull qwen3:8b
 ```
 
-qwen3:8b at Q4 is about 5.2GB. That fits whole into 8GB of VRAM.
+The `qwen3:8b` model uses 4-bit quantisation (Q4) and takes up about 5.2 GB, which easily fits within 8 GB of VRAM.
 
-You could just as well use GLM or DeepSeek or whatever you like. I have simply had a soft spot for Qwen for ages and I am used to it, so Qwen it is. There is something endearing about how hard they try.
+Of course, you could just as easily use GLM, DeepSeek, or whatever model you prefer. I personally stick with Qwen because I've been using it for a long time and I'm fond of it. There's something endearing about how hard she tries.
 
-Register it from the UI. On the setup screen, "Add new model...", then "Other Ollama..." right at the bottom of the dropdown, which opens a form.
+To set it up via the UI, go to the setup screen, click **Add new model...**, and select **Other Ollama...** at the bottom of the dropdown.
 
-Not that I clicked through any of that myself. Playwright did.
+Though to be honest, I just let Playwright handle this part.
 
-- Model ID: `qwen3:8b`
-- API URL: `http://localhost:11434`
-- API Token: blank is fine
+- **Model ID:** `qwen3:8b`
+- **API URL:** `http://localhost:11434`
+- **API Token:** Leave blank
 
-That is all. Once registered, the cost display in the top right stays at `$0`.
+And that's it. Once registered, the cost tracker in the top right stays locked at **$0**.
 
-Obvious, but reassuring. Not having to flinch at melting tokens or a five-hour limit is genuinely good for both morale and wallet.
+As expected, it's a huge relief. Not having to worry about burning through tokens or hitting a 5-hour limit does wonders for both your wallet and your peace of mind.
 
-## Why Qwen3, Before You Ask
+## Why Qwen 3
 
-Some of you are thinking "hang on, qwen3?", so let me answer that up front.
+Some of you might be thinking, "Wait, why Qwen 3 right now?" Let me address that first.
 
-Three reasons. Zero cost. Everything stays local, so nothing I feed it leaves the machine. And response speed.
+It comes down to three main reasons: zero running costs, total privacy (since everything runs locally, no data ever leaves your machine), and fast response times.
 
-There is also this: unlike the officially supported providers where you paste an API key and you are done, I wanted to leave behind a worked example of what setup looks like when you connect a model from outside the supported set.
+Plus, unlike official providers where you just paste an API key and call it a day, I wanted to document a working example of how to connect an out-of-the-box local model.
 
-One more thing that is hard to ignore in 2026: **you do not hit rate limits**.
+Another factor that's hard to ignore in 2026 is avoiding rate limits altogether. You can always throw money at budget constraints, but you can't pay your way out of a strict 5-hour window limit.
 
-Money problems yield to budget. A five-hour limit does not yield to money on the spot. And the design of that ceiling is a variable you do not control. Locally there is none of that. It is slow, but the slowness is on my terms.
+Worse, those caps are arbitrary variables set by someone else. With a local setup, that problem disappears. It might be slower, but at least any performance bottleneck is entirely on your own terms.
 
-> **Note:** Saying "Ollama has no limits" would be inaccurate, so for completeness: there is a separate product called Ollama Cloud which does have five-hour session limits and weekly limits. The thing without limits is **local inference**.
+> **Note:** To be precise, saying "Ollama has no limits" isn't entirely accurate, so a quick caveat: there is a separate product called Ollama Cloud, which does enforce a 5-hour session limit and weekly caps. The version with zero limits is self-hosted local inference.
 
-And there is a far more immediate reason too. **A big model simply does not fit.**
+There's also a much more practical reason: larger models simply won't fit on this hardware.
 
-This is the point where reading the spec sheet numbers will mislead you.
+This is a common trap if you only look at baseline spec sheets.
 
-### A Model Does Not Get the Whole Machine
+### Models Don't Have the Machine to Themselves
 
-"32GB of RAM, so surely a model in the low twenties will fit." You would think so.
-
-I measured it. Here is the machine with **no model loaded at all**.
+You might think, "I have 32 GB of RAM, so a 20 GB model should run fine." But I actually ran the numbers. Here is the baseline footprint before loading a single model:
 
 ```text
-Total RAM: 31.9 GB / free: 16.3 GB / in use: 15.6 GB
+Total RAM: 31.9 GB / Free: 16.3 GB / In Use: 15.6 GB
 ```
 
-The breakdown: Edge WebView2 at 2.48GB, Chrome at 2.01GB, VS Code at 1.22GB, Claude at 0.8GB. And **Memory Compression at 4.99GB**. Windows is already compressing pages to cope.
+The breakdown: Edge WebView2 takes 2.48 GB, Chrome takes 2.01 GB, VS Code uses 1.22 GB, Claude uses 0.8 GB, and Memory Compression swallows 4.99 GB. Windows is already aggressively compressing pages just to keep up.
 
-So the model budget available during actual work was not the total. It was **about 16GB**.
+In practice, the actual RAM available for active model loading wasn't 32 GB. It was around 16 GB.
 
-The same thing happens with VRAM, and there it hurts more.
+The exact same bottleneck happens with VRAM, and it hurts performance even more:
 
 ```text
 memory.total: 8151 MiB / memory.used: 1138 MiB / memory.free: 6759 MiB
 ```
 
-Also with no model loaded. I counted the processes touching the GPU and there were **24 of them**. Chrome, five Edge WebView2 processes, Discord, VS Code, Explorer, the Start menu, the screenshot tool, and so on.
+Again, this is with zero models loaded. Tallying up GPU-bound background tasks yielded 24 processes: Chrome, 5 instances of Edge WebView2, Discord, VS Code, File Explorer, the Start Menu, screenshot tools.
 
-Simply using the desktop normally holds a permanent claim on a bit over 1GB.
+Just running a normal desktop environment constantly eats up over 1 GB of VRAM.
 
-**Effective VRAM is a little over 80 percent of the sticker number.** On an 8GB card, about 6.6GB.
+Your usable VRAM is roughly 80% of the advertised spec. On an 8 GB card, you really only have about 6.6 GB to play with.
 
-(That 1.1GB is the tax for "using a desktop on Windows". On a headless Linux box it is close to zero, so if you are going all in on AI, choosing not to use Windows is itself an optimisation. This article is about repurposing a gaming PC, so I am on the paying side.)
+(This 1.1 GB loss is essentially the "Windows desktop tax." On a headless Linux box, this overhead drops to near zero, so if you're building a dedicated AI rig, skipping Windows is an easy optimisation. But since this setup relies on repurposing a primary gaming PC, that tax is unavoidable.)
 
-Most benchmarks are measured with everything closed.
+Most benchmarks are run in sterile environments with every app closed. But real-world work happens with Slack open, dozens of Chrome tabs active, and Spotify playing in the background.
 
-But real work happens with Slack open, tabs open in Chrome, music playing on Spotify. That is not an extravagant state. That is **the normal state**.
+That's not a stress test; that's just a normal workspace. It's the difference between advertised MPG and real-world fuel economy, and the latter is what actually matters.
 
-It is the same relationship as advertised fuel economy versus real-world fuel economy. The one you want to know is the real one.
+### A Quick Caveat, "Local is Free" Isn't Entirely True
 
-### "Local Is Free" Is Also Not Quite Right
+The most common pushback to local LLMs is, "Well, GPU hardware isn't free." To be precise: local LLMs have zero marginal cost, not zero total cost.
 
-The most common objection is "the GPU was not free though", so let me be precise. Local LLMs are free in the sense that the **marginal cost** is zero. Not that the total cost is zero.
+Because this machine was already built for gaming, I'm simply tapping into idle resources, meaning my only ongoing cost is electricity.
 
-This machine already existed as a gaming machine, and I am using its spare capacity, so electricity is the only bill. Flip it around and the economics invert: if you are buying a dedicated machine for local LLM work, a machine costing well over a thousand pounds buys an awful lot of API tokens. Compare before you buy.
+However, if you were to buy a dedicated machine just to run local LLMs, the maths flips. Spending well over $1,000 upfront buys a massive amount of API tokens, so it's worth doing the sums before pulling the trigger.
 
-### Why a Good Gaming PC Still Struggles with LLMs
+### Why Even Powerful Gaming PCs Struggle with LLMs
 
-The same machine being comfortable in games and short on LLMs is not a contradiction. It is just two different axes.
+It might seem contradictory that a rig capable of maxing out modern games stumbles with LLMs, but they bottleneck on completely different hardware metrics.
 
-VRAM in games holds textures and buffers scaled to your resolution, and 8GB is enough up to 1440p. The bottleneck there is mostly compute. An LLM, by contrast, **puts the entire model in VRAM**, so capacity is everything, and the compute units spend a lot of their time waiting on memory bandwidth.
+Gaming VRAM primarily holds high-res textures and render buffers, where 8 GB is plenty up to 1440p, leaving the primary bottleneck on core GPU compute.
 
-So the practical rule is this: **for LLM work, ignore the GPU generation and model number and look only at the number of gigabytes of VRAM**. A 5060 with 8GB and a 4060 with 8GB behave almost identically on the question of whether something fits.
+LLMs, on the other hand, must fit the entire model weights into VRAM. Capacity is everything, and compute cores frequently sit idle waiting on memory bandwidth.
 
-> **Note:** Qwen ships under three different licence families (Apache 2.0, the Tongyi Qianwen licence, and the Qwen Research licence), and they have been mixed within a single release before (Qwen2.5-VL differed across the 72B, 3B and 7B variants). I checked the two I used with `ollama show qwen3:8b --license` and both were Apache 2.0, but checking per checkpoint is the safe habit.
+As a practical rule of thumb for local AI: ignore the GPU generation or model tier and focus almost entirely on raw VRAM capacity. An 8 GB RTX 5060 and an 8 GB RTX 4060 will perform virtually identically when it comes to whether a model can actually load.
 
-## Qwen Takes On Tic Tac Toe
+> **Note on licensing:** Qwen models are distributed across three licence types: Apache 2.0, Tongyi Qianwen, and Qwen Research. There is precedent for these being mixed within a single release (for instance, Qwen2.5-VL varied across its 72B, 3B, and 7B variants). Running `ollama show qwen3:8b --license` confirmed Apache 2.0 for the weights used here, but it's always good practice to inspect the specific checkpoint you plan to deploy.
 
-Setup done, so I threw it the prompt the README itself suggests.
+## Taking on Tic-Tac-Toe with Little Qwen
+
+Everything was set up, so I just fed it the prompt right out of the README.
 
 > Make a tic tac toe game.
 
-Cloudflare OS created a workspace automatically and started streaming its reasoning into the chat as paragraphs. Ollama returns the `reasoning` field separately, so you can see everything it is thinking. That turns out to matter later.
+Cloudflare OS spun up a workspace automatically and started streaming paragraphs of its thinking process right in the chat panel. Since Ollama returns the `reasoning` field separately, you can see every single thought as it happens.
 
-qwen3:8b's opening attempt went like this.
+This really comes in handy later on.
 
-Turn one: they build the empty Gadget shell and the turn ends.
+Here's how Qwen 3:8B's very first match went down.
 
-Turn two: they write this on the server side.
+On turn one, she just built a skeleton for the Gadget and called it a turn. On turn two, she wrote this in the server-side code:
 
 ```js
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 ```
 
-**That is Deno.**
+Yep, Deno.
 
-This is Cloudflare Workers (workerd), so naturally it dies with "No such module". Fine, that happens.
+Since this is running on Cloudflare Workers (workerd), it obviously crashed right away with a "No such module" error. Up to that point, fair enough, stuff like that happens.
 
-The problem is what came next. Having seen the error, Qwen **did not fix it, and instead began explaining the problem in general terms**. "The URL may be missing `://`." "Check that your Deno environment is configured correctly."
+The real issue came next. Instead of fixing her own mistake after seeing the error, little Qwen started giving me a generic lecture on how Deno works: "The URL might be missing `://`," or "Please make sure your Deno environment is set up correctly."
 
-You wrote it, though.
+Hey, you're the one who wrote it!
 
-On turn three I said explicitly "this is workerd, use the tools to apply a fix, do not explain", and got another polite explanation back. The Files tab still said "No files yet".
+On turn three, even when I explicitly spelled it out ("This is workerd. Use your tools to apply a fix instead of giving me an explanation"), she just handed me another polite explanation. Meanwhile, the Files tab was still sitting on "No files yet."
 
-Lovely, really. Just not helping.
+Bless her, she tries.
 
-I decided 8B was carrying too much and switched to qwen3:30b-a3b. It is MoE with roughly 3B active, so despite being 19GB it ought to be quick.
+Deciding 8B was a bit too much for her to handle, I switched over to qwen3:30b-a3b. Since it's an MoE running 3B active parameters, I figured it should still be pretty fast despite weighing in at 19GB.
 
-The read was right: **CPU 68% / GPU 32% mixed execution at around 28 tok/s**. Getting that speed with 70 percent of the work on the CPU is the MoE advantage. A dense 30B would have dropped to single-digit tok/s, which is a completely different experience.
+My hunch paid off. It hit around 28 tokens/sec running a hybrid setup at 68% CPU and 32% GPU. Being able to push that kind of speed even with 70% of the workload dumped onto the CPU is the real beauty of MoE.
 
-And then the real culprit showed up.
+A dense model of the same 30B size would've crawled along at a couple of tokens a second, making it a night-and-day difference in actual use.
 
-## A Default of 4096 Tokens Was Quietly Breaking Everything
+And that's when the real culprit finally reared its head.
 
-Shortly after switching to 30b-a3b, errors started appearing in the chat.
+## A default of 4,096 tokens was quietly breaking everything
+
+A short while after switching to 30b-a3b, errors like these started popping up in the chat:
 
 ```text
 Error: Stream ended without finish_reason
@@ -308,108 +306,112 @@ Error: internal error; reference = sppsc1llga6bg4g...
 Error: Connection error.
 ```
 
-Since I had just changed models, I first suspected the model or memory. But the symptoms were stranger than that: **they were progressively getting stupider**.
+Since I'd just swapped models, my first instinct was to blame either the model itself or a memory issue. But the behaviour was way weirder than that. She was gradually losing her mind.
 
-- They forgot the binding name of the Gadget they had made minutes earlier and built a new one under a different name
-- They got the parameter name for `writeFile` wrong (writing `path` where it should be `filename`)
-- Turns ended halfway through
+- She'd forget the binding name of a Gadget she'd literally just built and try to make a brand-new one under a totally different name.
+- She'd mess up parameter names for `writeFile` (like writing `path` instead of `filename`).
+- Turns would just cut off halfway through.
 
-I went to look at the Ollama server log, and there was the decisive line.
+When I dug into the Ollama server logs, I found the smoking gun:
 
 ```text
 slot context shift, n_keep = 4, n_left = 4091, n_discard = 2045
 ```
 
-**Ollama's default context length on a GPU in this class is 4096 tokens.**
+Ollama defaults to a context length of 4,096 tokens for GPUs in this class.
 
-To be precise, current Ollama picks the default from your VRAM. 32K at 23GiB or more, 256K at 47GiB or more, and 4096 below that. So a poor VRAM budget means you start from a poor context default too. My effective 6.6GB is firmly on the bottom rung.
+To be precise, current versions of Ollama set the default based on available VRAM: 32K for 23GiB or more, 256K for 47GiB or more, and 4096 for anything under that.
 
-And Cloudflare OS's system prompt, tool definitions included, runs to about four thousand tokens.
+Long story short, if you're light on VRAM, you're stuck with a tiny context window right off the bat. My setup, with its effective 6.6GB, naturally gets dumped into the absolute bottom tier.
 
-Which means the context was overflowing from the moment the conversation started, and it was generating while throwing old tokens away.
+On top of that, Cloudflare OS's system prompt easily runs around 4,000 tokens once you throw in tool definitions.
 
-Worse is `n_keep = 4`. That means "protect only the first four tokens", which protects essentially nothing. **The system prompt was entirely eligible for eviction.**
+That meant the context window was blowing out the exact second the conversation started, and it was churning out responses while dropping older tokens on the floor.
 
-I had stripped my harness for this test and kept Ollama as close to stock as possible, and then forgot I had done so. My normal environment is customised, so this is not a trap I would usually fall into. But the default is what a first-timer meets, so I have decided this counts as the correct test after all.
+What's even worse is `n_keep = 4`. That translates to "only protect the first 4 tokens," which basically protects nothing. The entire system prompt was fair game for deletion.
 
-Every symptom now explains itself. They forgot the binding name because the information about their own Gadget had been discarded. They got the `writeFile` parameter wrong because the tool definition had vanished from context.
+I'd totally forgotten that I'd stripped away my test harness and left Ollama running as vanilla as possible. My day-to-day setup is already customised, so this isn't a trap I'd normally fall into.
 
-For conversational use this is a perfectly reasonable strategy. Old small talk matters least, so discarding oldest first makes sense.
+But since first-time users are going to hit these exact defaults, I'm calling it a valid test environment after all.
 
-For agent use it is **structurally backwards**. The most important information (system prompt, tool definitions, framework conventions) is permanently the oldest thing in the window. You kill the things you most need to keep, in order.
+Suddenly, all the weird quirks make complete sense. She forgot the binding names because the info about the Gadget she'd just made got purged.
 
-And the nastiest part is that **there is no error and no warning**. All you see from the UI is "behaving a bit oddly". That is the kind of thing that has you swapping models and suspecting your quantisation while the hours drain away.
+She scrambled the `writeFile` parameters because the tool definitions had disappeared from the context window entirely.
 
-For what it is worth, this does not happen with frontier APIs. Go over the context and you get a proper error, so you find out whether you like it or not. Silently discarding and carrying on is a local-only trap.
+To be fair, this strategy makes sense for casual chat. Older banter doesn't really matter, so dropping things from the top down is totally logical.
 
-Being told off by an error message turns out to be a privilege.
+But for AI agents, it's fundamentally backwards. The most critical pieces of information (system prompts, tool definitions, framework rules) always sit at the very beginning. It literally kills off the most important stuff first.
 
-The fix is an environment variable.
+The nastiest part is that it doesn't throw a single error or warning. All you see on the UI is "huh, it's acting weird." It's the ultimate time-waster. It tricks you into blaming the model, swapping it out, or questioning your quantisation settings.
+
+For what it's worth, this never happens with frontier-level APIs. When you breach the context limit, they just kick back a hard error, so you can't miss it even if you try. Silently dumping context and ploughing on regardless is a trap unique to local setups.
+
+Who knew getting yelled at by error messages was actually a feature.
+
+The fix comes down to an environment variable:
 
 ```bash
 setx OLLAMA_CONTEXT_LENGTH 16384
 ```
 
-The official documentation recommends 64K or more for agent and coding use, but 16K is the realistic compromise on my VRAM.
+The official docs recommend 64K or more for agentic and coding workflows, but 16K is the most realistic compromise for my VRAM. Once I set that and kicked Ollama, the issues disappeared completely.
 
-I set it, restarted Ollama, and the symptoms went away.
+There is a catch, though. Memory usage for qwen3:8b jumped from 5.2GB to 7.8GB. Context length ties directly into the size of the KV cache, so it naturally gobbles up extra RAM.
 
-There is a side effect, though. qwen3:8b's memory footprint went from 5.2GB to **7.8GB**. Context length maps straight onto KV cache size, so it eats memory honestly.
+Which brings us right back to that effective VRAM issue from earlier. 7.8GB sounds like it ought to fit inside a nominal 8GB, but it definitely doesn't fit inside an effective 6.6GB.
 
-And this joins up with the effective VRAM story from earlier. 7.8GB looks like it fits inside a nominal 8GB, but **it does not fit inside an effective 6.6GB**. Sure enough, it dropped to CPU 27% / GPU 73% mixed execution.
+Sure enough, performance degraded into a hybrid execution split of 27% CPU and 73% GPU.
 
-This is what I meant about VRAM capacity alone not being enough for a spec estimate.
+Turns out, estimating your hardware specs based purely on raw VRAM capacity just doesn't cut it.
 
-## Five Rounds to a Working Tic Tac Toe
+## It took a full 5 rounds just to get tic-tac-toe up and running
 
-With the context fixed, on to the main event. Here is the result up front.
+Now that I've sorted out the context, it's time for the real deal. Here's a quick breakdown of how it went:
 
-| R | Resolution of what I gave it | Outcome |
+| R | Detail of info provided | Result |
 | --- | --- | --- |
-| 1 | "Make a tic tac toe game" | Referenced the binding name as a browser global, ReferenceError |
-| 2 | "Here is the error" | Switched to hitting HTTP with fetch, blocked entirely by CSP |
-| 3 | "You are blocked by CSP" | Misdiagnosed it as CORS and looped forever, stopped by hand |
-| 4 | Spelled out that a `gadget` RPC stub exists | Invented its own class name, method not found |
-| 5 | **Handed over a complete skeleton** | **Finished** |
+| 1 | "Make a tic tac toe game" | Tried to use the server binding name as a browser global, ReferenceError |
+| 2 | "Got this error" | Switched to hitting an HTTP endpoint via fetch, completely blocked by CSP |
+| 3 | "Blocked by CSP" | Misdiagnosed it as a CORS issue and got stuck in a loop, stopped manually |
+| 4 | Spelled out the `gadget` RPC stub | Used a custom class name, method not found |
+| 5 | **Handed over a complete skeleton** | **Smooth sailing** |
 
-Let me walk through them.
+Let's break it down round by round.
 
-**Round 1.** In client.js (browser side) they referenced the server-side binding name `TIC_TAC_TOE` as a global variable and fell over. They have conflated the server and client boundary.
+**Round 1.** In client.js (browser-side), she crashed by trying to reference the server-side binding name `TIC_TAC_TOE` as a global variable. Classic case of confusing server and client boundaries.
 
-**Round 2.** Told about the error, they rewrote things to hit an HTTP endpoint with fetch. That is perfectly mainstream web development thinking.
+**Round 2.** When I passed back the error, she pivoted to hitting an HTTP endpoint with `fetch`. Fair enough, that's how normal web dev works.
 
-But the console says this.
+Except the console spat this out:
 
 ```text
 Connecting to 'http://localhost:8787/getGameState' violates the following
 Content Security Policy directive: "connect-src 'none'"
 ```
 
-The iframe a Gadget runs in has **`connect-src 'none'`** in force, so fetch, XHR and WebSocket are all dead. It is not a configuration issue. It cannot work in principle.
+The iframe hosting the Gadget has `connect-src 'none'` slapped on it, which completely locks down `fetch`, `XHR`, and `WebSocket`. It's not a config issue; it's physically impossible by design.
 
-That was the moment I understood the shape of the thing. A Gadget cannot talk to the outside world directly. Only the server side can, and only through a binding, which means through Gatekeeper.
+That was my "Ah, so that's how tight the sandbox is" moment. Gadgets can't talk to the outside world directly. Everything has to go through the server side via bindings (= Gatekeeper).
 
-The sandbox design enforces the conventions by making non-conforming code physically inoperable. I had wanted to know how much of this was enforced in the raw state, so this was a lucky find.
+I actually wanted to see how strictly this was enforced in the wild, so I was quite glad to catch it.
 
-**Round 3.** This was the peak of the day.
+**Round 3.** This was the real climax.
 
-Seeing the CSP violation, Qwen **misdiagnosed it as CORS**. So they started adding `Access-Control-Allow-Origin` on the server side. Naturally it did not help. So they added more. Still nothing.
+Seeing the CSP violation, poor Qwen misdiagnosed it as a CORS issue and started spamming `Access-Control-Allow-Origin` on the server side. Obviously, that didn't help. So she tweaked it and tried again. Still nothing.
 
-Confusing CSP with CORS is a classic mistake human beginners make too, so I cannot hold that against them. The problem was that **they would not stop**.
+To be fair, mixing up CSP and CORS is a classic rookie mistake even humans make. The problem was she just wouldn't give up. Every few minutes she would shift the CORS headers around and re-run, going round and round in circles.
 
-Every few minutes they moved the CORS header somewhere else and tried again, round and round.
+You have to admire the persistence.
 
-Our friend really is a trier.
+After watching her struggle for about 10 minutes, I finally hit the Stop button.
 
-I watched for about ten minutes, then pressed Stop.
+**Round 4.** Time to be explicit with the specs: "client.js has a global `gadget` variable injected. You call server methods with `await gadget.method()`. Don't use `fetch`. You don't need `index.html` either."
 
-**Round 4.** I spelled out the spec. "A global variable called `gadget` is injected into client.js, and you call server methods with `await gadget.method()`. Do not use fetch. You do not need index.html."
+The approach was fixed. But this time, she went and named the server-side class `TIC_TAC_TOE`, crashing with a "Method not found" error.
 
-The approach got fixed. This time they named the server-side class `TIC_TAC_TOE` and fell over with "method not found".
+Honestly, this one was on me. On Cloudflare OS, the class name has to be `Gadget`. But because I'd already read the system prompt, that constraint had become second nature to me, and I totally forgot to mention it. A classic human slip-up.
 
-That one **was my fault**. In Cloudflare OS the class name is fixed as `Gadget`, but by that point I had already read the system prompt, and the constraint had become invisible background furniture in my head. So I forgot to say it. A plain human-side blunder.
-
-**Round 5.** I just wrote the whole thing and handed it over.
+**Round 5.** I gave up and just handed over the boilerplate:
 
 ```js
 import { DurableObject } from "cloudflare:workers";
@@ -425,11 +427,11 @@ export class Gadget extends DurableObject {
 }
 ```
 
-Given that, they transcribed accurately and finished.
+Once I gave it to her, she copied it word-for-word and made it across the finish line.
 
-A 3x3 board appeared in the App pane. Click a cell and `gadget.makeMove()` flies over RPC, the Durable Object state updates, it redraws, and a mark appears. Genuinely playable.
+A neat 3x3 grid popped up in the App pane. Clicking a cell sent an RPC call via `gadget.makeMove()`, updated the state in the Durable Object, re-rendered, and marked the spot. A fully working game.
 
-Here is Qwen's completion report.
+And here's Qwen's triumphant wrap-up report:
 
 > The Tic Tac Toe game is now fully functional!
 > ✅ No more "internal error" or module import issues
@@ -437,25 +439,23 @@ Here is Qwen's completion report.
 > ✅ Board renders properly in the app pane with full gameplay
 > You can play the game immediately, click any cell to place X/O. Well done! 🎮
 
-"Well done" is doing a lot of work in that sentence.
+"Well done!" my foot.
 
-Still, they seemed pleased with themselves. You got there. You worked hard. Thank you.
+Still, she seemed chuffed with herself, so all's well that ends well. Good job, little buddy, and thanks for the effort.
 
-## Why Qwen Could Not Stop
+## Why couldn't little Qwen stop
 
-Round 3 is the one that stuck with me.
+The issue cropped up in Round 3.
 
-If rewriting the CORS header repeatedly does not fix anything, at some point I want to hear "this might be wrong".
+If rewriting the CORS headers over and over still didn't fix it, you'd expect the model to step back and say "maybe this isn't the right approach" at some point. A human would probably throw their hands up by the third try and go, "Sorry, I've no idea."
 
-A human would say "sorry, I have no idea what this is" around the third attempt.
+(Mind you, waiting until the third attempt to admit that would still drive anyone up the wall.)
 
-Mind you, a human who leaves it until the third attempt has earned a certain amount of murderous intent of their own.
+So why didn't she say anything?
 
-So why does it not say so?
+Curious, I took a look under the hood of the Cloudflare OS codebase. Normally, I'd have the harness hand over to a human for confirmation at that stage, but this was a raw test run.
 
-I got curious and went to read the Cloudflare OS source. Normally my harness would make the agent check in with a human around here, but this run was deliberately stock.
-
-The decision to end an agent's turn lives in `packages/workshop-backend/src/agent.ts`.
+The logic that decides whether to kill an agent's turn lives in `packages/workshop-backend/src/agent.ts`:
 
 ```js
 shouldStopAfterTurn: () =>
@@ -465,20 +465,22 @@ shouldStopAfterTurn: () =>
     awaitingActionDecision ||
 ```
 
-Four stop conditions apply in a normal chat (there is a fifth that only fires for callback-initiated runs, which is not relevant here).
+There are four conditions that trigger a stop in a standard chat session (there's a fifth auto-kill specifically for callback runs, but we can ignore that here):
 
-1. A human pressed Stop
-2. The turn count hit 30
-3. It is waiting for approval to connect an external resource
-4. It is waiting for approval on an operation with side effects
+1. A human hit Stop.
+2. The turn limit hit 30.
+3. It's waiting on approval for an external resource connection.
+4. It's waiting on approval for a state-changing operation.
 
-**Not one of them contains the concept of "this keeps failing".**
+Notice how there isn't a single check for "repeatedly failing."
 
-What is there is "a human already intervened" or "waiting on a permission card". The only brake is the 30-turn ceiling, and that is not stopping a loop. It is **setting a budget for how much you may burn**.
+It only cares if a human has already stepped in, or if it's waiting for a permission card response. The 30-turn limit is the only safety net in place, but that doesn't actually stop a runaway loop. It just caps how much compute you can burn through.
 
-So is there any way for the agent to say "I am stuck"? I found two candidates.
+So, did the agent have any way to flag that she was stuck? Digging deeper, I found two possibilities.
 
-`requestConnection` is specifically for resource connections ("I want to reach GitHub, please authenticate"), not a general help desk. There is also a `giveUp` tool for declaring defeat, but reading the code, the registration condition is this.
+The first, `requestConnection`, is strictly for resource auth ("I need to connect to GitHub, please authorise me") rather than a general cry for help.
+
+The second is `giveUp`, a tool meant for throwing in the towel. But taking a look at the code reveals when it actually gets registered:
 
 ```js
 // When the agent was started to handle callbacks, add the giveUp tool so it can bail out.
@@ -487,99 +489,113 @@ if (callbackInitiated) {
 }
 ```
 
-Only when `callbackInitiated`, meaning scheduled or callback-triggered runs. **In a normal chat, giveUp does not even exist.**
+Notice that condition: `callbackInitiated`. It's only enabled for background tasks or scheduled jobs. In a standard chat session, `giveUp` isn't even made available to the model.
 
-So the options for any model sitting in the coding agent seat on Cloudflare OS are "keep going" or "end the turn arbitrarily". Qwen was locked in a room with no bell to ring.
+So, whichever model you throw into Cloudflare OS as a coding agent, it only ever has two options: keep pushing blindly, or wrap up the turn on its own terms. Poor little Qwen was essentially locked in a room without a call bell.
 
-Put like that, I feel a bit guilty.
+When you look at it that way, you almost feel sorry for her.
 
-And here the thread from the opening comes back. Gatekeeper's pitch was "carry on without waiting for approval, the human can approve the batch later, go and get coffee". **Side effects are asynchronous, but failure still depends on synchronous human supervision.**
+And this brings us back to the point I brought up earlier. Gatekeeper's big selling point was: "Don't wait around for approvals, let it run, review everything in one go later, go grab a coffee."
 
-Who is pressing Stop while you are getting the coffee?
+They made the side-effects asynchronous, but left error handling relying on a human actively watching the screen. If you're off grabbing a coffee, who's there to hit Stop?
 
-The parts are all there. Errors are captured (the UI shows a chip reading "Send 2 captured errors to chat"), the stop hook exists, and turn history is persisted. Adding "if the last N errors are the same kind, stop and hand it to the human" to `shouldStopAfterTurn` is the whole job. This is not a difficulty problem. It is a priority problem.
+All the building blocks are already there. Errors are captured (the UI even shows a "Send 2 captured errors to chat" chip), stop hooks exist, and turn histories are persisted.
 
-Incidentally, I do not think you can solve this with prompting. Instruct it to "ask me after two failures" and the thing counting the failures is the same entity stuck inside the loop.
+It would be trivial to update `shouldStopAfterTurn` with something like "if the last N errors match, pause and pass to the user." It's not a technical hurdle; it's just a matter of priority, and right now, it isn't implemented.
 
-A self-assessment that lines up three green ticks under a blank board and declares "fully functional" is broken as a signal. **The thing doing the counting has to be outside the loop.** That is the harness's job.
+And for what it's worth, I don't think you can prompt-engineer your way out of this either. If you tell an LLM "ask for help after two failures," the entity counting those failures is still the agent trapped inside the loop.
 
-## Why Every Instinct Backfires Here
+An agent looking at a blank canvas, ticking off three checkmarks, and declaring "working as expected!" is a broken feedback signal. The counter needs to live outside the loop. That's the harness's job.
 
-Lining up all five failures, something jumped out.
+## Why conventional wisdom completely backfires
 
-Every single failure was **doing something extra**.
+After looking back at five rounds of failures, something clicked.
 
-- An RPC stub was provided, and they tried to hit HTTP with fetch
-- The convention is that client.js assembles everything, and they made an index.html
-- Communication itself is blocked, and they added CORS headers
-- The class name is fixed as `Gadget`, and they invented their own
+The issues all boiled down to one thing: she was doing too much.
 
-The correct answer was smaller than what they wrote, every time. Not once did they fail for lack of functionality.
+- An RPC stub was already right there, yet she tried to hit the HTTP endpoint using `fetch`.
+- The rule was for client.js to build everything, yet she went ahead and created an `index.html`.
+- Network calls were blocked at the source, yet she threw in CORS headers.
+- The class name was hardcoded as `Gadget`, yet she gave it a custom name.
 
-The reason is that mainstream web development assumptions are built on **having things**. You can fetch. There is localStorage. You pick your own class names. You write your own HTTP routing. CORS is a thing you can solve with.
+Every single time, the right answer was leaner than what she'd written. Not once did she fail because a feature was missing.
 
-Cloudflare OS has none of that. Or rather, it does those things itself.
+Why? Because standard web dev common sense assumes you have certain luxuries. You can fetch. You have localStorage. You can name your classes whatever you want. You write your own HTTP routes. You fix things with CORS.
 
-So write from ordinary assumptions and everything falls over.
+Cloudflare OS doesn't have any of that. Or rather, its mindset is that it handles all of that for you. So if you write code with standard web dev assumptions, everything breaks.
 
-The same philosophy runs through the whole product. No storage on the client. Gadgets cannot reach the network. Sub-agents get exactly two tools. What a Blueprint shares is only the shape of the code, never credentials.
+That same philosophy runs through the entire product: no client-side storage, no network calls from Gadget, only two tools passed to sub-agents, and Blueprints only share the code structure, never credentials.
 
-**Do not give it, do not hand it over, do not let it route around.**
+Don't give them extra, don't pass extra, don't let them bypass.
 
-It is the same shape as the Unix philosophy: minimal, and no doing extra things.
+It's the exact same spirit as the Unix philosophy: keep it minimal and don't let it do unnecessary things.
 
-Seen that way, what this environment tests is not the ability to write code. It is **the ability to abandon your instincts and follow an unfamiliar convention on first sight**. Those are two different axes.
+Looking at it this way, what was being tested wasn't coding ability, but the ability to unlearn standard practices and follow unfamiliar conventions from scratch. These are two completely different skill sets.
 
-So if you seriously want a model from outside the supported set to develop on Cloudflare OS, hand it this whole rulebook by default from the start. Had I given them the round 5 skeleton in round 1, they would probably have finished in one.
+So, if you want an off-the-shelf model to do serious development on Cloudflare OS, you should pack these rules into its context right from the start.
 
-Packing the conventions into their luggage before they leave is faster than waiting for them to internalise anything.
+If I'd provided the skeleton code from Round 5 back in Round 1, she probably would've nailed it on the first try.
 
-And this "give it only the bare minimum" lands in exactly the same place as Cloudflare's own design philosophy. Just pointed the other way round.
+It's much faster to give it the rulebook up front than to wait for it to figure them out through trial and error. And this "give it only what it strictly needs" approach circles right back to Cloudflare's own design philosophy, just from the opposite angle.
 
-For Qwen's good name, the tic tac toe logic itself was sound from the very first attempt. Win detection, board state management, DOM manipulation, all fine. The wall was never implementation skill. It was internalising the conventions.
+To give qwen-chan some credit, the tic-tac-toe logic itself was spot on right from the start. Win detection, board state management, DOM manipulation, all completely solid. The wall she hit wasn't implementation ability, but internalising the rules.
 
-Being able to transcribe is table stakes, so round 5 is nothing to boast about. But round 4 failed because of something I failed to say, so with the conventions fully handed over from the start, they would have written this themselves without a skeleton. This is not a model that can only copy.
+Of course, being able to follow a reference implementation is a given, so Round 5 is nothing to brag about.
 
-## Summary
+But the failure in Round 4 was down to my poor instructions, so if the rules had been properly laid out from day one, she could've written it independently without a skeleton. She's not just a copy-paste bot.
 
-- Cloudflare OS runs **entirely locally** on `wrangler` and `workerd`. You can try it for zero cost, but on Windows `pnpm run-local` dies with ENOENT, so either add `shell: process.platform === "win32"` to the spawns or walk the same steps by hand
-- Models are swappable via Ollama. The `ollama` provider is effectively a socket for any OpenAI-compatible endpoint
-- **Ollama's default context length of 4096 (on GPUs under 23GiB) is the biggest trap.** The system prompt gets discarded silently, with no error and no warning, and the model "suddenly goes stupid". Always check `OLLAMA_CONTEXT_LENGTH`
-- Spec estimates by total capacity are not enough. Desktop residents take their cut first, so **effective VRAM is a little over 80 percent of the sticker figure**. With MoE, even a 30B class model gets 28 tok/s running mostly on CPU, so adding RAM beats adding VRAM on cost effectiveness
-- Gadget development is a pile of bespoke conventions, and **bringing ordinary web development instincts makes everything fall over**. All five failures were "doing something extra", and the right answer was always smaller. If you want real development out of it, hand over the skeleton and the list of prohibitions up front
+## Wrap-up
 
-That is the practical part. What follows is the post-match analysis.
+- Cloudflare OS runs entirely locally using `wrangler` + `workerd`. You can test it completely free, but on Windows, `pnpm run-local` fails with ENOENT. To fix this, add `shell: process.platform === "win32"` to spawn, or manually run the equivalent commands
+- Models can be swapped out via Ollama. The `ollama` provider basically acts as a wrapper for "any OpenAI-compatible endpoint"
+- **Ollama's default context length of 4096 (on GPUs with under 23GiB VRAM) is the biggest trap.** It silently drops the system prompt without throwing errors or warnings, making the model "suddenly act dumb." Always double-check `OLLAMA_CONTEXT_LENGTH`
+- Sizing up your system based on total VRAM isn't enough. Background desktop processes eat up memory first, leaving you with just over 80% of usable VRAM. For MoE models, even a 30B-class model can hit 28 tok/s mostly on the CPU, making a RAM upgrade far more cost-effective than adding more VRAM
+- Gadget development is packed with custom rules; if you bring in standard web dev habits, everything will break. All five rounds of failure came down to "doing too much," and the correct solution was always much simpler. If you want a model to build something properly, feed it the skeleton and a list of forbidden practices right from the start
 
-## Closing Thoughts
+That wraps up the practical breakdown. The rest is just post-mortem thoughts.
 
-Honestly, half of today's friction is "because it was a local LLM". The context trap and the CORS misdiagnosis would probably never have happened on a frontier API.
+## Conclusion
 
-The room with no bell, though, does not get fixed by a smarter model. That is a property of the room.
+To be honest, about half of today's roadblocks boiled down to one thing: "because it's a local LLM." If we'd been using a frontier API, we probably would've avoided the context trap and the CORS misdiagnosis altogether.
 
-So is a clever model safe? Not really. Cleverness reduces the probability of entering the loop. It does not add an exit.
+That said, even a smarter model wouldn't fix the room with no doorbell. That's a problem with the room itself.
 
-It may not make a classic misdiagnosis like CORS, but it will instead produce one plausible hypothesis after another and diligently run off to test and patch each one. The structure that keeps it spinning is identical, and because each individual move looks reasonable, the human notices later rather than sooner.
+So, are you out of the woods with a smarter model? Not quite. A smarter model just lowers the chances of getting sucked into a loop; it doesn't give you any extra exits.
 
-People keep saying "an agent is a loop" lately. A loop designed without an exit is, on metered billing, simply an expensive appetite.
+Sure, it won't fall for classic misdiagnoses like CORS, but instead, it'll earnestly pitch one plausible hypothesis after another, trying its absolute best to test and fix them.
 
-And here is the interesting bit. **It was precisely because the model was weak that this environment's flaw surfaced.** Had it succeeded first time, I would never have discovered that an agent has no way to say "I am stuck". I would not have noticed that the error message says `connect-src 'none'` and never says "use the `gadget` stub" either.
+The underlying loop remains the same, and because every single move sounds so reasonable, it actually takes humans longer to realise something's wrong.
 
-There is an asymmetry here. A design that works with a weak model works with a strong one. A design that works with a strong model tells you nothing about a weak one.
+You hear "agents are just loops" a lot these days, but a loop built without an exit is a pure cash drain on a pay-as-you-go plan.
 
-The brilliance of a frontier model hides the rough edges in your design. That is a form of measurement error.
+Here's the fun part, though: you could say we only spotted the flaws in this environment because we used a weaker model. If it had worked on the first try, we'd never have noticed that the agent had no way to say, "I'm stuck, help me out."
 
-One last thing. The tic tac toe I ended up with still has a bug. The board state lives only in the Durable Object's memory, so it vanishes when the server restarts. Cloudflare OS's Design Tips say this in plain language.
+Nor would we have realised that the error message simply prints `connect-src 'none'` without giving you a hint to "use the gadget stub."
+
+There's a clear asymmetry here: a design that works on a weaker model will work on a stronger one, but a design that works on a stronger model tells you nothing at all.
+
+The sheer intelligence of frontier models tends to hide sloppy design. It's a bit like a measurement error.
+
+One last thing. The tic-tac-toe game we built today still has a bug. Since the board state only lives in the Durable Object's memory, it poofs away if the server restarts. Even though Cloudflare OS Design Tips explicitly says:
 
 > ALWAYS store server state in Durable Object storage, not just in memory.
 
-And this is **the same bug** as the context overflow I spent all day fighting. Only the layer differs. Memory is a cache, and persistent storage is the truth. Working while writing out to files that do not vanish was the same lesson.
+And honestly, this is the exact same bug as the context overflow we fought all day, just on a different layer. Memory is just a cache; persistent storage is the ultimate source of truth.
 
-Having fallen over repeatedly, my verdict on Cloudflare OS itself is nevertheless "maybe this is just the answer". Call it a knee-jerk reaction if you like, but documents, apps and automation, most of the tedious things close inside this one thing. For plain use with an API key pasted in, I genuinely think this covers it.
+Me writing to permanent files while working was really the same idea all along.
 
-Whether you can handle it is another question. Frankly I suspect it is hard going without an engineering background. The security and governance are beyond reproach, but "being safe" and "being able to build" sit on different axes. I will leave that to the design article.
+After tripping over ourselves all day, my take on Cloudflare OS itself is: "Honestly, this might be all we need." Call it a knee-jerk reaction, but documentation, apps, automation, most of the annoying stuff is contained right here.
 
-And obviously this is all from the perspective of someone who is not attached to local LLMs or any particular model. If you are attached, you will be fighting outside the frame, like I did today.
+If you just plug in an API key and use it normally, I feel like this really gets the job done.
 
-The moment I was glad to be local came at the very end. That infinite CORS loop would have broken me by round three on metered billing. The only thing being consumed was electricity, so I could sit and watch it with a smile.
+That said, whether you can actually wield it is another story. To be frank, it feels like it'd be pretty rough without a technical background.
 
-**Running locally makes patience free**, for your wallet and your token budget alike. That is a quietly large benefit.
+The security and governance are top-notch, but "being secure" and "being usable" are two totally different things. I'll save that for a separate post on design.
+
+And of course, this is assuming you're not obsessing over local LLMs or specific models like I am. If you do obsess, you end up fighting outside the box, just like we did today.
+
+The one moment I was truly glad to be running locally was at the very end. If that endless CORS loop had been running on a pay-as-you-go API, I would've thrown in the towel by round three.
+
+But since it was only burning electricity, I could just sit back and watch it unfold with a smile.
+
+Having a free pass on both your wallet and your token patience is, if you ask me, a quietly massive perk of going local.
