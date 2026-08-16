@@ -58,6 +58,7 @@ I wrote about why I picked Astro in the tech selection piece, and the implementa
 </a>
 
 
+
 In the tech selection piece I wrote that "a trial run at Islands Architecture is a perfectly respectable reason to choose something", and promised the punchline would get its own article.
 
 This is that article.
@@ -427,6 +428,7 @@ Every interaction is plain JavaScript inside `<script is:inline>`, roughly 40 li
 <span class="link-card-title">Migrating to Astro, How I Built a Bilingual Static Blog | akari.log</span>
 </span>
 </a>
+
 
 
 Being forced to decide whether something deserves an island turned into an opportunity to reconsider whether it needed JS at all.

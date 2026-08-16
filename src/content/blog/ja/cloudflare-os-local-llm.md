@@ -11,6 +11,7 @@ tags:
   - windows
   - ai
 lang: ja
+pair: cloudflare-os-local-llm-five-rounds
 source: zenn
 accent: '#E5007F'
 ---
