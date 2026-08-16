@@ -516,5 +516,16 @@
     "title": "Cloudflare Announces Second Quarter 2026 Financial Results",
     "image": "https://cf-assets.www.cloudflare.com/dzlvafdwdttg/53qCYhQbir5WtIU0VDWESo/5b0a0e044a5352bc0f43e122815779c8/unnamed-3.png"
   },
-  "https://assets.publishing.service.gov.uk/media/67976be7419bdbc8514fde5d/.Appendix_N.pdf": null
+  "https://assets.publishing.service.gov.uk/media/67976be7419bdbc8514fde5d/.Appendix_N.pdf": null,
+  "https://akari-iku.github.io/en/blog/why-i-chose-astro-and-github-pages/": {
+    "title": "Why I Chose Astro + GitHub Pages (and Almost Picked Cloudflare) | akari.log",
+    "image": "https://akari-iku.github.io/og/en/blog/why-i-chose-astro-and-github-pages.png"
+  },
+  "https://akari-iku.github.io/en/blog/astro-bilingual-blog-implementation/": {
+    "title": "Migrating to Astro, How I Built a Bilingual Static Blog | akari.log",
+    "image": "https://akari-iku.github.io/og/en/blog/astro-bilingual-blog-implementation.png"
+  },
+  "https://jasonformat.com/islands-architecture/": {
+    "title": "Islands Architecture - JASON Format"
+  }
 }
