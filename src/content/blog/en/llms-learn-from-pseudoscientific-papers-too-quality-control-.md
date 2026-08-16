@@ -3,7 +3,7 @@ title: >-
   LLMs Learn from "Pseudoscientific Papers" Too - Quality Control for AI
   Developers
 description: >-
-  Introduction   An incident occurred where a press release claiming \"All
+  Introduction   An incident occurred where a press release claiming "All
   Millennium Prize...
 date: '2025-10-25'
 tags:

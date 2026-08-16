@@ -475,5 +475,46 @@
   "https://akari-iku.github.io/blog/cloudflare-os-security-design/": {
     "title": "AIエージェントを「安全に暴れさせる」設計。Cloudflare OSのセキュリティとガバナンスを読む | akari.log",
     "image": "https://akari-iku.github.io/og/blog/cloudflare-os-security-design.png"
-  }
+  },
+  "https://www.akamai.com/newsroom/press-release/akamai-completes-acquisition-of-linode": {
+    "title": "Akamai Technologies Completes Acquisition of Linode to Provide Businesses with a Developer-friendly and Massively Distributed Platform to Build, Run and Secure Applications | Akamai",
+    "image": "https://www.akamai.com/content/dam/site/en/images/logo/akamai-logo-og-default.png"
+  },
+  "https://akari-iku.github.io/blog/cloudflare-design-philosophy/": {
+    "title": "Cloudflareは16年間ずっと同じことをしている。「通り道を支配する」という設計思想の話 | akari.log",
+    "image": "https://akari-iku.github.io/og/blog/cloudflare-design-philosophy.png"
+  },
+  "https://www.akamai.com/newsroom/press-release/akamai-completes-acquisition-of-api-security-company-noname": {
+    "title": "Akamai Completes Acquisition of API Security Company Noname | Akamai",
+    "image": "https://www.akamai.com/content/dam/site/en/images/logo/akamai-logo-og-default.png"
+  },
+  "https://www.akamai.com/newsroom/press-release/akamai-reports-second-quarter-2026-financial-results": {
+    "title": "Akamai Reports Second Quarter 2026 Financial Results | Akamai",
+    "image": "https://www.akamai.com/content/dam/site/en/images/logo/akamai-logo-og-default.png"
+  },
+  "https://www.akamai.com/newsroom/press-release/akamai-to-acquire-guardicore-to-extend-its-zero-trust-solutions-to-help-stop-ransomware1": {
+    "title": "Press Releases | Akamai",
+    "image": "https://www.akamai.com/content/dam/site/en/images/logo/akamai-logo-og-default.png"
+  },
+  "https://blog.cloudflare.com/introducing-universal-ssl/": {
+    "title": "Introducing Universal SSL",
+    "image": "https://blog.cloudflare.com/_emdash/api/media/file/01KW458ARBD57JTXNRGNM0YCTN.png"
+  },
+  "https://blog.cloudflare.com/cloudflare-2025-annual-founders-letter/": {
+    "title": "Cloudflare’s 2025 Annual Founders’ Letter",
+    "image": "https://blog.cloudflare.com/_emdash/api/media/file/01KW44JR1C38ZPP5Y9W5WKK7XB.png"
+  },
+  "https://cloudandclear.uk/cloud-exit-cost-audit-eu-data-act/": null,
+  "https://www.squarespace.com/press-releases/2023/9/7/squarespace-completes-acquisition-of-google-domains-assets": {
+    "title": "Squarespace Completes Acquisition of Google Domains Assets &mdash; Squarespace",
+    "image": "https://static1.squarespace.com/static/5134cbefe4b0c6fb04df8065/t/598b5bbb49fc2bfd47b9ca30/1502305217045/final_asset-press-and-media-banner.jpg"
+  },
+  "https://www.ir.akamai.com/news-releases/news-release-details/akamai-reports-first-quarter-2026-financial-results": {
+    "title": "Akamai Reports First Quarter 2026 Financial Results | Akamai Technologies Inc."
+  },
+  "https://www.cloudflare.com/press/press-releases/2026/cloudflare-announces-second-quarter-2026-financial-results/": {
+    "title": "Cloudflare Announces Second Quarter 2026 Financial Results",
+    "image": "https://cf-assets.www.cloudflare.com/dzlvafdwdttg/53qCYhQbir5WtIU0VDWESo/5b0a0e044a5352bc0f43e122815779c8/unnamed-3.png"
+  },
+  "https://assets.publishing.service.gov.uk/media/67976be7419bdbc8514fde5d/.Appendix_N.pdf": null
 }
