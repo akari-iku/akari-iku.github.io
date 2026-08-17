@@ -400,4 +400,13 @@ Astro's "zero JS by default" isn't a constraint, it's a design compass. Follow i
 
 I wrote about the technology selection process in [my previous article](https://akari-iku.github.io/en/blog/why-i-chose-astro-and-github-pages/), if you're interested.
 
-All source code is published on [GitHub](https://github.com/akari-iku/akari-iku.github.io/blob/main/README.en.md).
+All source code is published on GitHub:
+
+
+<a class="link-card" href="https://github.com/akari-iku/akari-iku.github.io" target="_blank" rel="noopener">
+<img class="link-card-thumb" src="https://opengraph.githubassets.com/8888105a4a22d026f016e1bf359fb9584cd133a768131983fb89c36e9d0a71ed/akari-iku/akari-iku.github.io" alt="" loading="lazy" referrerpolicy="no-referrer" />
+<span class="link-card-body">
+<span class="link-card-domain">github.com</span>
+<span class="link-card-title">GitHub - akari-iku/akari-iku.github.io: akari.log - personal site &amp; bilingual tech blog</span>
+</span>
+</a>

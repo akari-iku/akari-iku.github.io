@@ -101,7 +101,7 @@ Comparing the technical specifications of major models:
 
 **Reference Benchmarks**:
 - [ChatBot Arena Leaderboard](https://lmarena.ai/leaderboard) - Real-time performance comparison
-- [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) - Open-source model evaluation
+- [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) - Open-weight model evaluation
 
 ## Chapter 2: Classification and Selection Guidelines Based on Input/Output Modalities
 ### 2.1  Modality Matrix

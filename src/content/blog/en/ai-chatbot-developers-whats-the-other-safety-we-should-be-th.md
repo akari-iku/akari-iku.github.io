@@ -546,11 +546,13 @@ When selecting a model, it's absolutely best to try them out according to your i
 * Claude: Stronger ethical considerations, clear refusals.
 
 
-**Models with Weak/No Safety Filters:**
+**Models with Lighter Safety Tuning:**
 
 
-* Open-source models (Llama, etc.): No/weak filters.
-* High degree of freedom, but correspondingly high risk. (I personally like them, though.)
+* Open-weight models (Llama, Qwen, Mistral): refusal behaviour varies by variant, and base models ship with far less tuning than the hosted APIs.
+* Meta does provide Llama Guard, but it is a separate opt-in layer you wire up yourself.
+
+You get more control over behaviour, and correspondingly more of the safety work lands on you. I am rather fond of them, mind you, but they are not something to put in front of people unguarded.
 
 
 **Selection Criteria:**

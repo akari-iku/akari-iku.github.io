@@ -88,7 +88,7 @@ LM Arenaでトップという噂もあるし、何より名前がユーモア効
 
 **参考ベンチマーク**：
 - [ChatBot Arena Leaderboard](https://lmarena.ai/leaderboard) - リアルタイム性能比較
-- [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) - オープンソースモデル評価
+- [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) - オープンウェイトモデルの評価
 
 ## 第2章：入出力モダリティによる分類と選択指針
 

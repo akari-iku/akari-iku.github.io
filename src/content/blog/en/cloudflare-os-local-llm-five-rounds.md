@@ -20,9 +20,19 @@ accent: '#E5007F'
 
 ## Introduction
 
-In August 2026, Cloudflare open-sourced Cloudflare OS.
+Greetings from the island nation of Japan.
 
-Essentially, they released their entire AI agent environment, which is used by thousands of people internally. It writes documentation, builds apps, and automates tasks. Their pitch is that you can deploy all of this directly to your own Cloudflare account.
+Tic-tac-toe is a solved game. Nine squares, two symbols, and any child with a pencil can produce a working one in about four seconds. Mine took five rounds, 16,000 tokens, and an hour and a half, which I offer not as a benchmark but as a confession.
+
+In my defence, it all ran on a gaming PC with a local model, so the only meter ticking over was the electricity. There is a particular serenity in watching an AI go round in circles when it is not also going round your credit card.
+
+Cloudflare open-sourced their internal agent environment this August, the README mentioned running it locally, so I removed the last cloud from the equation.
+
+What followed was less a tutorial than an autopsy: an agent with no way to say it was stuck, and a context window quietly deleting its own instructions.
+
+By the end of this you will know where a local model hits the wall inside an agent environment, and which of those walls belong to the model, and which belong to the room it was put in.
+
+What they released is the entire AI agent environment used by thousands of people internally. It writes documentation, builds apps, and automates tasks. Their pitch is that you can deploy all of this directly to your own Cloudflare account.
 
 
 <a class="link-card" href="https://blog.cloudflare.com/cloudflare-os/" target="_blank" rel="noopener">
@@ -44,9 +54,9 @@ If it can run locally, the cost is zero. Furthermore, if you swap the model out 
 
 So, I decided to give it a go.
 
-To cut a long story short, it did work. However, it took 5 rounds, about 16,000 tokens, and an hour and a half to go from saying "create a tic-tac-toe game" to actually having something playable.
+To cut a long story short, it did work. It just took all five of those rounds to get from "create a tic-tac-toe game" to something actually playable.
 
-Granted, that included me keeping an eye on things and giving instructions at various points.
+Granted, that hour and a half included me keeping an eye on things and giving instructions at various points.
 
 What is more, those 5 failures were each interesting for different reasons, which is why I am writing this article. It felt like peeling back the design philosophy of the Cloudflare OS product one layer at a time with every failure.
 
