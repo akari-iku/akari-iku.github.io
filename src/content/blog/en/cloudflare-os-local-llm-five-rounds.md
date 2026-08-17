@@ -18,21 +18,13 @@ accent: '#E5007F'
 
 <!-- generated from articles/dev/2026-08-09-cloudflare-os-local-llm-five-rounds.md by scripts/import-articles.ts - do not edit -->
 
-## Introduction
-
 Greetings from the island nation of Japan.
 
-Tic-tac-toe is a solved game. Nine squares, two symbols, and any child with a pencil can produce a working one in about four seconds. Mine took five rounds, 16,000 tokens, and an hour and a half, which I offer not as a benchmark but as a confession.
+Tic-tac-toe is a solved game. Nine squares, two symbols, and any child with a pencil can produce a working one in about four seconds. Mine took five rounds, 16,000 tokens, and an hour and a half, which I offer not as a benchmark but as a confession. In my defence, it all ran on a gaming PC with a local model, so the only meter ticking over was the electricity, and there is a particular serenity in watching an AI go round in circles when it is not also going round your credit card. Cloudflare open-sourced their internal agent environment this August, the README mentioned running it locally, so I removed the last cloud from the equation. What followed was less a tutorial than an autopsy: an agent with no way to say it was stuck, and a context window quietly deleting its own instructions (neither of which announces itself, which is rather the point). By the end of this you will know where a local model hits the wall inside an agent environment, and which of those walls belong to the model, and which belong to the room it was put in.
 
-In my defence, it all ran on a gaming PC with a local model, so the only meter ticking over was the electricity. There is a particular serenity in watching an AI go round in circles when it is not also going round your credit card.
+## Introduction
 
-Cloudflare open-sourced their internal agent environment this August, the README mentioned running it locally, so I removed the last cloud from the equation.
-
-What followed was less a tutorial than an autopsy: an agent with no way to say it was stuck, and a context window quietly deleting its own instructions.
-
-By the end of this you will know where a local model hits the wall inside an agent environment, and which of those walls belong to the model, and which belong to the room it was put in.
-
-What they released is the entire AI agent environment used by thousands of people internally. It writes documentation, builds apps, and automates tasks. Their pitch is that you can deploy all of this directly to your own Cloudflare account.
+What Cloudflare released is the entire AI agent environment used by thousands of people internally. It writes documentation, builds apps, and automates tasks. Their pitch is that you can deploy all of this directly to your own Cloudflare account.
 
 
 <a class="link-card" href="https://blog.cloudflare.com/cloudflare-os/" target="_blank" rel="noopener">
