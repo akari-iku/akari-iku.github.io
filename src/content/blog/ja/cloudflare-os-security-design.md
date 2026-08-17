@@ -11,6 +11,7 @@ tags:
   - llm
   - エージェント
 lang: ja
+pair: cloudflare-os-security-design
 source: zenn
 accent: '#E51A14'
 ---

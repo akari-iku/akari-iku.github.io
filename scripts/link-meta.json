@@ -527,5 +527,10 @@
   },
   "https://jasonformat.com/islands-architecture/": {
     "title": "Islands Architecture - JASON Format"
-  }
+  },
+  "https://akari-iku.github.io/en/blog/cloudflare-os-local-llm-five-rounds/": {
+    "title": "Running Cloudflare OS on a Local LLM, and Why One Tic-Tac-Toe Took Five Rounds | akari.log",
+    "image": "https://akari-iku.github.io/og/en/blog/cloudflare-os-local-llm-five-rounds.png"
+  },
+  "https://akari-iku.github.io/en/blog/multi-model-handoff/": null
 }

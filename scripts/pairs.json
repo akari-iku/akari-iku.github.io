@@ -22,5 +22,7 @@
   "personal-site-tech-selection": "why-i-chose-astro-and-github-pages",
   "astro-bilingual-blog-implementation": "astro-bilingual-blog-implementation",
   "frontend-architecture-landscape": "frontend-architecture-mpa-to-islands",
-  "cloudflare-os-local-llm": "cloudflare-os-local-llm-five-rounds"
+  "cloudflare-os-local-llm": "cloudflare-os-local-llm-five-rounds",
+  "cloudflare-os-security-design": "cloudflare-os-security-design",
+  "multi-model-handoff": "multi-model-handoff"
 }

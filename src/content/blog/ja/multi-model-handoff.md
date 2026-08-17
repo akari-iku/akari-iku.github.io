@@ -10,6 +10,7 @@ tags:
   - 設計
   - エージェント
 lang: ja
+pair: multi-model-handoff
 source: zenn
 accent: '#E5007F'
 ---
