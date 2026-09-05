@@ -24,5 +24,6 @@
   "frontend-architecture-landscape": "frontend-architecture-mpa-to-islands",
   "cloudflare-os-local-llm": "cloudflare-os-local-llm-five-rounds",
   "cloudflare-os-security-design": "cloudflare-os-security-design",
-  "multi-model-handoff": "multi-model-handoff"
+  "multi-model-handoff": "multi-model-handoff",
+  "qwen38-27b-8gb-vram": "qwen38-27b-8gb-vram"
 }

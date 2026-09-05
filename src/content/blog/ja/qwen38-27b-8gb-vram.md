@@ -11,6 +11,7 @@ tags:
   - localllm
   - qwen
 lang: ja
+pair: qwen38-27b-8gb-vram
 source: zenn
 accent: '#E5007F'
 ---
@@ -1151,5 +1152,18 @@ ollama create qwen38-8g -f Modelfile
 >>> /set parameter num_ctx 4096
 ```
 
+
+</details>
+
+<details><summary>次に試すこと</summary>
+
+
+- [ ] `qwen3:30b-a3b`（MoE）との同一条件比較。1bit密モデル27B vs MoE 30B-A3B
+- [ ] UD-IQ1_M（6.73GB）と UD-IQ2_XXS の品質差を同じコード課題で測る
+- [ ] lm-evaluation-harness をAPI経由（`local-chat-completions`）で回して数値化する。Unsloth公称の「1bitで72%精度保持」を自分の環境で検証する
+- [ ] TypeScript + hooks（`tsc --noEmit` + テスト）での実運用を試す
+- [ ] presence_penalty を 0.3 / 0.8 / 1.5 で振って、コード品質との相関を見る
+- [ ] Ollama で `presence_penalty 1.5` を指定して、「夏は暑く」×18回が止まるか確認する
+- [ ] 14Bクラス（4bit）が8GBに収まるか検証。8B → 14B で精度がどこまで伸びるか
 
 </details>
