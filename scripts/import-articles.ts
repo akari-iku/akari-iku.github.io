@@ -526,6 +526,39 @@ function writePost(
  * dev.to renders them natively) + canonical_url pointing back at the site.
  * Output is gitignored; paste it into the dev.to editor as-is.
  */
+/** Zenn syntax dev.to cannot render: :::details → Liquid tags, filename fences → plain fences. */
+function convertZennForDevto(body: string): string {
+  const out: string[] = [];
+  let inCode = false;
+  for (const line of body.split('\n')) {
+    if (line.startsWith('```')) {
+      if (!inCode) {
+        inCode = true;
+        out.push(line.replace(/^```([A-Za-z0-9_+-]+):\S+.*$/, '```$1'));
+      } else {
+        inCode = false;
+        out.push(line);
+      }
+      continue;
+    }
+    if (inCode) {
+      out.push(line);
+      continue;
+    }
+    const details = line.match(/^:::details\s+(.+)$/);
+    if (details) {
+      out.push(`{% details ${details[1]} %}`);
+      continue;
+    }
+    if (line.trim() === ':::') {
+      out.push('{% enddetails %}');
+      continue;
+    }
+    out.push(line);
+  }
+  return out.join('\n');
+}
+
 function writeDevtoExport(
   slug: string,
   data: Record<string, unknown>,
@@ -607,7 +640,7 @@ function run(): void {
     const tags = normalizeTags(raw.data.tags);
     trackTagGaps(`en/${a.slug}`, tags);
     const pairJa = enToJa[a.slug];
-    writeDevtoExport(a.slug, raw.data, filterTarget(raw.content, 'devto'));
+    writeDevtoExport(a.slug, raw.data, convertZennForDevto(filterTarget(raw.content, 'devto')));
     writePost(
       outEn,
       a.slug,
