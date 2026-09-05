@@ -17,7 +17,7 @@ source: dev
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/dev/2026-08-09-multi-model-handoff.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2026-08-09-multi-model-handoff.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan.
 

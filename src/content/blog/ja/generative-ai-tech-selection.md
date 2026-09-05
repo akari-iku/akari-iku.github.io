@@ -15,7 +15,7 @@ source: zenn
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/zenn/2025-09-19-generative-ai-tech-selection.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-09-19-generative-ai-tech-selection.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに：曖昧すぎる「生成AI」という概念
 

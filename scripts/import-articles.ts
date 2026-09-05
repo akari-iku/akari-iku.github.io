@@ -543,8 +543,18 @@ function writeDevtoExport(
 }
 
 function run(): void {
-  const zennDir = path.join(config.articlesDir, 'zenn');
-  const devDir = path.join(config.articlesDir, 'dev');
+  // 正本リポジトリの新構造（source/）と旧構造（old-*）の両方から読む。
+  // 旧構造の記事は移行しない方針のため、両方が恒久的に共存する
+  const zennDirs = ['old-zenn', 'source/ja'].map((d) =>
+    path.join(config.articlesDir, d),
+  );
+  const devDirs = ['old-dev', 'source/en'].map((d) =>
+    path.join(config.articlesDir, d),
+  );
+  const listAll = (dirs: string[]): SourceArticle[] =>
+    dirs.filter((d) => fs.existsSync(d)).flatMap(listArticles);
+  const sourceRel = (file: string): string =>
+    path.relative(config.articlesDir, file).split(path.sep).join('/');
   const outJa = path.join(root, 'src', 'content', 'blog', 'ja');
   const outEn = path.join(root, 'src', 'content', 'blog', 'en');
   const descriptions: Record<string, string> = {};
@@ -555,7 +565,7 @@ function run(): void {
     else if (romajiLabel(tags) === 'LOG') labelFallback.push(`${id} [${tags.join(', ')}]`);
   };
 
-  const zenn = listArticles(zennDir);
+  const zenn = listAll(zennDirs);
   const jaAccent: Record<string, string> = {};
   for (const a of zenn) {
     const raw = readSource(a.file);
@@ -583,11 +593,11 @@ function run(): void {
         accent: jaAccent[a.slug],
       },
       convertZennBody(filterTarget(raw.content, 'site')),
-      `zenn/${path.basename(a.file)}`,
+      sourceRel(a.file),
     );
   }
 
-  const dev = listArticles(devDir);
+  const dev = listAll(devDirs);
   for (const a of dev) {
     const raw = readSource(a.file);
     const description =
@@ -613,7 +623,7 @@ function run(): void {
         accent: (pairJa && jaAccent[pairJa]) || accentFor(tags),
       },
       convertDevBody(filterTarget(raw.content, 'site')),
-      `dev/${path.basename(a.file)}`,
+      sourceRel(a.file),
     );
   }
 

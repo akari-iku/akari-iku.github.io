@@ -17,7 +17,7 @@ source: dev
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/dev/2026-01-24-gas-x-geminiprompt-to-create-an-in-house-web-app-with-uiux-a.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2026-01-24-gas-x-geminiprompt-to-create-an-in-house-web-app-with-uiux-a.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan. We live in an era of AI-driven dreams, yet we still spend our afternoons wrestling with Google Sheets as if they were ancient stone tablets. Google Apps Script (GAS) has long been the "utility closet" of the digital workplace—functional, but usually aesthetically offensive enough to make a designer weep. I, too, have committed the sin of building tools that look like they were designed by a caffeinated toddler. But why settle for mere "vibes" when a 1,200-line prompt can weaponize high-end design guidelines to force elegance onto a humble spreadsheet? This isn't just about aesthetics; it's about tricking your colleagues into believing you have a secret design department in your home office. By the end of this, you'll be wielding a prompt that transforms a "mere macro" into a web app that finally respects human dignity.
 

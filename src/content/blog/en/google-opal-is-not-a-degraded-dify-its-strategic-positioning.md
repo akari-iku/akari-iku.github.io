@@ -17,7 +17,7 @@ source: dev
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/dev/2025-10-12-google-opal-is-not-a-degraded-dify-its-strategic-positioning.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-10-12-google-opal-is-not-a-degraded-dify-its-strategic-positioning.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from Japan. My devotion to Google runs deep,
 and colleagues jokingly ask if I'm planning to write a company anthem.

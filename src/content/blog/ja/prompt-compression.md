@@ -14,7 +14,7 @@ source: zenn
 accent: '#FF6B00'
 ---
 
-<!-- generated from articles/zenn/2025-10-01-prompt-compression.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-10-01-prompt-compression.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 

@@ -10,7 +10,7 @@ source: zenn
 accent: '#FF6B00'
 ---
 
-<!-- generated from articles/zenn/2025-11-10-tech-blog-journey.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-11-10-tech-blog-journey.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 技術ブログ、みなさん書いてますか？ROM専（読む専門）派、という方も多いと思います。

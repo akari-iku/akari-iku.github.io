@@ -15,7 +15,7 @@ source: dev
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/dev/2026-03-07-windows-gotchas-claude-code.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2026-03-07-windows-gotchas-claude-code.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan. I find myself wondering why, in a world where **59% of developers use Windows**, so much of the Claude Code documentation reads like a love letter exclusively addressed to macOS users. Well, I suppose us Windows developers are rather accustomed to being the majority that everyone politely ignores (personally very grateful for this recurring life lesson). My favourite chapter of this saga involved spending a solid thirty minutes dissecting VS Code settings, convinced something was profoundly misconfigured, only to discover the entire ordeal was a matter of pressing **Alt+V instead of Ctrl+V**. The settings were fine. The documentation simply never mentioned it. This article is my humble attempt to organise every Windows-specific pitfall into one place, so you can skip the part where you question your own competence. Truly.
 

@@ -17,7 +17,7 @@ source: dev
 accent: '#E51A14'
 ---
 
-<!-- generated from articles/dev/2026-08-10-cloudflare-os-security-design.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2026-08-10-cloudflare-os-security-design.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan.
 

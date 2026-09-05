@@ -14,7 +14,7 @@ source: zenn
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/zenn/2026-08-10-cloudflare-design-philosophy.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2026-08-10-cloudflare-design-philosophy.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 

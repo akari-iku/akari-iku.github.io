@@ -10,7 +10,7 @@ source: dev
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/dev/2025-10-04-ai-makes-it-cheaper-right-is-this-happening-in-your-country-.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-10-04-ai-makes-it-cheaper-right-is-this-happening-in-your-country-.md by scripts/import-articles.ts - do not edit -->
 
 The other day, I read an article written by someone working at a web design company, and I couldn't help but let out an "Oh no, this is..."
 

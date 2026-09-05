@@ -16,7 +16,7 @@ source: zenn
 accent: '#00B06B'
 ---
 
-<!-- generated from articles/zenn/2026-07-23-astro-bilingual-blog-implementation.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2026-07-23-astro-bilingual-blog-implementation.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 

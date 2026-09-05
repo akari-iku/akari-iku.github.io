@@ -15,7 +15,7 @@ source: dev
 accent: '#00B06B'
 ---
 
-<!-- generated from articles/dev/2025-10-21-analyzing-the-best-diagramming-tools-for-the-llm-age-based-o.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-10-21-analyzing-the-best-diagramming-tools-for-the-llm-age-based-o.md by scripts/import-articles.ts - do not edit -->
 
 ## What is everyone using!? The Diagram Tool Wars in the LLM Era
 

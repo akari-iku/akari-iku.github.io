@@ -14,7 +14,7 @@ source: zenn
 accent: '#00B06B'
 ---
 
-<!-- generated from articles/zenn/2025-11-04-diagramming-tools.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-11-04-diagramming-tools.md by scripts/import-articles.ts - do not edit -->
 
 システム構成図やシーケンス図を描くとき、**「どのツールを使えばいいの？」** と悩んでいませんか？
 

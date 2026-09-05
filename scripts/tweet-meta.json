@@ -41,5 +41,17 @@
     "text": "gogとgwsの速度比較。\n\ngmailのメール本文を10件取得ではgwsのほうが遅い。\n→ gwsはGoogle APIの単純なwrapperなので、threadの取得+メール本文の取得で2コマンドになる。HTTP/2コネクションを2回張っているので遅い？\n\nAI的にはgwsコマンドのほうがgoogleapi準拠なので使いやすい可能性あり。",
     "date": "2026-03-05"
   },
-  "https://x.com/dpaluy/status/1887385427687965102": null
+  "https://x.com/dpaluy/status/1887385427687965102": null,
+  "https://x.com/UnslothAI/status/2089541444466090064": {
+    "name": "Unsloth AI",
+    "screenName": "UnslothAI",
+    "text": "Qwen3.8-27B Unsloth GGUF is now the #2 trending model on Hugging Face with 2.7M downloads! 💗\n\nUnsloth also reached #3 trending on GitHub!\n\nThanks so much for the love!\n\nModel: https://t.co/xIdNwm7CLQ\nGitHub: https://t.co/aZWYAtakBP",
+    "date": "2026-08-18"
+  },
+  "https://x.com/UnslothAI/status/2090103470015828184": {
+    "name": "Unsloth AI",
+    "screenName": "UnslothAI",
+    "text": "We’re releasing new Qwen3.8-27B GGUFs with 10% higher accuracy.\n\nUnsloth Dynamic V3 outperforms others by &gt;10% on Div-300, KLD &amp; more benchmarks.\n\nWe also release 1-bit quants that retain 77% accuracy. Run on 8GB RAM.\n\nBlog: https://t.co/tHsBexyh2K\nGGUF: https://t.co/xIdNwm7CLQ",
+    "date": "2026-08-19"
+  }
 }

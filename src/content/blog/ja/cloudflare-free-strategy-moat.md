@@ -14,7 +14,7 @@ source: zenn
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/zenn/2026-08-16-cloudflare-free-strategy-moat.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2026-08-16-cloudflare-free-strategy-moat.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 

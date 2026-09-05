@@ -14,7 +14,7 @@ source: zenn
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/zenn/2025-10-26-llm-learning-quality.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-10-26-llm-learning-quality.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 

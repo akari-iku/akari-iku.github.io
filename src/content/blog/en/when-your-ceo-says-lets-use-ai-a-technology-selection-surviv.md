@@ -14,7 +14,7 @@ source: dev
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/dev/2025-09-20-when-your-ceo-says-lets-use-ai-a-technology-selection-surviv.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-09-20-when-your-ceo-says-lets-use-ai-a-technology-selection-surviv.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from Japan.
 The CEO declares: ‘Let's introduce generative AI to improve operational efficiency.’

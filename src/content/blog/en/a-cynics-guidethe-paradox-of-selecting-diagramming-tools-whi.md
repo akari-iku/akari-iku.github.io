@@ -17,7 +17,7 @@ source: dev
 accent: '#00B06B'
 ---
 
-<!-- generated from articles/dev/2025-11-06-a-cynics-guidethe-paradox-of-selecting-diagramming-tools-whi.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-11-06-a-cynics-guidethe-paradox-of-selecting-diagramming-tools-whi.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan.
 

@@ -15,7 +15,7 @@ source: dev
 accent: '#E51A14'
 ---
 
-<!-- generated from articles/dev/2025-10-17-ai-chatbot-developers-whats-the-other-safety-we-should-be-th.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-10-17-ai-chatbot-developers-whats-the-other-safety-we-should-be-th.md by scripts/import-articles.ts - do not edit -->
 
 ## California Bill Highlights User Protection Perspective in AI
 

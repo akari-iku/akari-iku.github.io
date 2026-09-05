@@ -14,7 +14,7 @@ source: dev
 accent: '#E51A14'
 ---
 
-<!-- generated from articles/dev/2025-11-12-in-2025-ai-regulations-were-established-in-four-major-global.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-11-12-in-2025-ai-regulations-were-established-in-four-major-global.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan.
 

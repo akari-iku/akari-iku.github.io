@@ -16,7 +16,7 @@ source: zenn
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/zenn/2025-10-13-google-opal.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-10-13-google-opal.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 

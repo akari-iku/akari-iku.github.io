@@ -14,7 +14,7 @@ source: zenn
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/zenn/2025-11-15-base64-guide.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-11-15-base64-guide.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 最近個人の趣味のゆる開発でも仕事開発でも本当に「BASE64」に出会う。

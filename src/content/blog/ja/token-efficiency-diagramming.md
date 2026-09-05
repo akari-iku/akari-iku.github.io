@@ -16,7 +16,7 @@ source: zenn
 accent: '#00B06B'
 ---
 
-<!-- generated from articles/zenn/2025-10-22-token-efficiency-diagramming.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-10-22-token-efficiency-diagramming.md by scripts/import-articles.ts - do not edit -->
 
 ## みんな何使ってる！？LLM時代の作図ツール戦争
 

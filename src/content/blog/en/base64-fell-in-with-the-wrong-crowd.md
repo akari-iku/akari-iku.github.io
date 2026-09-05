@@ -16,7 +16,7 @@ source: dev
 accent: '#E51A14'
 ---
 
-<!-- generated from articles/dev/2026-05-06-base64-fell-in-with-the-wrong-crowd.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2026-05-06-base64-fell-in-with-the-wrong-crowd.md by scripts/import-articles.ts - do not edit -->
 
 ## Introduction
 

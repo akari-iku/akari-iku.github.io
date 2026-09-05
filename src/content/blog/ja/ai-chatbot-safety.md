@@ -16,7 +16,7 @@ source: zenn
 accent: '#E51A14'
 ---
 
-<!-- generated from articles/zenn/2025-10-14-ai-chatbot-safety.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-10-14-ai-chatbot-safety.md by scripts/import-articles.ts - do not edit -->
 
 ## カリフォルニア州法案が示すユーザー保護の視点
 

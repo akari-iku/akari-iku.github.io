@@ -15,7 +15,7 @@ source: zenn
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/zenn/2026-08-09-multi-model-handoff.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2026-08-09-multi-model-handoff.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 

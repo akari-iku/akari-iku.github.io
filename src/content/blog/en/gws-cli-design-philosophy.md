@@ -15,7 +15,7 @@ source: dev
 accent: '#E51A14'
 ---
 
-<!-- generated from articles/dev/2026-03-07-gws-cli-design-philosophy.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2026-03-07-gws-cli-design-philosophy.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan.
 Every now and then, you stumble upon a technical blog post that disguises itself as a how-I-built-my-CLI walkthrough, only to quietly unfold into something far more interesting. Justin Poehnelt, a Senior DevRel at Google, recently released a CLI for Google Workspace, and wrote about its design. I expected implementation details. What I got was a **Zero Trust design philosophy** for AI agents, dressed in Rust and JSON. It's the engineering equivalent of ordering a simple bowl of ramen and discovering the chef has been quietly perfecting the broth for thirty years. By the end of this article, you'll see why the principles behind this CLI matter well beyond the command line, and why they might reshape how you think about designing anything that involves AI agents.

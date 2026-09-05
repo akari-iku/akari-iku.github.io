@@ -17,7 +17,7 @@ source: dev
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/dev/2025-09-19-the-era-of-choosing-rag-learning-cognitive-load-and-architec.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-09-19-the-era-of-choosing-rag-learning-cognitive-load-and-architec.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan.
 My English may be rather difficult to read.

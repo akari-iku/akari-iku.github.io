@@ -12,7 +12,7 @@ source: zenn
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/zenn/2025-11-27-toon-token-format.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-11-27-toon-token-format.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 JSONくん、君はちょっと「おしゃべり」すぎるかもしれない。

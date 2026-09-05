@@ -12,7 +12,7 @@ source: zenn
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/zenn/2026-01-31-git-github-history.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2026-01-31-git-github-history.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに：深夜に中指を立てたおじさんと会う
 

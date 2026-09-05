@@ -16,7 +16,7 @@ source: zenn
 accent: '#E51A14'
 ---
 
-<!-- generated from articles/zenn/2026-08-10-cloudflare-os-security-design.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2026-08-10-cloudflare-os-security-design.md by scripts/import-articles.ts - do not edit -->
 
 ## はじめに
 

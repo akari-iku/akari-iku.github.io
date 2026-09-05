@@ -16,7 +16,7 @@ source: zenn
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/zenn/2025-10-27-rag-architecture-patterns.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-10-27-rag-architecture-patterns.md by scripts/import-articles.ts - do not edit -->
 
 # AIエージェント時代におけるRAGアーキテクチャを7種類のパターンでわける
 

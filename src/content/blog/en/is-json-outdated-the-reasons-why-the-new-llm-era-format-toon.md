@@ -12,7 +12,7 @@ source: dev
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/dev/2025-11-27-is-json-outdated-the-reasons-why-the-new-llm-era-format-toon.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-11-27-is-json-outdated-the-reasons-why-the-new-llm-era-format-toon.md by scripts/import-articles.ts - do not edit -->
 
 # TOON vs JSON: A Token-Efficient Data Format for LLM Applications
 

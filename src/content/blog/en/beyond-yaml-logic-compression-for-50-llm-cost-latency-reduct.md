@@ -15,7 +15,7 @@ source: dev
 accent: '#FF6B00'
 ---
 
-<!-- generated from articles/dev/2025-09-30-beyond-yaml-logic-compression-for-50-llm-cost-latency-reduct.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-09-30-beyond-yaml-logic-compression-for-50-llm-cost-latency-reduct.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan. In programming, what we fear is spaghetti code.
 In prompt engineering, one should fear the ‘spaghetti prompt’—

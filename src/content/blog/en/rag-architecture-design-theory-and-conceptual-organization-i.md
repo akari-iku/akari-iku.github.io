@@ -17,7 +17,7 @@ source: dev
 accent: '#00A0E9'
 ---
 
-<!-- generated from articles/dev/2025-10-27-rag-architecture-design-theory-and-conceptual-organization-i.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-dev/2025-10-27-rag-architecture-design-theory-and-conceptual-organization-i.md by scripts/import-articles.ts - do not edit -->
 
 Greetings from the island nation of Japan.
 

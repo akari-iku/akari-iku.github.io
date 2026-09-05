@@ -13,7 +13,7 @@ source: zenn
 accent: '#00B06B'
 ---
 
-<!-- generated from articles/zenn/2025-06-29-manus-poem.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-06-29-manus-poem.md by scripts/import-articles.ts - do not edit -->
 
 <aside class="callout">
 

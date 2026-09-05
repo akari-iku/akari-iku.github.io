@@ -14,7 +14,7 @@ source: zenn
 accent: '#E5007F'
 ---
 
-<!-- generated from articles/zenn/2025-09-02-rag-architecture-selection.md by scripts/import-articles.ts - do not edit -->
+<!-- generated from articles/old-zenn/2025-09-02-rag-architecture-selection.md by scripts/import-articles.ts - do not edit -->
 
 # RAGを選ぶ時代 - GPT-5の炎上から学ぶ認知負荷とアーキテクチャ設計
 
