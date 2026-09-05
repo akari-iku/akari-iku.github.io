@@ -24,11 +24,11 @@ accent: '#E5007F'
 前回、VRAM 8GBのゲーミングPCでCloudflare OSを動かして、三目並べ1個に5ラウンドかかった話を書きました。
 
 
-<a class="link-card" href="https://zenn.dev/akari1106/articles/20109e62a4b8b7" target="_blank" rel="noopener">
-<img class="link-card-thumb" src="https://res.cloudinary.com/zenn/image/upload/s--Or-aDNBD--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Cloudflare%2520OS%25E3%2582%2592VRAM%25208GB%25E3%2581%25AE%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0PC%25E3%2581%25A7%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%259F%25E3%2582%2589%25E3%2580%2581%25E4%25B8%2589%25E7%259B%25AE%25E4%25B8%25A6%25E3%2581%25B91%25E5%2580%258B%25E3%2581%25AB5%25E3%2583%25A9%25E3%2582%25A6%25E3%2583%25B3%25E3%2583%2589%25E3%2581%258B%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2581%25AF%25E9%2587%258C%2528akari%2529%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZTcxYTI4M2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE" alt="" loading="lazy" referrerpolicy="no-referrer" />
+<a class="link-card" href="https://akari-iku.github.io/blog/cloudflare-os-local-llm/" target="_blank" rel="noopener">
+<img class="link-card-thumb" src="https://akari-iku.github.io/og/blog/cloudflare-os-local-llm.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
 <span class="link-card-body">
-<span class="link-card-domain">zenn.dev</span>
-<span class="link-card-title">Cloudflare OSをVRAM 8GBのゲーミングPCで動かしたら、三目並べ1個に5ラウンドかかった話</span>
+<span class="link-card-domain">akari-iku.github.io</span>
+<span class="link-card-title">Cloudflare OSをVRAM 8GBのゲーミングPCで動かしたら、三目並べ1個に5ラウンドかかった話 | akari.log</span>
 </span>
 </a>
 
@@ -1151,18 +1151,5 @@ ollama create qwen38-8g -f Modelfile
 >>> /set parameter num_ctx 4096
 ```
 
-
-</details>
-
-<details><summary>次に試すこと</summary>
-
-
-- [ ] `qwen3:30b-a3b`（MoE）との同一条件比較。1bit密モデル27B vs MoE 30B-A3B
-- [ ] UD-IQ1_M（6.73GB）と UD-IQ2_XXS の品質差を同じコード課題で測る
-- [ ] lm-evaluation-harness をAPI経由（`local-chat-completions`）で回して数値化する。Unsloth公称の「1bitで72%精度保持」を自分の環境で検証する
-- [ ] TypeScript + hooks（`tsc --noEmit` + テスト）での実運用を試す
-- [ ] presence_penalty を 0.3 / 0.8 / 1.5 で振って、コード品質との相関を見る
-- [ ] Ollama で `presence_penalty 1.5` を指定して、「夏は暑く」×18回が止まるか確認する
-- [ ] 14Bクラス（4bit）が8GBに収まるか検証。8B → 14B で精度がどこまで伸びるか
 
 </details>
