@@ -959,9 +959,10 @@ I actually wrote about designing handoff structures between models a while back:
 
 
 <a class="link-card" href="https://akari-iku.github.io/en/blog/multi-model-handoff/" target="_blank" rel="noopener">
+<img class="link-card-thumb" src="https://akari-iku.github.io/og/en/blog/multi-model-handoff.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
 <span class="link-card-body">
 <span class="link-card-domain">akari-iku.github.io</span>
-<span class="link-card-title">https://akari-iku.github.io/en/blog/multi-model-handoff/</span>
+<span class="link-card-title">Developing with Multiple Models? Make Sure You Design the Handoff | akari.log</span>
 </span>
 </a>
 

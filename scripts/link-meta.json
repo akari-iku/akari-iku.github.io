@@ -532,7 +532,6 @@
     "title": "Running Cloudflare OS on a Local LLM, and Why One Tic-Tac-Toe Took Five Rounds | akari.log",
     "image": "https://akari-iku.github.io/og/en/blog/cloudflare-os-local-llm-five-rounds.png"
   },
-  "https://akari-iku.github.io/en/blog/multi-model-handoff/": null,
   "https://zenn.dev/akari1106/articles/20109e62a4b8b7": {
     "title": "Cloudflare OSをVRAM 8GBのゲーミングPCで動かしたら、三目並べ1個に5ラウンドかかった話",
     "image": "https://res.cloudinary.com/zenn/image/upload/s--Or-aDNBD--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Cloudflare%2520OS%25E3%2582%2592VRAM%25208GB%25E3%2581%25AE%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0PC%25E3%2581%25A7%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%259F%25E3%2582%2589%25E3%2580%2581%25E4%25B8%2589%25E7%259B%25AE%25E4%25B8%25A6%25E3%2581%25B91%25E5%2580%258B%25E3%2581%25AB5%25E3%2583%25A9%25E3%2582%25A6%25E3%2583%25B3%25E3%2583%2589%25E3%2581%258B%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2581%25AF%25E9%2587%258C%2528akari%2529%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZTcxYTI4M2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
@@ -548,5 +547,17 @@
   "https://x.com/UnslothAI/status/2090103470015828184": {
     "title": "Unsloth AI (@UnslothAI) on X",
     "image": "https://pbs.twimg.com/media/HQGJu-xaQAAs-Jg.jpg:large"
+  },
+  "https://akari-iku.github.io/en/blog/cloudflare-os-security-design/": {
+    "title": "Cloudflare OS Lets an AI Agent Run Wild Without Letting It Leak | akari.log",
+    "image": "https://akari-iku.github.io/og/en/blog/cloudflare-os-security-design.png"
+  },
+  "https://x.com/yusukebe/status/2088199983946416510": {
+    "title": "Yusuke Wada (@yusukebe) on X",
+    "image": "https://pbs.twimg.com/card_img/2095640820506378241/6-Y2pTHt?format=webp&name=medium"
+  },
+  "https://akari-iku.github.io/en/blog/multi-model-handoff/": {
+    "title": "Developing with Multiple Models? Make Sure You Design the Handoff | akari.log",
+    "image": "https://akari-iku.github.io/og/en/blog/multi-model-handoff.png"
   }
 }

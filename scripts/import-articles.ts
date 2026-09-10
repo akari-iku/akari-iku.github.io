@@ -139,7 +139,11 @@ async function fetchTweet(url: string): Promise<TweetMeta | null> {
 function readSource(file: string): { data: Record<string, unknown>; content: string } {
   const src = fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
   try {
-    const parsed = matter(src);
+    // Pass explicit options to bypass gray-matter's cache: it caches the file
+    // object BEFORE parsing, so a failed parse poisons the cache and a second
+    // call returns content with the frontmatter still embedded (no throw),
+    // which then crashes the devto export on re-parse.
+    const parsed = matter(src, {});
     return { data: parsed.data, content: parsed.content };
   } catch {
     // Some backup files contain invalid YAML (e.g. unescaped quotes in title).

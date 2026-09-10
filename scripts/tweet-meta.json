@@ -53,5 +53,11 @@
     "screenName": "UnslothAI",
     "text": "We’re releasing new Qwen3.8-27B GGUFs with 10% higher accuracy.\n\nUnsloth Dynamic V3 outperforms others by &gt;10% on Div-300, KLD &amp; more benchmarks.\n\nWe also release 1-bit quants that retain 77% accuracy. Run on 8GB RAM.\n\nBlog: https://t.co/tHsBexyh2K\nGGUF: https://t.co/xIdNwm7CLQ",
     "date": "2026-08-19"
+  },
+  "https://x.com/yusukebe/status/2088199983946416510": {
+    "name": "Yusuke Wada",
+    "screenName": "yusukebe",
+    "text": "うおお、正座して読め！\n\nCloudflareは16年間ずっと同じことをしている。「通り道を支配する」という設計思想を知る",
+    "date": "2026-08-14"
   }
 }

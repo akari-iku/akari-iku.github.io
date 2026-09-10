@@ -9,6 +9,7 @@ tags:
   - architecture
   - workers
 lang: ja
+pair: cloudflare-design-philosophy
 source: zenn
 accent: '#00A0E9'
 ---
