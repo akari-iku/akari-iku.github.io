@@ -5,11 +5,11 @@ description: >-
   Injection 2.0、Building AI Sy…
 date: '2025-10-14'
 tags:
-  - 備忘録
-  - リスク管理
+  - notes
+  - riskmanagement
   - n8n
   - dify
-  - ai規制
+  - aigovernance
 lang: ja
 pair: ai-chatbot-developers-whats-the-other-safety-we-should-be-th
 source: zenn

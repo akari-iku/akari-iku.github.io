@@ -10,7 +10,7 @@ tags:
   - cloudflare
   - security
   - ai
-  - governance
+  - aigovernance
 lang: en
 pair: cloudflare-os-security-design
 source: dev

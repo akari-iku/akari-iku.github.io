@@ -4,25 +4,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const YELLOW = '#FFD400';
 
-// Same numbering as article pages: per language, oldest = #001.
-const numbered = (await getCollection('blog', (p) => p.data.lang === 'ja'))
-  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
-  .map((post, i) => {
+const entries = (await getCollection('blog', (p) => p.data.lang === 'ja'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map((post) => {
     const date = post.data.date.toISOString().slice(0, 10);
     return {
-      num: `#${String(i + 1).padStart(3, '0')}`,
       date,
       year: date.slice(0, 4),
       title: post.data.title,
       href: `/blog/${post.id.replace(/^ja\//, '')}/`,
     };
-  })
-  .reverse();
+  });
 
-const years = [...new Set(numbered.map((e) => e.year))].map((year) => ({
-  year,
-  entries: numbered.filter((e) => e.year === year),
-}));
+// Group in one pass; Map insertion order keeps the newest-first order of entries.
+const byYear = new Map<string, typeof entries>();
+for (const entry of entries) {
+  const group = byYear.get(entry.year) ?? [];
+  group.push(entry);
+  byYear.set(entry.year, group);
+}
+const years = [...byYear].map(([year, posts]) => ({ year, posts }));
 ---
 
 <BaseLayout
@@ -37,16 +38,15 @@ const years = [...new Set(numbered.map((e) => e.year))].map((year) => ({
     <p class="mb-10 text-sm text-neutral-600">全記事の索引。年別・新しい順。</p>
 
     {
-      years.map(({ year, entries }) => (
+      years.map(({ year, posts }) => (
         <section class="mt-10 first:mt-0">
           <h2 id={year} class="flex items-baseline gap-3">
             <span class="font-display text-3xl">{year}</span>
-            <span class="font-mono text-xs text-neutral-500">— {entries.length}</span>
+            <span class="font-mono text-xs text-neutral-500">— {posts.length}</span>
           </h2>
           <ul class="mt-4 space-y-2">
-            {entries.map((e) => (
-              <li class="grid grid-cols-[auto_auto_1fr] items-baseline gap-x-4">
-                <span class="font-mono text-xs text-neutral-500">{e.num}</span>
+            {posts.map((e) => (
+              <li class="grid grid-cols-[auto_1fr] items-baseline gap-x-4">
                 <time class="font-mono text-xs text-neutral-500" datetime={e.date}>
                   {e.date}
                 </time>

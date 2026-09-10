@@ -9,7 +9,7 @@ tags:
   - security
   - ai
   - llm
-  - エージェント
+  - agents
 lang: ja
 pair: cloudflare-os-security-design
 source: zenn

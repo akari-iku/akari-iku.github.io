@@ -7,7 +7,7 @@ date: '2026-07-23'
 tags:
   - astro
   - typescript
-  - 個人開発
+  - sideproject
   - seo
   - frontend
 lang: ja

@@ -7,8 +7,8 @@ tags:
   - ai
   - llm
   - claudecode
-  - 設計
-  - エージェント
+  - architecture
+  - agents
 lang: ja
 pair: multi-model-handoff
 source: zenn

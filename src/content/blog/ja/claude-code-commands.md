@@ -5,7 +5,7 @@ date: '2026-02-12'
 tags:
   - ai
   - cli
-  - 備忘録
+  - notes
   - productivity
   - claude
 lang: ja

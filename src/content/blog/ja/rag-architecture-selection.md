@@ -6,7 +6,7 @@ description: >-
 date: '2025-09-02'
 tags:
   - ai
-  - 備忘録
+  - notes
   - rag
 lang: ja
 pair: the-era-of-choosing-rag-learning-cognitive-load-and-architec

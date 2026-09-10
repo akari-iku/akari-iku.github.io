@@ -7,7 +7,6 @@ date: '2026-08-10'
 tags:
   - cloudflare
   - architecture
-  - 設計
   - workers
 lang: ja
 source: zenn

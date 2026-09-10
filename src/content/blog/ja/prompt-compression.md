@@ -3,10 +3,10 @@ title: APIコストが気になるので、トークンをなんとかしたい
 description: プロンプトエンジニアリングの分野は急速な進化を遂げていますね。
 date: '2025-10-01'
 tags:
-  - 備忘録
-  - コスト削減
+  - notes
+  - costreduction
   - llm
-  - プロンプトエンジニアリング
+  - promptengineering
   - dspy
 lang: ja
 pair: beyond-yaml-logic-compression-for-50-llm-cost-latency-reduct

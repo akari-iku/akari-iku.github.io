@@ -13,7 +13,7 @@ tags:
 lang: en
 pair: personal-site-tech-selection
 source: dev
-accent: '#00A0E9'
+accent: '#00B06B'
 ---
 
 <!-- generated from articles/old-dev/2026-07-21-why-i-chose-astro-and-github-pages.md by scripts/import-articles.ts - do not edit -->

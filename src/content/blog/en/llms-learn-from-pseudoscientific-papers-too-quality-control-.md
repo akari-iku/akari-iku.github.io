@@ -8,7 +8,6 @@ description: >-
 date: '2025-10-25'
 tags:
   - ai
-  - machinelearning
   - llm
   - developers
 lang: en

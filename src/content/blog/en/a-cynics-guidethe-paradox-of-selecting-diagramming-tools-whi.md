@@ -7,8 +7,8 @@ description: >-
   deeply ingrained...
 date: '2025-11-06'
 tags:
-  - discuss
-  - diagrams
+  - notes
+  - diagramming
   - documentation
   - ai
 lang: en

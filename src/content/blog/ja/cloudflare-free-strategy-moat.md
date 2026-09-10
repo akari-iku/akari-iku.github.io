@@ -7,8 +7,8 @@ tags:
   - cloudflare
   - aws
   - akamai
-  - 戦略
-  - アーキテクチャ
+  - strategy
+  - architecture
 lang: ja
 source: zenn
 accent: '#00A0E9'

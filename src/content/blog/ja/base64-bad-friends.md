@@ -7,7 +7,7 @@ tags:
   - security
   - github
   - npm
-  - 備忘録
+  - notes
 lang: ja
 pair: base64-fell-in-with-the-wrong-crowd
 source: zenn

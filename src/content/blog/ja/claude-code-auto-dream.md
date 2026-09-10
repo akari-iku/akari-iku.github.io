@@ -7,7 +7,7 @@ tags:
   - claudecode
   - ai
   - llm
-  - 論文
+  - papers
 lang: ja
 pair: sweet-dreams-claude-auto-dream
 source: zenn

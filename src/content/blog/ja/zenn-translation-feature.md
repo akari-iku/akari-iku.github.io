@@ -6,7 +6,7 @@ date: '2026-01-12'
 tags:
   - zenn
   - ポエム
-  - 備忘録
+  - notes
 lang: ja
 pair: zenn-auto-translation
 source: zenn

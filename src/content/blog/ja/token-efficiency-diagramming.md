@@ -9,7 +9,7 @@ tags:
   - plantuml
   - llm
   - drawio
-  - 作図ツール
+  - diagramming
 lang: ja
 pair: analyzing-the-best-diagramming-tools-for-the-llm-age-based-o
 source: zenn

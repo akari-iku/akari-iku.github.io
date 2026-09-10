@@ -5,7 +5,7 @@ date: '2025-11-15'
 tags:
   - python
   - gas
-  - 備忘録
+  - notes
   - base64
   - dify
 lang: ja

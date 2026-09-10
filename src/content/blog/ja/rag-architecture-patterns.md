@@ -5,10 +5,9 @@ description: >-
   は、AIアプリケーションにおける基盤技術として急速に進化を遂げてきました。いや本当に早すぎて…
 date: '2025-10-27'
 tags:
-  - アーキテクチャ
-  - 備忘録
+  - architecture
+  - notes
   - llm
-  - 大規模言語モデル
   - rag
 lang: ja
 pair: rag-architecture-design-theory-and-conceptual-organization-i

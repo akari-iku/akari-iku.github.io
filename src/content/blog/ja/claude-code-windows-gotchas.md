@@ -7,7 +7,7 @@ tags:
   - claudecode
   - windows
   - vscode
-  - tips
+  - notes
 lang: ja
 pair: windows-gotchas-claude-code
 source: zenn

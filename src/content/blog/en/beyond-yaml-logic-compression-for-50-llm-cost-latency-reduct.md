@@ -8,7 +8,7 @@ tags:
   - promptengineering
   - llm
   - costreduction
-  - tokenoptimization
+  - tokenefficiency
 lang: en
 pair: prompt-compression
 source: dev

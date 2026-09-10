@@ -4,7 +4,6 @@ description: 技術ブログ、みなさん書いてますか？ROM専（読む�
 date: '2025-11-10'
 tags:
   - ポエム
-  - 技術ブログ
 lang: ja
 source: zenn
 accent: '#FF6B00'

@@ -6,7 +6,7 @@ description: >-
 date: '2025-10-13'
 tags:
   - google
-  - 備忘録
+  - notes
   - n8n
   - opal
   - dify

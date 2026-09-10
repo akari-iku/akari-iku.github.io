@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import { accentFor, hasColorMatch, romajiLabel } from '../src/lib/tag-colors.ts';
+import { canonicalizeTags, CANONICAL_TAGS } from '../src/lib/tag-taxonomy.ts';
 
 const SITE = 'https://akari-iku.github.io';
 
@@ -498,14 +499,13 @@ function extractDescription(body: string): string {
 }
 
 function normalizeTags(raw: unknown): string[] {
-  const arr = Array.isArray(raw)
-    ? raw
-    : typeof raw === 'string'
-      ? raw.split(',')
-      : [];
-  return arr
+  let list: unknown[] = [];
+  if (Array.isArray(raw)) list = raw;
+  else if (typeof raw === 'string') list = raw.split(',');
+  const cleaned = list
     .map((t) => String(t).trim().toLowerCase())
     .filter((t) => t.length > 0);
+  return canonicalizeTags(cleaned);
 }
 
 function writePost(
@@ -575,6 +575,13 @@ function writeDevtoExport(
   fs.writeFileSync(path.join(outDir, `${slug}.md`), out, 'utf8');
 }
 
+/** Print a headed warning list, or nothing when there is nothing to report. */
+function warn(header: string, items: string[]): void {
+  if (items.length === 0) return;
+  console.log(header);
+  for (const item of items) console.log(`  ${item}`);
+}
+
 function run(): void {
   // 正本リポジトリの新構造（source/）と旧構造（old-*）の両方から読む。
   // 旧構造の記事は移行しない方針のため、両方が恒久的に共存する
@@ -593,9 +600,14 @@ function run(): void {
   const descriptions: Record<string, string> = {};
   const accentFallback: string[] = [];
   const labelFallback: string[] = [];
+  const vocabGaps: string[] = [];
+  const overTagged: string[] = [];
   const trackTagGaps = (id: string, tags: string[]): void => {
     if (!hasColorMatch(tags)) accentFallback.push(`${id} [${tags.join(', ')}]`);
     else if (romajiLabel(tags) === 'LOG') labelFallback.push(`${id} [${tags.join(', ')}]`);
+    const unknown = tags.filter((t) => !CANONICAL_TAGS.has(t));
+    if (unknown.length > 0) vocabGaps.push(`${id} [${unknown.join(', ')}]`);
+    if (tags.length > 5) overTagged.push(`${id} (${tags.length} tags)`);
   };
 
   const zenn = listAll(zennDirs);
@@ -676,14 +688,10 @@ function run(): void {
   const unpairedEn = dev.filter((a) => !enToJa[a.slug]).map((a) => a.slug);
   console.log(`unpaired ja: ${unpairedJa.join(', ') || '(none)'}`);
   console.log(`unpaired en: ${unpairedEn.join(', ') || '(none)'}`);
-  if (accentFallback.length > 0) {
-    console.log('WARN accent fallback to magenta - consider adding a tag to TAG_COLORS:');
-    for (const w of accentFallback) console.log(`  ${w}`);
-  }
-  if (labelFallback.length > 0) {
-    console.log('WARN vertical label fallback to "LOG" - consider adding to ROMAJI_LABELS:');
-    for (const w of labelFallback) console.log(`  ${w}`);
-  }
+  warn('WARN accent fallback to magenta - consider adding a tag to TAG_COLORS:', accentFallback);
+  warn('WARN vertical label fallback to "LOG" - consider adding to ROMAJI_LABELS:', labelFallback);
+  warn('WARN tags outside the canonical vocabulary - register in tag-taxonomy.ts:', vocabGaps);
+  warn('WARN more than 5 tags per article (authoring rule):', overTagged);
 }
 
 async function main(): Promise<void> {

@@ -18,15 +18,9 @@ const TAG_COLORS: Record<string, string> = {
   ai: ACCENT.magenta,
   llm: ACCENT.magenta,
   rag: ACCENT.magenta,
-  machinelearning: ACCENT.magenta,
-  大規模言語モデル: ACCENT.magenta,
-  生成ai: ACCENT.magenta,
   promptengineering: ACCENT.magenta,
-  プロンプトエンジニアリング: ACCENT.magenta,
-  prompt: ACCENT.magenta,
   dspy: ACCENT.magenta,
   agents: ACCENT.magenta,
-  aiagents: ACCENT.magenta,
   manus: ACCENT.magenta,
   gemini: ACCENT.magenta,
 
@@ -51,54 +45,40 @@ const TAG_COLORS: Record<string, string> = {
   json: ACCENT.cyan,
   toon: ACCENT.cyan,
   tokenefficiency: ACCENT.cyan,
-  tokenoptimization: ACCENT.cyan,
   base64: ACCENT.cyan,
   architecture: ACCENT.cyan,
-  アーキテクチャ: ACCENT.cyan,
-  設計: ACCENT.cyan,
-  技術選定: ACCENT.cyan,
-  エンジニアリング: ACCENT.cyan,
-  オープンソース: ACCENT.cyan,
+  opensource: ACCENT.cyan,
   documentation: ACCENT.cyan,
 
   // web / making / visualizing -> green
   mermaid: ACCENT.green,
   plantuml: ACCENT.green,
   drawio: ACCENT.green,
-  作図ツール: ACCENT.green,
-  diagrams: ACCENT.green,
+  diagramming: ACCENT.green,
   webapp: ACCENT.green,
   astro: ACCENT.green,
   seo: ACCENT.green,
-  個人開発: ACCENT.green,
+  sideproject: ACCENT.green,
   frontend: ACCENT.green,
   uiux: ACCENT.green,
   nocode: ACCENT.green,
   zenn: ACCENT.green,
-  技術ブログ: ACCENT.green,
   tutorial: ACCENT.green,
-  tips: ACCENT.green,
-  レビュー: ACCENT.green,
+  review: ACCENT.green,
 
-  // career / essay / policy -> orange
+  // career / essay / work -> orange
   career: ACCENT.orange,
   ポエム: ACCENT.orange,
-  備忘録: ACCENT.orange,
-  discuss: ACCENT.orange,
+  notes: ACCENT.orange,
   management: ACCENT.orange,
-  業務効率化: ACCENT.orange,
-  コスト削減: ACCENT.orange,
+  productivity: ACCENT.orange,
   costreduction: ACCENT.orange,
-  techpolicy: ACCENT.orange,
-  リスク管理: ACCENT.orange,
-  品質管理: ACCENT.orange,
+  riskmanagement: ACCENT.orange,
+  quality: ACCENT.orange,
 
-  // security -> red
+  // security / governance -> red
   security: ACCENT.red,
-  safety: ACCENT.red,
-  ai規制: ACCENT.red,
   aigovernance: ACCENT.red,
-  datasovereignty: ACCENT.red,
 };
 
 /** Security wins regardless of tag order (defence should stand out). */
@@ -107,7 +87,7 @@ const SECURITY_TAGS = new Set(
 );
 
 /** Generic tags only decide the color when nothing more specific matched. */
-const GENERIC_TAGS = new Set(['備忘録']);
+const GENERIC_TAGS = new Set(['notes']);
 
 function decide(tags: string[]): { color: string; tag: string } | undefined {
   const sec = tags.find((t) => SECURITY_TAGS.has(t));
@@ -139,26 +119,7 @@ export function primaryTag(tags: string[]): string {
  * max ~8 chars so the full-bleed clipping never eats most of the word).
  */
 const ROMAJI_LABELS: Record<string, string> = {
-  アーキテクチャ: 'ARCHI',
-  作図ツール: 'DIAGRAM',
-  備忘録: 'MEMO',
   ポエム: 'POEM',
-  プロンプトエンジニアリング: 'PROMPT',
-  大規模言語モデル: 'LLM',
-  技術ブログ: 'BLOG',
-  個人開発: 'INDIE',
-  技術選定: 'SELECT',
-  設計: 'DESIGN',
-  論文: 'PAPER',
-  生成ai: 'GENAI',
-  ai規制: 'AI LAW',
-  品質管理: 'QUALITY',
-  リスク管理: 'RISK',
-  業務効率化: 'KAIZEN',
-  コスト削減: 'COST',
-  エンジニアリング: 'ENGINEER',
-  オープンソース: 'OSS',
-  レビュー: 'REVIEW',
 };
 
 /** Short forms for long Latin tags. */
@@ -167,14 +128,15 @@ const LATIN_ABBREV: Record<string, string> = {
   typescript: 'TS',
   claudecode: 'CLAUDE',
   promptengineering: 'PROMPT',
-  machinelearning: 'ML',
   productivity: 'BOOST',
   tokenefficiency: 'TOKENS',
-  tokenoptimization: 'TOKENS',
   documentation: 'DOCS',
-  datasovereignty: 'DATA',
   aigovernance: 'AI GOV',
   costreduction: 'COST',
+  diagramming: 'DIAGRAM',
+  sideproject: 'INDIE',
+  opensource: 'OSS',
+  riskmanagement: 'RISK',
 };
 
 /** Uppercase Latin label for the vertical hero text. */

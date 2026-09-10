@@ -9,7 +9,7 @@ tags:
   - security
   - claudecode
   - base64
-  - aiagents
+  - agents
 lang: en
 pair: base64-bad-friends
 source: dev

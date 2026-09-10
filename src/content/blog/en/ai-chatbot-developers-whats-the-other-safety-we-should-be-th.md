@@ -8,7 +8,6 @@ tags:
   - ai
   - security
   - llm
-  - safety
 lang: en
 pair: ai-chatbot-safety
 source: dev

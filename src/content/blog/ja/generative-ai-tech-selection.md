@@ -5,8 +5,7 @@ description: >-
 date: '2025-09-19'
 tags:
   - ai
-  - 技術選定
-  - 備忘録
+  - notes
   - llm
   - rag
 lang: ja

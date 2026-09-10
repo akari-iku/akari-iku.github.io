@@ -4,7 +4,7 @@ description: Gemini 3で色々作れるようになったけど、仕事で日�
 date: '2026-01-21'
 tags:
   - gas
-  - prompt
+  - promptengineering
   - uiux
   - webapp
   - gemini

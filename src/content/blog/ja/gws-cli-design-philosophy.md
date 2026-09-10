@@ -10,7 +10,7 @@ tags:
   - cli
   - ai
   - security
-  - 設計
+  - architecture
 lang: ja
 pair: gws-cli-design-philosophy
 source: zenn

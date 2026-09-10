@@ -5,8 +5,7 @@ date: '2026-01-31'
 tags:
   - github
   - ポエム
-  - オープンソース
-  - エンジニアリング
+  - opensource
 lang: ja
 source: zenn
 accent: '#00A0E9'

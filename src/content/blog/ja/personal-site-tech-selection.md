@@ -5,14 +5,13 @@ description: >-
   Pagesとの比較、PSLとゼロスタートの話も込みで。
 date: '2026-07-21'
 tags:
-  - 技術選定
   - astro
   - seo
-  - 個人開発
+  - sideproject
 lang: ja
 pair: why-i-chose-astro-and-github-pages
 source: zenn
-accent: '#00A0E9'
+accent: '#00B06B'
 ---
 
 <!-- generated from articles/old-zenn/2026-07-21-personal-site-tech-selection.md by scripts/import-articles.ts - do not edit -->

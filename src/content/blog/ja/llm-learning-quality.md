@@ -5,9 +5,9 @@ description: >-
 date: '2025-10-26'
 tags:
   - ai
-  - 品質管理
+  - quality
   - llm
-  - プロンプトエンジニアリング
+  - promptengineering
 lang: ja
 pair: llms-learn-from-pseudoscientific-papers-too-quality-control-
 source: zenn

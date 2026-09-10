@@ -3,10 +3,10 @@ title: 洗濯機の中の洗濯物、じゃなかった。「Manus」を触っ�
 description: 意図的に記録として、AIぽくない文章を意図して記載しています。
 date: '2025-06-29'
 tags:
-  - 備忘録
-  - レビュー
+  - notes
+  - review
   - llm
-  - 生成ai
+  - ai
   - manus
 lang: ja
 source: zenn

@@ -7,8 +7,6 @@ date: '2025-11-12'
 tags:
   - ai
   - aigovernance
-  - datasovereignty
-  - techpolicy
 lang: en
 source: dev
 accent: '#E51A14'

@@ -5,9 +5,9 @@ date: '2025-11-04'
 tags:
   - plantuml
   - drawio
-  - 業務効率化
+  - productivity
   - mermaid
-  - 作図ツール
+  - diagramming
 lang: ja
 pair: a-cynics-guidethe-paradox-of-selecting-diagramming-tools-whi
 source: zenn

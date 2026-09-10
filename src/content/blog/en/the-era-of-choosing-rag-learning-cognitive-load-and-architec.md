@@ -9,7 +9,6 @@ date: '2025-09-19'
 tags:
   - ai
   - rag
-  - machinelearning
   - architecture
 lang: en
 pair: rag-architecture-selection

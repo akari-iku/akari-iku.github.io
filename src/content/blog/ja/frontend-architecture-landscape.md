@@ -4,11 +4,10 @@ description: >-
   MPAからSPA、SSR、SSG、RSC、Islandsまで。レンダリング戦略の変遷を整理しつつ、現場で絡むルーティング・セキュリティ・パフォーマンスも含めて、フロントエンドアーキテクチャの全体像をまとめる。
 date: '2026-07-25'
 tags:
-  - アーキテクチャ
+  - architecture
   - frontend
   - astro
   - typescript
-  - 設計
 lang: ja
 pair: frontend-architecture-mpa-to-islands
 source: zenn

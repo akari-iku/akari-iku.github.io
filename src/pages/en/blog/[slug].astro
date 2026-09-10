@@ -7,20 +7,17 @@ import PostCard from '../../../components/PostCard.astro';
 import { hasMath, KATEX_CSS_HREF } from '../../../lib/katex-css';
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('blog', (p) => p.data.lang === 'en')).sort(
-    (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-  );
-  return posts.map((post, i) => ({
+  const posts = await getCollection('blog', (p) => p.data.lang === 'en');
+  return posts.map((post) => ({
     params: { slug: post.id.replace(/^en\//, '') },
-    props: { post, num: i + 1 },
+    props: { post },
   }));
 }
 
-const { post, num } = Astro.props;
+const { post } = Astro.props;
 const { Content, headings } = await render(post);
 const date = post.data.date.toISOString().slice(0, 10);
 const tag = primaryTag(post.data.tags);
-const numLabel = `#${String(num).padStart(3, '0')}`;
 const vertical = romajiLabel(post.data.tags);
 const rt = readingTime(post.body ?? '', 'en');
 const others = await getCollection('blog', (p) => p.data.lang === 'en' && p.id !== post.id);
@@ -61,11 +58,8 @@ const jsonLd = {
     style={`background:${post.data.accent}`}
   >
     <div class="mx-auto max-w-3xl px-6 py-14 sm:flex sm:min-h-[28rem] sm:flex-col">
-      <p class="flex justify-between font-mono text-sm font-bold text-neutral-900">
-        <span>
-          <a href="/en/blog/" class="hover:underline">Blog</a> / {tag}
-        </span>
-        <span>{numLabel}</span>
+      <p class="font-mono text-sm font-bold text-neutral-900">
+        <a href="/en/blog/" class="hover:underline">Blog</a> / {tag}
       </p>
       <h1
         class="font-databook mt-6 max-w-xl text-3xl leading-snug font-bold text-neutral-900 sm:text-4xl"
