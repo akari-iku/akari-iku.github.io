@@ -80,6 +80,7 @@ export const career: CareerEntry[] = [
       '技術的実現性と事業採算性の両面評価で経営判断を支援',
       'AIチャットボットのワークフロー設計・デモ開発',
       '非エンジニアにも届くAI学習資料の企画・制作',
+      '組織の情報セキュリティ担当者に就任',
       'Claude Code の組織活用に向けた依存パッケージのサプライチェーン対策（導入スクリプト・環境/実行チェック・Windows環境トラブルシュート）',
     ],
     detailsEn: [
@@ -87,6 +88,7 @@ export const career: CareerEntry[] = [
       'Supporting management decisions with dual assessments: technical feasibility and business viability',
       'Workflow design and demo development for AI chatbots',
       'Planning and producing AI learning materials that actually reach non-engineers',
+      "Appointed the organisation's information security officer",
       'Supply-chain hardening for organisational Claude Code adoption (install scripts, environment and runtime checks, Windows troubleshooting)',
     ],
     tags: ['ai', 'security', 'governance', 'enablement'],
