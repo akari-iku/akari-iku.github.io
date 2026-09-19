@@ -54,10 +54,21 @@ html[data-theme="dark"] #theme-toggle .icon-moon {
 }
 .article-body h2 {
   margin: 2.5rem 0 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 3px solid var(--accent, #e5007f);
   font-size: 1.5rem;
   font-weight: 800;
 }
-.article-body h2::before {
+.article-body h3 {
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 4px double var(--accent, #e5007f);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+/* slanted square marker in front of every h2 / h3 */
+.article-body h2::before,
+.article-body h3::before {
   content: "";
   display: inline-block;
   width: 0.55em;
@@ -65,11 +76,6 @@ html[data-theme="dark"] #theme-toggle .icon-moon {
   margin-right: 0.4em;
   transform: skewX(-12deg);
   background: var(--accent, #e5007f);
-}
-.article-body h3 {
-  margin: 2rem 0 0.75rem;
-  font-size: 1.2rem;
-  font-weight: 700;
 }
 .article-body p {
   margin: 1rem 0;

@@ -1,0 +1,94 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+  label: string;
+  accent: string;
+}
+
+const { headings, label, accent } = Astro.props;
+const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const h2s = items.filter((h) => h.depth === 2);
+---
+
+{
+  h2s.length >= 3 && (
+    <>
+      {/* narrow screens: in-body box (h2 only), same look as before */}
+      <nav class="mb-10 border-2 border-neutral-900 p-4 font-mono text-sm xl:hidden" aria-label={label}>
+        <p class="mb-2 font-bold">{label}</p>
+        <ol class="space-y-1">
+          {h2s.map((h) => (
+            <li>
+              <a class="hover:underline" href={`#${h.slug}`}>
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+      {/* wide screens: sticky rail in the right gutter, follows scroll */}
+      <div class="absolute top-0 left-full ml-8 hidden h-full w-52 pt-14 xl:block">
+        <nav
+          id="toc-rail"
+          class="sticky top-10 max-h-[calc(100vh-5rem)] overflow-y-auto font-mono text-xs"
+          style={`--accent:${accent}`}
+          aria-label={label}
+        >
+          <p class="mb-3 text-sm font-bold">{label}</p>
+          <ol class="space-y-2 border-l-2 border-neutral-300">
+            {items.map((h) => (
+              <li class:list={['relative', h.depth === 3 ? 'pl-7' : 'pl-3']}>
+                <a class="toc-link block text-neutral-500 hover:text-neutral-900" href={`#${h.slug}`}>
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
+    </>
+  )
+}
+
+<style>
+  .toc-link.active {
+    color: var(--color-neutral-900);
+    font-weight: 700;
+  }
+  li:has(> .toc-link.active)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -2px;
+    width: 2px;
+    background: var(--accent);
+  }
+</style>
+
+<script type="module" is:inline>
+  const rail = document.getElementById('toc-rail');
+  if (rail) {
+    const links = Array.from(rail.querySelectorAll('a'));
+    const byId = new Map(links.map((a) => [decodeURIComponent(a.hash.slice(1)), a]));
+    const heads = Array.from(
+      document.querySelectorAll('.article-body h2[id], .article-body h3[id]')
+    ).filter((h) => byId.has(h.id));
+    let current = null;
+    const update = () => {
+      let next = heads[0] ?? null;
+      for (const h of heads) {
+        if (h.getBoundingClientRect().top <= 100) next = h;
+        else break;
+      }
+      if (next === current) return;
+      current = next;
+      for (const a of links) a.classList.remove('active');
+      if (next) byId.get(next.id)?.classList.add('active');
+    };
+    update();
+    addEventListener('scroll', update, { passive: true });
+  }
+</script>
