@@ -602,7 +602,7 @@ Clef は、文章や画像を決めた選択肢に振り分ける用途で、短
 一方で、範囲外の入力や複数の用件を正しく扱えるかは、選択肢と質問の設計で決まります。
 導入を考える場合は、自分のデータで正解付きの評価をしてから判断するのがよいと考えています。
 
-## 参考
+## 参考文献
 
 - 発表記事: https://blog.cloudflare.com/clef-decision-models/
 - Workers AI: https://developers.cloudflare.com/workers-ai/models/clef/ ・ https://developers.cloudflare.com/workers-ai/models/clef-flash/
