@@ -11,6 +11,7 @@ tags:
   - qwen
   - api
 lang: ja
+pair: clef-decision-models
 source: zenn
 accent: '#E5007F'
 ---
@@ -24,7 +25,7 @@ Cloudflare が 2026年10月1日に、判定用のモデル「Clef」と「Clef-f
 
 公式の情報は次のページで確認できます。
 
-- 発表記事: [Clef: decision models](https://blog.cloudflare.com/clef-decision-models/)
+- 発表記事: [Introducing Clef: our open-source decision models, and new RL fine-tuning platform](https://blog.cloudflare.com/clef-decision-models/)
 - Workers AI のモデルページ: [Clef](https://developers.cloudflare.com/workers-ai/models/clef/) ・ [Clef-flash](https://developers.cloudflare.com/workers-ai/models/clef-flash/)
 - Hugging Face: [Cloudflare/clef](https://huggingface.co/Cloudflare/clef) ・ [Cloudflare/clef-flash](https://huggingface.co/Cloudflare/clef-flash)
 
