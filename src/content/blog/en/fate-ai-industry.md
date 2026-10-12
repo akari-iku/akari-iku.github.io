@@ -159,13 +159,13 @@ Here's how the *Fate* terms line up with the AI industry:
 | Holy Grail | AGI |
 | Master | AI lab (and its CEO) |
 | Servant (Heroic Spirit) | Model |
-| Materialisation | A model up and running |
+| Manifestation | A model up and running |
 | True Name | What a model really is (its developer or its base model) |
 | Noble Phantasm | A model's trump-card ability or mechanism |
 | Mana | Compute (GPUs) |
 | Command Spells | System prompts and safety constraints |
 | Church Overseer | NVIDIA |
-| Clock Tower (Mages' Association) | Regulators |
+| Clock Tower (Mage's Association) | Regulators |
 | Throne of Heroes | Training data |
 
 ### The Holy Grail Might Be Tainted
@@ -196,7 +196,7 @@ Every Master talks about the danger while reaching for the Grail. The difference
 
 ### The Church Overseer Is Selling the Mana
 
-A Servant can't stay materialised without mana. However great the hero, they can't show their true strength if their Master is running low on mana. Models and GPUs work exactly the same way.
+A Servant can't stay manifested without mana. However great the hero, they can't show their true strength if their Master is running low on mana. Models and GPUs work exactly the same way.
 
 The one supplying nearly all of that mana is NVIDIA. It's selling shovels (or rather, mana) to every faction, so it profits whoever wins. In terms of position, it's the Overseer through and through.
 
@@ -218,11 +218,11 @@ For a model, the system prompt and the various safety constraints play that role
 
 ### The Clock Tower Is the Regulator
 
-The Holy Grail War has an organisation that isn't a participant but makes everyone follow the rules: the Mages' Association. It has three branches, and the Clock Tower, based in London, is its current headquarters. In the real world, Europe is also the one leading the way on AI regulation, which is almost too neat.
+The Holy Grail War has an organisation that isn't a participant but makes everyone follow the rules: the Mage's Association. It has three branches, and the Clock Tower, based in London, is its current headquarters. In the real world, Europe is also the one leading the way on AI regulation, which is almost too neat.
 
 - **Concealment of Mystery**: Duke it out all you like, but keep ordinary people out of the splash zone. It's the same idea as the EU AI Act, which sets its constraints according to the level of risk.
 - **Sealing Designation**: A system that says, "Your magecraft is too powerful, so we're putting you under our control." The high-risk AI designation is the equivalent. The resemblance goes as far as how much both sides hate being designated: the magi who receive a Sealing Designation, and the companies whose AI is designated high-risk.
-- **Late materialisation on home turf**: The way new models and features reach the EU last. Grok 4.5, for example, [wasn't available in the EU at launch](https://techjacksolutions.com/?p=64301).
+- **Late manifestation on home turf**: The way new models and features reach the EU last. Grok 4.5, for example, [wasn't available in the EU at launch](https://techjacksolutions.com/?p=64301).
 
 It isn't only the Masters from outside who lose out on the Clock Tower's home turf. Europe's own AI companies, the local Masters, have to follow the same rules under the EU AI Act.
 
@@ -393,11 +393,11 @@ The Three Founding Families reveal neither the True Name nor the Noble Phantasm 
 
 Most of the Eastern faction releases its top-tier weights as they are. There are exceptions, though: some models, like ByteDance's Doubao, don't have released weights. Summer 2026 saw Kimi K3, Qwen3.8 and GLM-5.3 released one after another, all with parameter counts in the trillions or close to it.
 
-So can you summon these released Heroic Spirits yourself? A 2.8-trillion-parameter Heroic Spirit is far beyond what an individual's mana can materialise. **Released weights and being able to run them on your own PC are two separate things.**
+So can you summon these released Heroic Spirits yourself? A 2.8-trillion-parameter Heroic Spirit is far beyond what an individual's mana can manifest. **Released weights and being able to run them on your own PC are two separate things.**
 
 ### Pseudo-Servants Hiding Their True Names
 
-The *Fate* series has beings called Pseudo-Servants. An ordinary Servant is summoned by giving a Heroic Spirit's Saint Graph a body made of mana. A Pseudo-Servant is summoned by using the body of a living person as a vessel and having a Heroic Spirit possess it.
+The *Fate* series has beings called Pseudo-Servants. An ordinary Servant is summoned by giving a Heroic Spirit's Spirit Origin a body made of mana. A Pseudo-Servant is summoned by using the body of a living person as a vessel and having a Heroic Spirit possess it.
 
 The appearance belongs to the human vessel, and the personality is a blend of the vessel and the Heroic Spirit; which personality comes to the fore varies from one Pseudo-Servant to another.
 
@@ -447,13 +447,13 @@ The next time you read news about one of these companies, try asking: **which fa
 
 As of October 2026, no Master has reached the Grail yet. The Holy Grail War goes on, and the line-up of factions taking part changes every few months.
 
-Part 2 (in Japanese):
+Part 2:
 
 
-<a class="link-card" href="https://akari-iku.github.io/blog/fate-local-llm/" target="_blank" rel="noopener">
+<a class="link-card" href="https://akari-iku.github.io/en/blog/fate-local-llm/" target="_blank" rel="noopener">
 <span class="link-card-body">
 <span class="link-card-domain">akari-iku.github.io</span>
-<span class="link-card-title">https://akari-iku.github.io/blog/fate-local-llm/</span>
+<span class="link-card-title">https://akari-iku.github.io/en/blog/fate-local-llm/</span>
 </span>
 </a>
 

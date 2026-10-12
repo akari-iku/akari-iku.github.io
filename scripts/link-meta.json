@@ -572,5 +572,14 @@
     "title": "Security incident disclosure — July 2026",
     "image": "https://huggingface.co/blog/assets/security-incident-july-2026/thumbnail.png"
   },
-  "https://akari-iku.github.io/blog/fate-local-llm/": null
+  "https://akari-iku.github.io/blog/fate-local-llm/": null,
+  "https://akari-iku.github.io/en/blog/fate-local-llm/": null,
+  "https://akari-iku.github.io/en/blog/clef-decision-models/": {
+    "title": "Hands-On with Cloudflare",
+    "image": "https://akari-iku.github.io/og/en/blog/clef-decision-models.png"
+  },
+  "https://akari-iku.github.io/en/blog/qwen38-27b-8gb-vram/": {
+    "title": "I Squeezed a 27B Into 1-bit on 8GB of VRAM. The 8B at 4-bit Won Anyway | akari.log",
+    "image": "https://akari-iku.github.io/og/en/blog/qwen38-27b-8gb-vram.png"
+  }
 }
