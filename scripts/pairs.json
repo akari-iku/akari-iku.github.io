@@ -27,5 +27,6 @@
   "multi-model-handoff": "multi-model-handoff",
   "qwen38-27b-8gb-vram": "qwen38-27b-8gb-vram",
   "cloudflare-design-philosophy": "cloudflare-design-philosophy",
-  "clef-decision-models": "clef-decision-models"
+  "clef-decision-models": "clef-decision-models",
+  "fate-ai-industry": "fate-ai-industry"
 }

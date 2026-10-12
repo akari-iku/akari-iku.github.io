@@ -2,13 +2,14 @@
 title: 【2026年版】Fateで理解するAI業界
 description: >-
   AGIを目指すAI各社を聖杯戦争に見立てて、NVIDIAによるHugging Face買収、EU AI
-  Actの延期、米中の重み公開の違いを含む2026年10月時点のAI業界の構造を整理する。
+  Actの高リスク義務の延期、米中の重み公開の違いを含む2026年10月時点のAI業界の構造を整理する。
 date: '2026-10-12'
 tags:
   - ai
   - llm
   - aigovernance
 lang: ja
+pair: fate-ai-industry
 source: zenn
 accent: '#E51A14'
 ---
@@ -258,7 +259,7 @@ flowchart TB
   nvidia -->|"魔力（GPU）を売る"| masters
   nvidia -->|"買収で合意"| hf
   east -->|"最上位モデルの重みを公開"| hf
-  gairai -->|"Muse Glimmerの重みを公開"| hf
+  gairai -->|"MetaがMuse Glimmerの重みを公開"| hf
   gosanke -->|"APIで貸し出す"| you
   hf -->|"触媒を取ってくる"| you
 ```
@@ -338,11 +339,11 @@ Metaの方針は、ローカルLLMで使えるモデルの顔ぶれにも影響�
 
 ### 真名を隠した擬似サーヴァント
 
-Fate作品には擬似サーヴァントという存在がいます。通常のサーヴァントは、英霊の霊基に魔力で肉体を与えて召喚します。擬似サーヴァントは、現世の人間の体を依り代にして、そこに英霊を憑依させて召喚した存在です。見た目は依り代の人間のもので、人格は依り代と英霊が混じり合いますが、主導権はたいてい英霊の側が握ります。
+Fate作品には擬似サーヴァントという存在がいます。通常のサーヴァントは、英霊の霊基に魔力で肉体を与えて召喚します。擬似サーヴァントは、現世の人間の体を依り代にして、そこに英霊を憑依させて召喚した存在です。見た目は依り代の人間のもので、人格は依り代と英霊が混じり合い、どちらの人格が表に出るかは個体によって違います。
 
 AIに置き換えると、依り代はサービスの製品名と見た目、英霊は土台のモデルです。追加学習で性格が少し変わっても、能力の大部分は土台のモデルから来ています。
 
-「独自のAIモデル」を売りにするサービスにも、これに近いものが多くあります。Cursorが2026年3月に出したComposer 2は、Moonshot AIのKimi K2.5を土台に追加学習したモデルだと[技術レポート](https://cursor.com/blog/composer-2-technical-report)で明かしています。CognitionのSWE-1.7は、Kimi K2.7が土台だと[公式ブログ](https://cognition.com/blog/swe-1-7)に書いています。楽天が3月に公開したRakuten AI 3.0は、DeepSeekのモデルを採用したと[後から明らかにしました](https://news.yahoo.co.jp/expert/articles/d014ddc69f3bbec265b5e5f74efca652937a8ba7)。東京科学大学と産総研の[Swallow](https://swallow-llm.github.io/qwen3-swallow.ja.html)や、[ELYZAのモデル](https://huggingface.co/elyza/ELYZA-Thinking-1.0-Qwen-32B)は、土台のQwenの名前をモデル名に入れて公開しています。土台と製品の関係を図にすると、次のようになります。
+「独自のAIモデル」を売りにするサービスにも、これに近いものが多くあります。Cursorが2026年3月に出したComposer 2は、Moonshot AIのKimi K2.5を土台に追加学習したモデルだと、発表の8日後に出した[技術レポート](https://cursor.com/blog/composer-2-technical-report)に書いています。CognitionのSWE-1.7は、Kimi K2.7が土台だと[公式ブログ](https://cognition.com/blog/swe-1-7)に書いています。楽天が3月に公開したRakuten AI 3.0は、DeepSeekのモデルを採用したと[後から明らかにしました](https://news.yahoo.co.jp/expert/articles/d014ddc69f3bbec265b5e5f74efca652937a8ba7)。東京科学大学と産総研の[Swallow](https://swallow-llm.github.io/qwen3-swallow.ja.html)や、[ELYZAのモデル](https://huggingface.co/elyza/ELYZA-Thinking-1.0-Qwen-32B)は、土台のQwenの名前をモデル名に入れて公開しています。土台と製品の関係を図にすると、次のようになります。
 
 ```mermaid
 flowchart LR
@@ -392,11 +393,6 @@ flowchart LR
 - [NVIDIA Confirms $12.9B Hugging Face Acquisition（HPCwire）](https://www.hpcwire.com/off-the-wire/nvidia-confirms-12-9b-hugging-face-acquisition/)
 - [EU AI Act Omnibus Agreement（Gibson Dunn）](https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/)
 - [EU AI Act Digital Omnibus deadline delay（CASRAI）](https://www.casrai.org/news/eu-ai-act-digital-omnibus-deadline-delay)
-- [Anthropic CEO Dario Amodei's 20,000-word essay（Fortune）](https://www.fortune.com/2026/01/27/anthropic-ceo-dario-amodei-essay-warning-ai-adolescence-test-humanity-risks-remedies)
-- [Google DeepMind CEO Demis Hassabis on emergence of AGI（Business Today）](https://www.businesstoday.in/technology/artificial-intelligence/story/were-entering-a-new-age-google-deepmind-ceo-demis-hassabis-on-emergence-of-agi-543022-2026-07-15)
-- [Sam Altman Vision（Techeconomy）](https://techeconomy.ng/sam-altman-openai-vision)
-- [Elon Musk: Humans Will Lose Control of AI Within a Decade（Decrypt）](https://decrypt.co/374488/elon-musk-humans-lose-control-ai-decade?amp=1)
-- [Zuckerberg signals Meta won't open source all of its 'superintelligence' AI models（TechCrunch）](https://techcrunch.com/2025/07/30/zuckerberg-says-meta-likely-wont-open-source-all-of-its-superintelligence-ai-models)
 - [Announcing GPT-6 Sol and GPT-6 Luna（OpenAI Community）](https://community.openai.com/t/announcing-gpt-6-sol-and-gpt-6-luna-in-the-api-codex-and-chatgpt/1399925)
 - [Google Gemini Model Lineage 2026（Presenc）](https://presenc.ai/research/google-gemini-model-lineage-2026)
 - [Models overview（Anthropic）](https://platform.claude.com/docs/en/about-claude/models/overview)
@@ -406,7 +402,6 @@ flowchart LR
 - [DeepSeek（NeuronFeed）](https://neuronfeed.com/startups/deepseek)
 - [DeepSeek娘（萌娘百科）](https://mobile.moegirl.org.cn/DeepSeek%E5%A8%98)
 - [GLM-5.3（Hugging Face）](https://huggingface.co/zai-org/GLM-5.3)
-- [Zhipu AI releases GLM-5.2（DataNorth）](https://datanorth.ai/news/zhipu-ai-releases-glm-5-2)
 - [Moonshot AI發表Kimi K3（iThome）](https://www.ithome.com.tw/news/177376)
 - [Alibaba、Qwen3.8を公開（RuntimeWire）](https://runtimewire.com/ja/article/alibaba-qwen38-24t-open-weights-enterprise-license)
 - [Alibaba releases Qwen3.8-27B（DataNorth）](https://datanorth.ai/news/alibaba-releases-qwen3-8-27b)
@@ -420,7 +415,5 @@ flowchart LR
 - [Major European enterprises urge EU to 'stop the clock' on AI Act（RCR Wireless）](https://www.rcrwireless.com/20250704/policy/stop-clock-ai-act-eu)
 - [EU Commission Rejects «Stop the Clock» open letter appeal（nicfab）](https://www.nicfab.eu/en/posts/aistop/)
 - [Introducing Mistral Large 4（Mistral AI）](https://mistral.ai/news/mistral-large-4/)
-- [Mistral unveils new AI model（CNBC）](https://www.cnbc.com/2026/10/06/mistral-ai-model-le-chonk.html)
-- [Qwen3.8の発表とBonsai 27B（GIGAZINE）](https://gigazine.net/gsc_news/en/20260721-qwen3-8/)
 - [アニメ『Fate/strange Fake』放送開始（電撃オンライン）](https://dengekionline.com/article/202601/62441)
 - [Fate/strange Fake Season 2 confirmed（Popverse）](https://www.thepopverse.com/tv-fate-strange-fake-season-2-anime-confirmed-anime-nyc-2026/)
