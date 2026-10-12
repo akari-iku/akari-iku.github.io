@@ -202,7 +202,7 @@ The one supplying nearly all of that mana is NVIDIA. It's selling shovels (or ra
 
 The Overseer is supposed to be neutral, but anyone who's watched *Fate* will be grinning at this point. In *stay night*, the Overseer, Kirei Kotomine, was anything but neutral: he was a participant in the Holy Grail War himself.
 
-Kirei has an all-time great line: "Rejoice, boy. Your wish has finally come true." Today's NVIDIA sells GPUs to every faction and opens the road to the Grail for each of them, and it looks as if it's delivering that line completely straight. It's genuinely chilling when you think about it.
+Kirei has an all-time great line: "Rejoice, Shounen. Your wish will finally be granted." Today's NVIDIA sells GPUs to every faction and opens the road to the Grail for each of them, and it looks as if it's delivering that line completely straight. It's genuinely chilling when you think about it.
 
 On top of that, in September 2026, NVIDIA [agreed to acquire Hugging Face for about $12.9 billion](https://www.hpcwire.com/off-the-wire/nvidia-confirms-12-9b-hugging-face-acquisition/). Hugging Face is where open-weight models from all over the world gather.
 
