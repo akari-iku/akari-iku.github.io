@@ -559,5 +559,18 @@
   "https://akari-iku.github.io/en/blog/multi-model-handoff/": {
     "title": "Developing with Multiple Models? Make Sure You Design the Handoff | akari.log",
     "image": "https://akari-iku.github.io/og/en/blog/multi-model-handoff.png"
-  }
+  },
+  "https://akari-iku.github.io/blog/qwen38-27b-8gb-vram/": {
+    "title": "VRAM 8GBで27Bを1bitまで潰したら、8Bの4bitに完敗した | akari.log",
+    "image": "https://akari-iku.github.io/og/blog/qwen38-27b-8gb-vram.png"
+  },
+  "https://akari-iku.github.io/blog/clef-decision-models/": {
+    "title": "Cloudflare の判定モデル Clef を Workers AI で触ってみた | akari.log",
+    "image": "https://akari-iku.github.io/og/blog/clef-decision-models.png"
+  },
+  "https://huggingface.co/blog/security-incident-july-2026": {
+    "title": "Security incident disclosure — July 2026",
+    "image": "https://huggingface.co/blog/assets/security-incident-july-2026/thumbnail.png"
+  },
+  "https://akari-iku.github.io/blog/fate-local-llm/": null
 }
