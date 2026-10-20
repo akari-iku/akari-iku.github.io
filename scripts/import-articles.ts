@@ -533,6 +533,8 @@ function writePost(
 /** Zenn syntax dev.to cannot render: :::details → Liquid tags, filename fences → plain fences. */
 function convertZennForDevto(body: string): string {
   const out: string[] = [];
+  // dev.to has no callout box, so :::message becomes a blockquote
+  const stack: ('message' | 'details')[] = [];
   let inCode = false;
   for (const line of body.split('\n')) {
     if (line.startsWith('```')) {
@@ -549,13 +551,22 @@ function convertZennForDevto(body: string): string {
       out.push(line);
       continue;
     }
+    if (/^:::message\b/.test(line)) {
+      stack.push('message');
+      continue;
+    }
     const details = line.match(/^:::details\s+(.+)$/);
     if (details) {
+      stack.push('details');
       out.push(`{% details ${details[1]} %}`);
       continue;
     }
     if (line.trim() === ':::') {
-      out.push('{% enddetails %}');
+      if (stack.pop() === 'details') out.push('{% enddetails %}');
+      continue;
+    }
+    if (stack[stack.length - 1] === 'message') {
+      out.push(line.trim() ? `> ${line}` : '>');
       continue;
     }
     out.push(line);
@@ -571,9 +582,12 @@ function writeDevtoExport(
   const outDir = path.join(root, 'exports', 'devto');
   fs.mkdirSync(outDir, { recursive: true });
   // lineWidth: -1 keeps every value on one line (dev.to's parser dislikes folded scalars)
+  // dev.to parses front matter with Ruby's safe YAML, which rejects an unquoted
+  // timestamp ("Tried to load unspecified class: Time"); dev.to does not use date anyway
+  const { date: _date, ...devtoData } = data;
   const out = matter.stringify(
     content,
-    { ...data, canonical_url: `${SITE}/en/blog/${slug}/` },
+    { ...devtoData, canonical_url: `${SITE}/en/blog/${slug}/` },
     { lineWidth: -1 } as Parameters<typeof matter.stringify>[2],
   );
   fs.writeFileSync(path.join(outDir, `${slug}.md`), out, 'utf8');
