@@ -1,0 +1,12 @@
+# Do not run lifecycle scripts of dependencies (asset repository policy).
+# esbuild works without its postinstall (it only pre-validates the binary).
+allowBuilds:
+  esbuild: false
+
+# Security overrides
+#   katex    : GHSA-238p-pmpm-9mq7 (fixed >=0.18.2); rehype-katex / micromark-extension-math still pin ^0.16
+#   argparse : removes sprintf-js (GHSA-hp3w-g68c-fv3c, no patched release) from js-yaml 3 via gray-matter.
+#              js-yaml 3 uses argparse only in its CLI, which this project does not call.
+overrides:
+  katex: ^0.19.0
+  argparse: ^2.0.1
