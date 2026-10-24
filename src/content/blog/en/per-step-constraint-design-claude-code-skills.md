@@ -11,6 +11,7 @@ tags:
   - promptengineering
 lang: en
 pair: skill-constraint-design
+category: tools
 source: dev
 accent: '#00A0E9'
 ---

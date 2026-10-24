@@ -14,8 +14,9 @@ tags:
   - architecture
 lang: en
 pair: frontend-architecture-landscape
+category: web
 source: dev
-accent: '#00A0E9'
+accent: '#00B06B'
 ---
 
 <!-- generated from articles/old-dev/2026-07-25-frontend-architecture-mpa-to-islands.md by scripts/import-articles.ts - do not edit -->

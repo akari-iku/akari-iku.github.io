@@ -5,8 +5,9 @@ date: '2025-11-10'
 tags:
   - ポエム
 lang: ja
+category: essay
 source: zenn
-accent: '#FF6B00'
+accent: '#EDEDED'
 ---
 
 <!-- generated from articles/old-zenn/2025-11-10-tech-blog-journey.md by scripts/import-articles.ts - do not edit -->

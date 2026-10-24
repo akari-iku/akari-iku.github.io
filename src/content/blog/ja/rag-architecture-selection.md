@@ -10,6 +10,7 @@ tags:
   - rag
 lang: ja
 pair: the-era-of-choosing-rag-learning-cognitive-load-and-architec
+category: ai
 source: zenn
 accent: '#E5007F'
 ---

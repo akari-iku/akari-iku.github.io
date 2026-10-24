@@ -8,6 +8,7 @@ tags:
   - toon
 lang: en
 pair: toon-token-format
+category: ai
 source: dev
 accent: '#E5007F'
 ---

@@ -10,8 +10,9 @@ tags:
   - diagramming
 lang: ja
 pair: a-cynics-guidethe-paradox-of-selecting-diagramming-tools-whi
+category: tools
 source: zenn
-accent: '#00B06B'
+accent: '#00A0E9'
 ---
 
 <!-- generated from articles/old-zenn/2025-11-04-diagramming-tools.md by scripts/import-articles.ts - do not edit -->

@@ -8,6 +8,7 @@ tags:
   - ai
   - aigovernance
 lang: en
+category: security
 source: dev
 accent: '#E51A14'
 ---

@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { primaryTag, romajiLabel } from '../../lib/tag-colors';
+import { CATEGORIES, categoryLabel } from '../../lib/categories';
+import { relatedPosts } from '../../lib/related';
 import { readingTime } from '../../lib/reading-time';
 import PostCard from '../../components/PostCard.astro';
 import Toc from '../../components/Toc.astro';
@@ -18,18 +19,11 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
 const date = post.data.date.toISOString().slice(0, 10);
-const tag = primaryTag(post.data.tags);
-const vertical = romajiLabel(post.data.tags);
+const categoryName = categoryLabel(post.data.category, 'ja');
+const vertical = CATEGORIES[post.data.category].vertical;
 const rt = readingTime(post.body ?? '', 'ja');
 const others = await getCollection('blog', (p) => p.data.lang === 'ja' && p.id !== post.id);
-const byTag = others
-  .map((p) => ({ p, score: p.data.tags.filter((t) => post.data.tags.includes(t)).length }))
-  .filter((x) => x.score > 0)
-  .sort((a, b) => b.score - a.score || b.p.data.date.valueOf() - a.p.data.date.valueOf())
-  .map((x) => x.p);
-// Pad with the newest posts so the section never disappears on fresh tags
-const recent = [...others].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const related = [...byTag, ...recent.filter((p) => !byTag.includes(p))].slice(0, 3);
+const related = relatedPosts(post, others);
 const permalink = new URL(Astro.url.pathname, Astro.site).href;
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -59,7 +53,7 @@ const jsonLd = {
   >
     <div class="mx-auto max-w-3xl px-6 py-14 sm:flex sm:min-h-[28rem] sm:flex-col">
       <p class="font-mono text-sm font-bold text-neutral-900">
-        <a href="/blog/" class="hover:underline">Blog</a> / {tag}
+        <a href="/blog/" class="hover:underline">Blog</a> / {categoryName}
       </p>
       <h1
         class="font-databook mt-6 max-w-xl text-3xl leading-snug font-bold text-neutral-900 sm:text-4xl"

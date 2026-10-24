@@ -12,8 +12,9 @@ tags:
   - qwen
 lang: ja
 pair: local-llm-thinking-logs
+category: localllm
 source: zenn
-accent: '#E5007F'
+accent: '#FFD400'
 ---
 
 <!-- generated from articles/source/ja/2026-10-19-local-llm-thinking-logs.md by scripts/import-articles.ts - do not edit -->

@@ -10,6 +10,7 @@ tags:
   - gemini
 lang: ja
 pair: gas-x-geminiprompt-to-create-an-in-house-web-app-with-uiux-a
+category: tools
 source: zenn
 accent: '#00A0E9'
 ---

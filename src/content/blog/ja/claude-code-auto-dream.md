@@ -10,6 +10,7 @@ tags:
   - papers
 lang: ja
 pair: sweet-dreams-claude-auto-dream
+category: tools
 source: zenn
 accent: '#00A0E9'
 ---

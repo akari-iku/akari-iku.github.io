@@ -13,8 +13,9 @@ tags:
   - architecture
 lang: ja
 pair: gws-cli-design-philosophy
+category: tools
 source: zenn
-accent: '#E51A14'
+accent: '#00A0E9'
 ---
 
 <!-- generated from articles/old-zenn/2026-03-07-gws-cli-design-philosophy.md by scripts/import-articles.ts - do not edit -->

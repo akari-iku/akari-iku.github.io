@@ -10,6 +10,7 @@ tags:
   - dify
 lang: ja
 pair: increase-my-familiarity-with-base64
+category: tools
 source: zenn
 accent: '#00A0E9'
 ---

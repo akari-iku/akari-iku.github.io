@@ -7,7 +7,7 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { getCollection } from 'astro:content';
-import { primaryTag, romajiLabel } from './tag-colors';
+import { CATEGORIES } from './categories';
 
 const INK = '#171717';
 const WIDTH = 1200;
@@ -62,9 +62,11 @@ let fontsPromise: Promise<
 async function loadFonts() {
   const posts = await getCollection('blog');
   const union =
-    posts
-      .map((p) => p.data.title + primaryTag(p.data.tags) + romajiLabel(p.data.tags))
-      .join('') + 'akari.log Blog & Portfolio AKARI#0123456789-/ ';
+    posts.map((p) => p.data.title).join('') +
+    Object.values(CATEGORIES)
+      .map((c) => c.label.en + c.vertical)
+      .join('') +
+    'akari.log Blog & Portfolio AKARI#0123456789-/ ';
   // Fallback order matters: title Latin -> Abril, JP -> Noto Serif JP.
   const [abril, serifJp, mono] = await Promise.all([
     fetchGoogleFont('Abril+Fatface', union),

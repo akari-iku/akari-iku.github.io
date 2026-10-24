@@ -13,6 +13,7 @@ tags:
   - webapp
 lang: en
 pair: gas-webapp-prompt
+category: tools
 source: dev
 accent: '#00A0E9'
 ---

@@ -8,6 +8,7 @@ tags:
   - toon
 lang: ja
 pair: is-json-outdated-the-reasons-why-the-new-llm-era-format-toon
+category: ai
 source: zenn
 accent: '#E5007F'
 ---

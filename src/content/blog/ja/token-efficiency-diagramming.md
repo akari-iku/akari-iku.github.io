@@ -12,8 +12,9 @@ tags:
   - diagramming
 lang: ja
 pair: analyzing-the-best-diagramming-tools-for-the-llm-age-based-o
+category: tools
 source: zenn
-accent: '#00B06B'
+accent: '#00A0E9'
 ---
 
 <!-- generated from articles/old-zenn/2025-10-22-token-efficiency-diagramming.md by scripts/import-articles.ts - do not edit -->

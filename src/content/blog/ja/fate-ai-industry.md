@@ -10,8 +10,9 @@ tags:
   - aigovernance
 lang: ja
 pair: fate-ai-industry
+category: ai
 source: zenn
-accent: '#E51A14'
+accent: '#E5007F'
 ---
 
 <!-- generated from articles/source/ja/2026-10-12-fate-ai-industry.md by scripts/import-articles.ts - do not edit -->

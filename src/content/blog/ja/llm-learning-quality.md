@@ -10,6 +10,7 @@ tags:
   - promptengineering
 lang: ja
 pair: llms-learn-from-pseudoscientific-papers-too-quality-control-
+category: ai
 source: zenn
 accent: '#E5007F'
 ---

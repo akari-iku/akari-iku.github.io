@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { tagCounts } from '../../lib/tags';
-import { accentFor, ACCENT } from '../../lib/tag-colors';
+import { groupByCategory, tagCounts } from '../../lib/tags';
+import { ACCENT } from '../../lib/tag-colors';
+import { CATEGORIES, categoryLabel } from '../../lib/categories';
 
-const tags = await tagCounts('ja');
+const groups = groupByCategory(await tagCounts('ja'));
 ---
 
 <BaseLayout
@@ -16,20 +17,33 @@ const tags = await tagCounts('ja');
     <h1 class="font-display text-5xl">Tags</h1>
     <div class="mt-3 mb-10 h-3 w-28 -skew-x-12" style={`background:${ACCENT.green}`}></div>
 
-    <div class="flex flex-wrap gap-3 font-mono text-sm font-bold">
+    <div class="flex flex-col gap-10">
       {
-        tags.map(({ tag, count }) => (
-          <a
-            href={`/tags/${tag}/`}
-            class="flex items-center gap-2 border-2 border-neutral-900 px-3 py-1.5 hover:bg-neutral-900 hover:text-white"
-          >
-            <span
-              class="inline-block h-3 w-4 -skew-x-12"
-              style={`background:${accentFor([tag])}`}
-            />
-            {tag}
-            <span class="text-neutral-500">{count}</span>
-          </a>
+        groups.map(({ key, tags }) => (
+          <section>
+            <h2 class="mb-4 flex items-center gap-3 font-mono text-lg font-bold">
+              <span
+                class="inline-block h-4 w-6 -skew-x-12"
+                style={`background:${CATEGORIES[key].color}`}
+              />
+              {categoryLabel(key, 'ja')}
+            </h2>
+            <div class="flex flex-wrap gap-3 font-mono text-sm font-bold">
+              {tags.map(({ tag, count }) => (
+                <a
+                  href={`/tags/${tag}/`}
+                  class="flex items-center gap-2 border-2 border-neutral-900 px-3 py-1.5 hover:bg-neutral-900 hover:text-white"
+                >
+                  <span
+                    class="inline-block h-3 w-4 -skew-x-12"
+                    style={`background:${CATEGORIES[key].color}`}
+                  />
+                  {tag}
+                  <span class="text-neutral-500">{count}</span>
+                </a>
+              ))}
+            </div>
+          </section>
         ))
       }
     </div>

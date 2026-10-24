@@ -12,8 +12,9 @@ tags:
   - aigovernance
 lang: en
 pair: fate-ai-industry
+category: ai
 source: dev
-accent: '#E51A14'
+accent: '#E5007F'
 ---
 
 <!-- generated from articles/source/en/2026-10-12-fate-ai-industry.md by scripts/import-articles.ts - do not edit -->

@@ -9,8 +9,9 @@ tags:
   - ai
   - manus
 lang: ja
+category: ai
 source: zenn
-accent: '#00B06B'
+accent: '#E5007F'
 ---
 
 <!-- generated from articles/old-zenn/2025-06-29-manus-poem.md by scripts/import-articles.ts - do not edit -->

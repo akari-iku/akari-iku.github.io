@@ -12,6 +12,7 @@ tags:
   - productivity
 lang: en
 pair: claude-code-auto-dream
+category: tools
 source: dev
 accent: '#00A0E9'
 ---

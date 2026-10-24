@@ -12,8 +12,9 @@ tags:
   - ai
 lang: en
 pair: cloudflare-os-local-llm
+category: localllm
 source: dev
-accent: '#E5007F'
+accent: '#FFD400'
 ---
 
 <!-- generated from articles/old-dev/2026-08-09-cloudflare-os-local-llm-five-rounds.md by scripts/import-articles.ts - do not edit -->

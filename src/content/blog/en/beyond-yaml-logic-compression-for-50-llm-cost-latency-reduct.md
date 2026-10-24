@@ -11,8 +11,9 @@ tags:
   - tokenefficiency
 lang: en
 pair: prompt-compression
+category: ai
 source: dev
-accent: '#FF6B00'
+accent: '#E5007F'
 ---
 
 <!-- generated from articles/old-dev/2025-09-30-beyond-yaml-logic-compression-for-50-llm-cost-latency-reduct.md by scripts/import-articles.ts - do not edit -->

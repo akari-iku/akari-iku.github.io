@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { accentFor, hasColorMatch, romajiLabel } from '../src/lib/tag-colors.ts';
+import { CATEGORIES, guessCategory, isCategoryKey, type CategoryKey } from '../src/lib/categories.ts';
 import { canonicalizeTags, CANONICAL_TAGS } from '../src/lib/tag-taxonomy.ts';
 
 const SITE = 'https://akari-iku.github.io';
@@ -31,6 +31,10 @@ const jaToEn: Record<string, string> = JSON.parse(
 );
 const enToJa = Object.fromEntries(
   Object.entries(jaToEn).map(([ja, en]) => [en, ja]),
+);
+/** slug -> category (ja slugs, plus unpaired en slugs). Paired en articles inherit the ja value. */
+const categoryBySlug: Record<string, unknown> = JSON.parse(
+  fs.readFileSync(path.join(root, 'scripts', 'categories.json'), 'utf8'),
 );
 
 const FILE_RE = /^(\d{4}-\d{2}-\d{2})-(.+)\.md$/;
@@ -616,20 +620,26 @@ function run(): void {
   const outJa = path.join(root, 'src', 'content', 'blog', 'ja');
   const outEn = path.join(root, 'src', 'content', 'blog', 'en');
   const descriptions: Record<string, string> = {};
-  const accentFallback: string[] = [];
-  const labelFallback: string[] = [];
+  const categoryFallback: string[] = [];
   const vocabGaps: string[] = [];
   const overTagged: string[] = [];
   const trackTagGaps = (id: string, tags: string[]): void => {
-    if (!hasColorMatch(tags)) accentFallback.push(`${id} [${tags.join(', ')}]`);
-    else if (romajiLabel(tags) === 'LOG') labelFallback.push(`${id} [${tags.join(', ')}]`);
     const unknown = tags.filter((t) => !CANONICAL_TAGS.has(t));
     if (unknown.length > 0) vocabGaps.push(`${id} [${unknown.join(', ')}]`);
     if (tags.length > 5) overTagged.push(`${id} (${tags.length} tags)`);
   };
 
+  // Registered category, or a tag-based guess (reported so categories.json gets the line).
+  const resolveCategory = (id: string, slug: string, tags: string[]): CategoryKey => {
+    const registered = categoryBySlug[slug];
+    if (isCategoryKey(registered)) return registered;
+    const guessed = guessCategory(tags);
+    categoryFallback.push(`${id} -> ${guessed} [${tags.join(', ')}]`);
+    return guessed;
+  };
+
   const zenn = listAll(zennDirs);
-  const jaAccent: Record<string, string> = {};
+  const jaCategory: Record<string, CategoryKey> = {};
   for (const a of zenn) {
     const raw = readSource(a.file);
     // Hand-written description in the source frontmatter wins over auto-extraction
@@ -641,7 +651,8 @@ function run(): void {
     descriptions[`ja/${a.slug}`] = description;
     const tags = normalizeTags(raw.data.topics);
     trackTagGaps(`ja/${a.slug}`, tags);
-    jaAccent[a.slug] = accentFor(tags);
+    const category = resolveCategory(`ja/${a.slug}`, a.slug, tags);
+    jaCategory[a.slug] = category;
     writePost(
       outJa,
       a.slug,
@@ -652,8 +663,9 @@ function run(): void {
         tags,
         lang: 'ja',
         ...(jaToEn[a.slug] ? { pair: jaToEn[a.slug] } : {}),
+        category,
         source: 'zenn',
-        accent: jaAccent[a.slug],
+        accent: CATEGORIES[category].color,
       },
       convertZennBody(filterTarget(raw.content, 'site')),
       sourceRel(a.file),
@@ -670,6 +682,9 @@ function run(): void {
     const tags = normalizeTags(raw.data.tags);
     trackTagGaps(`en/${a.slug}`, tags);
     const pairJa = enToJa[a.slug];
+    // paired articles share the ja article's category (card = article identity)
+    const category =
+      (pairJa && jaCategory[pairJa]) || resolveCategory(`en/${a.slug}`, a.slug, tags);
     writeDevtoExport(a.slug, raw.data, convertZennForDevto(filterTarget(raw.content, 'devto')));
     writePost(
       outEn,
@@ -681,9 +696,9 @@ function run(): void {
         tags,
         lang: 'en',
         ...(pairJa ? { pair: pairJa } : {}),
+        category,
         source: 'dev',
-        // paired articles share the ja article's color (card = article identity)
-        accent: (pairJa && jaAccent[pairJa]) || accentFor(tags),
+        accent: CATEGORIES[category].color,
       },
       convertDevBody(filterTarget(raw.content, 'site')),
       sourceRel(a.file),
@@ -706,8 +721,7 @@ function run(): void {
   const unpairedEn = dev.filter((a) => !enToJa[a.slug]).map((a) => a.slug);
   console.log(`unpaired ja: ${unpairedJa.join(', ') || '(none)'}`);
   console.log(`unpaired en: ${unpairedEn.join(', ') || '(none)'}`);
-  warn('WARN accent fallback to magenta - consider adding a tag to TAG_COLORS:', accentFallback);
-  warn('WARN vertical label fallback to "LOG" - consider adding to ROMAJI_LABELS:', labelFallback);
+  warn('WARN category guessed from tags - register the slug in scripts/categories.json:', categoryFallback);
   warn('WARN tags outside the canonical vocabulary - register in tag-taxonomy.ts:', vocabGaps);
   warn('WARN more than 5 tags per article (authoring rule):', overTagged);
 }

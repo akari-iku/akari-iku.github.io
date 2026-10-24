@@ -13,8 +13,9 @@ tags:
   - ai
 lang: en
 pair: diagramming-tools
+category: tools
 source: dev
-accent: '#00B06B'
+accent: '#00A0E9'
 ---
 
 <!-- generated from articles/old-dev/2025-11-06-a-cynics-guidethe-paradox-of-selecting-diagramming-tools-whi.md by scripts/import-articles.ts - do not edit -->

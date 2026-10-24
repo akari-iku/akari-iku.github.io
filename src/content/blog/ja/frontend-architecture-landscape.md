@@ -10,8 +10,9 @@ tags:
   - typescript
 lang: ja
 pair: frontend-architecture-mpa-to-islands
+category: web
 source: zenn
-accent: '#00A0E9'
+accent: '#00B06B'
 ---
 
 <!-- generated from articles/old-zenn/2026-07-25-frontend-architecture-landscape.md by scripts/import-articles.ts - do not edit -->

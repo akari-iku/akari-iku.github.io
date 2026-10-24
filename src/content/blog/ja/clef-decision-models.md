@@ -12,8 +12,9 @@ tags:
   - api
 lang: ja
 pair: clef-decision-models
+category: infra
 source: zenn
-accent: '#E5007F'
+accent: '#FF6B00'
 ---
 
 <!-- generated from articles/source/ja/2026-10-04-clef-decision-models.md by scripts/import-articles.ts - do not edit -->

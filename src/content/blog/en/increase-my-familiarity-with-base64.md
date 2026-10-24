@@ -11,6 +11,7 @@ tags:
   - base64
 lang: en
 pair: base64-guide
+category: tools
 source: dev
 accent: '#00A0E9'
 ---

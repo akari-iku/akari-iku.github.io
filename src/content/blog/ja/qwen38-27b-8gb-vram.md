@@ -12,8 +12,9 @@ tags:
   - qwen
 lang: ja
 pair: qwen38-27b-8gb-vram
+category: localllm
 source: zenn
-accent: '#E5007F'
+accent: '#FFD400'
 ---
 
 <!-- generated from articles/old-zenn/2026-08-20-qwen38-27b-8gb-vram.md by scripts/import-articles.ts - do not edit -->

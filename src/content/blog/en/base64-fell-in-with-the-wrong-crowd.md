@@ -12,6 +12,7 @@ tags:
   - agents
 lang: en
 pair: base64-bad-friends
+category: security
 source: dev
 accent: '#E51A14'
 ---

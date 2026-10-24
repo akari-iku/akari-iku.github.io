@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { primaryTag } from '../lib/tag-colors';
+import { categoryLabel } from '../lib/categories';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -24,7 +24,7 @@ const badge = post.data.pair ? (en ? 'JA' : 'EN') : null;
     <span
       class="self-start bg-neutral-900 px-2 py-0.5 font-mono text-xs font-bold text-white"
     >
-      {primaryTag(post.data.tags)}
+      {categoryLabel(post.data.category, post.data.lang)}
     </span>
     <span class="absolute top-5 right-5 h-4 w-6 -skew-x-12 bg-neutral-900"></span>
     <span

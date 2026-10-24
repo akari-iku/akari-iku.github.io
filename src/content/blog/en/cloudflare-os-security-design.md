@@ -13,6 +13,7 @@ tags:
   - aigovernance
 lang: en
 pair: cloudflare-os-security-design
+category: security
 source: dev
 accent: '#E51A14'
 ---

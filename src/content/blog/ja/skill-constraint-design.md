@@ -10,6 +10,7 @@ tags:
   - cli
 lang: ja
 pair: per-step-constraint-design-claude-code-skills
+category: tools
 source: zenn
 accent: '#00A0E9'
 ---

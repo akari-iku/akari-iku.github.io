@@ -12,6 +12,7 @@ tags:
   - github
 lang: en
 pair: personal-site-tech-selection
+category: web
 source: dev
 accent: '#00B06B'
 ---

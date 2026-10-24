@@ -1,5 +1,5 @@
 import type { APIRoute, InferGetStaticPropsType } from 'astro';
-import { primaryTag, romajiLabel } from '../../../lib/tag-colors';
+import { CATEGORIES } from '../../../lib/categories';
 import { ogBlogPaths, ogResponse, renderOgImage } from '../../../lib/og-image';
 
 export async function getStaticPaths() {
@@ -10,11 +10,12 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export const GET: APIRoute<Props> = async ({ props }) => {
   const { post } = props;
+  const category = CATEGORIES[post.data.category];
   const png = await renderOgImage({
     title: post.data.title,
-    breadcrumb: `Blog / ${primaryTag(post.data.tags)}`,
+    breadcrumb: `Blog / ${category.label.en}`,
     accent: post.data.accent,
-    vertical: romajiLabel(post.data.tags),
+    vertical: category.vertical,
     date: post.data.date.toISOString().slice(0, 10),
   });
   return ogResponse(png);

@@ -12,6 +12,7 @@ tags:
   - architecture
 lang: en
 pair: rag-architecture-selection
+category: ai
 source: dev
 accent: '#E5007F'
 ---

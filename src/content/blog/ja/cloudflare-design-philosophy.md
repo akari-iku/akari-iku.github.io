@@ -10,8 +10,9 @@ tags:
   - workers
 lang: ja
 pair: cloudflare-design-philosophy
+category: infra
 source: zenn
-accent: '#00A0E9'
+accent: '#FF6B00'
 ---
 
 <!-- generated from articles/old-zenn/2026-08-10-cloudflare-design-philosophy.md by scripts/import-articles.ts - do not edit -->

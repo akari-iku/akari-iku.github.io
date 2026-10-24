@@ -13,6 +13,7 @@ tags:
   - productivity
 lang: en
 pair: google-opal
+category: tools
 source: dev
 accent: '#00A0E9'
 ---

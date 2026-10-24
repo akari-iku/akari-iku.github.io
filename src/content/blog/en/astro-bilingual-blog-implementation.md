@@ -12,6 +12,7 @@ tags:
   - seo
 lang: en
 pair: astro-bilingual-blog-implementation
+category: web
 source: dev
 accent: '#00B06B'
 ---

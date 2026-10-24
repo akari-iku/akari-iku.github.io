@@ -12,8 +12,9 @@ tags:
   - ai
 lang: ja
 pair: cloudflare-os-local-llm-five-rounds
+category: localllm
 source: zenn
-accent: '#E5007F'
+accent: '#FFD400'
 ---
 
 <!-- generated from articles/old-zenn/2026-08-09-cloudflare-os-local-llm.md by scripts/import-articles.ts - do not edit -->

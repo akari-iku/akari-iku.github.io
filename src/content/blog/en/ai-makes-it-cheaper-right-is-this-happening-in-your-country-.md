@@ -6,6 +6,7 @@ description: >-
 date: '2025-10-04'
 tags: []
 lang: en
+category: ai
 source: dev
 accent: '#E5007F'
 ---

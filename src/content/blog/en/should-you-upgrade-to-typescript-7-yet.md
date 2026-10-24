@@ -12,8 +12,9 @@ tags:
   - performance
 lang: en
 pair: typescript7-not-yet
+category: web
 source: dev
-accent: '#00A0E9'
+accent: '#00B06B'
 ---
 
 <!-- generated from articles/old-dev/2026-07-20-should-you-upgrade-to-typescript-7-yet.md by scripts/import-articles.ts - do not edit -->

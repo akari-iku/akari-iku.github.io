@@ -7,6 +7,7 @@ tags:
   - ポエム
   - opensource
 lang: ja
+category: tools
 source: zenn
 accent: '#00A0E9'
 ---

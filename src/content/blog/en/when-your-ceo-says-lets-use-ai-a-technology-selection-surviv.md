@@ -10,6 +10,7 @@ tags:
   - management
 lang: en
 pair: generative-ai-tech-selection
+category: ai
 source: dev
 accent: '#E5007F'
 ---

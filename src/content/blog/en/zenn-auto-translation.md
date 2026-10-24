@@ -14,6 +14,7 @@ tags:
   - translation
 lang: en
 pair: zenn-translation-feature
+category: web
 source: dev
 accent: '#00B06B'
 ---

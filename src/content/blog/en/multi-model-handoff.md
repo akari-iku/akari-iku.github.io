@@ -13,6 +13,7 @@ tags:
   - agents
 lang: en
 pair: multi-model-handoff
+category: ai
 source: dev
 accent: '#E5007F'
 ---

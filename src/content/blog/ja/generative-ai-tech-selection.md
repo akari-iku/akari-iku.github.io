@@ -10,6 +10,7 @@ tags:
   - rag
 lang: ja
 pair: when-your-ceo-says-lets-use-ai-a-technology-selection-surviv
+category: ai
 source: zenn
 accent: '#E5007F'
 ---

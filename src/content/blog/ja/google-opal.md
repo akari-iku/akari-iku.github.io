@@ -12,6 +12,7 @@ tags:
   - dify
 lang: ja
 pair: google-opal-is-not-a-degraded-dify-its-strategic-positioning
+category: tools
 source: zenn
 accent: '#00A0E9'
 ---

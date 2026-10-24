@@ -10,6 +10,7 @@ tags:
   - notes
 lang: ja
 pair: windows-gotchas-claude-code
+category: tools
 source: zenn
 accent: '#00A0E9'
 ---

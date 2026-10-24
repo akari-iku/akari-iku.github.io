@@ -1,0 +1,46 @@
+{
+  "manus-poem": "ai",
+  "rag-architecture-selection": "ai",
+  "generative-ai-tech-selection": "ai",
+  "prompt-compression": "ai",
+  "llm-learning-quality": "ai",
+  "toon-token-format": "ai",
+  "multi-model-handoff": "ai",
+  "fate-ai-industry": "ai",
+  "ai-makes-it-cheaper-right-is-this-happening-in-your-country-": "ai",
+
+  "qwen38-27b-8gb-vram": "localllm",
+  "fate-local-llm": "localllm",
+  "local-llm-thinking-logs": "localllm",
+  "cloudflare-os-local-llm": "localllm",
+
+  "cloudflare-design-philosophy": "infra",
+  "cloudflare-free-strategy-moat": "infra",
+  "clef-decision-models": "infra",
+
+  "claude-code-commands": "tools",
+  "skill-constraint-design": "tools",
+  "claude-code-windows-gotchas": "tools",
+  "claude-code-auto-dream": "tools",
+  "base64-guide": "tools",
+  "gas-webapp-prompt": "tools",
+  "git-github-history": "tools",
+  "google-opal": "tools",
+  "gws-cli-design-philosophy": "tools",
+  "diagramming-tools": "tools",
+  "token-efficiency-diagramming": "tools",
+
+  "rag-architecture-patterns": "web",
+  "typescript7-not-yet": "web",
+  "personal-site-tech-selection": "web",
+  "astro-bilingual-blog-implementation": "web",
+  "frontend-architecture-landscape": "web",
+  "zenn-translation-feature": "web",
+
+  "cloudflare-os-security-design": "security",
+  "base64-bad-friends": "security",
+  "ai-chatbot-safety": "security",
+  "in-2025-ai-regulations-were-established-in-four-major-global": "security",
+
+  "tech-blog-journey": "essay"
+}

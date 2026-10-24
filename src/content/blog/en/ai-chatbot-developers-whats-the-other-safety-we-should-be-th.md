@@ -10,6 +10,7 @@ tags:
   - llm
 lang: en
 pair: ai-chatbot-safety
+category: security
 source: dev
 accent: '#E51A14'
 ---

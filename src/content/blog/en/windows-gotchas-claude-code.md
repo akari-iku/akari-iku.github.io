@@ -11,6 +11,7 @@ tags:
   - productivity
 lang: en
 pair: claude-code-windows-gotchas
+category: tools
 source: dev
 accent: '#00A0E9'
 ---

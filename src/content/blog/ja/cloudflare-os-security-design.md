@@ -12,6 +12,7 @@ tags:
   - agents
 lang: ja
 pair: cloudflare-os-security-design
+category: security
 source: zenn
 accent: '#E51A14'
 ---

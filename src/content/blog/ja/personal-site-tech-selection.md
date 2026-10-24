@@ -10,6 +10,7 @@ tags:
   - sideproject
 lang: ja
 pair: why-i-chose-astro-and-github-pages
+category: web
 source: zenn
 accent: '#00B06B'
 ---

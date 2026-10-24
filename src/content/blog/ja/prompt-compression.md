@@ -10,8 +10,9 @@ tags:
   - dspy
 lang: ja
 pair: beyond-yaml-logic-compression-for-50-llm-cost-latency-reduct
+category: ai
 source: zenn
-accent: '#FF6B00'
+accent: '#E5007F'
 ---
 
 <!-- generated from articles/old-zenn/2025-10-01-prompt-compression.md by scripts/import-articles.ts - do not edit -->

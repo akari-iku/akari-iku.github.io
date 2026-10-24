@@ -14,8 +14,9 @@ tags:
   - localllm
 lang: en
 pair: qwen38-27b-8gb-vram
+category: localllm
 source: dev
-accent: '#E5007F'
+accent: '#FFD400'
 ---
 
 <!-- generated from articles/source/en/2026-08-20-qwen38-27b-8gb-vram.md by scripts/import-articles.ts - do not edit -->

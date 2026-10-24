@@ -10,8 +10,9 @@ tags:
   - claude
 lang: ja
 pair: ive-organised-the-claude-code-commands-including-some-hidden
+category: tools
 source: zenn
-accent: '#E5007F'
+accent: '#00A0E9'
 ---
 
 <!-- generated from articles/old-zenn/2026-02-12-claude-code-commands.md by scripts/import-articles.ts - do not edit -->

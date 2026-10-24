@@ -11,8 +11,9 @@ tags:
   - rag
 lang: ja
 pair: rag-architecture-design-theory-and-conceptual-organization-i
+category: web
 source: zenn
-accent: '#00A0E9'
+accent: '#00B06B'
 ---
 
 <!-- generated from articles/old-zenn/2025-10-27-rag-architecture-patterns.md by scripts/import-articles.ts - do not edit -->

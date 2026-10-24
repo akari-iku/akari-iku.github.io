@@ -12,6 +12,7 @@ tags:
   - developers
 lang: en
 pair: llm-learning-quality
+category: ai
 source: dev
 accent: '#E5007F'
 ---

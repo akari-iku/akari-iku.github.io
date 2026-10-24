@@ -11,8 +11,9 @@ tags:
   - llm
 lang: en
 pair: token-efficiency-diagramming
+category: tools
 source: dev
-accent: '#00B06B'
+accent: '#00A0E9'
 ---
 
 <!-- generated from articles/old-dev/2025-10-21-analyzing-the-best-diagramming-tools-for-the-llm-age-based-o.md by scripts/import-articles.ts - do not edit -->

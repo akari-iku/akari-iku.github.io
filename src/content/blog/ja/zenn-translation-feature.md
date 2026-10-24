@@ -9,6 +9,7 @@ tags:
   - notes
 lang: ja
 pair: zenn-auto-translation
+category: web
 source: zenn
 accent: '#00B06B'
 ---

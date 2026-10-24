@@ -17,8 +17,9 @@ tags:
   - qwen
 lang: en
 pair: local-llm-thinking-logs
+category: localllm
 source: dev
-accent: '#E5007F'
+accent: '#FFD400'
 ---
 
 <!-- generated from articles/source/en/2026-10-19-local-llm-thinking-logs.md by scripts/import-articles.ts - do not edit -->

@@ -12,6 +12,7 @@ tags:
   - frontend
 lang: ja
 pair: astro-bilingual-blog-implementation
+category: web
 source: zenn
 accent: '#00B06B'
 ---

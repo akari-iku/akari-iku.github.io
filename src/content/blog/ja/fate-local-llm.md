@@ -11,8 +11,9 @@ tags:
   - llamacpp
 lang: ja
 pair: fate-local-llm
+category: localllm
 source: zenn
-accent: '#E5007F'
+accent: '#FFD400'
 ---
 
 <!-- generated from articles/source/ja/2026-10-12-fate-local-llm.md by scripts/import-articles.ts - do not edit -->

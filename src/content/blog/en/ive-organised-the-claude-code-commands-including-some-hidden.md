@@ -10,8 +10,9 @@ tags:
   - command
 lang: en
 pair: claude-code-commands
+category: tools
 source: dev
-accent: '#E5007F'
+accent: '#00A0E9'
 ---
 
 <!-- generated from articles/old-dev/2026-02-14-ive-organised-the-claude-code-commands-including-some-hidden.md by scripts/import-articles.ts - do not edit -->

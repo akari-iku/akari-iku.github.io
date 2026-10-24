@@ -11,6 +11,7 @@ tags:
   - agents
 lang: ja
 pair: multi-model-handoff
+category: ai
 source: zenn
 accent: '#E5007F'
 ---

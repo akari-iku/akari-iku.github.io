@@ -13,8 +13,9 @@ tags:
   - api
 lang: en
 pair: clef-decision-models
+category: infra
 source: dev
-accent: '#E5007F'
+accent: '#FF6B00'
 ---
 
 <!-- generated from articles/source/en/2026-10-04-clef-decision-models.md by scripts/import-articles.ts - do not edit -->

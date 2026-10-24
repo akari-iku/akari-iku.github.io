@@ -10,8 +10,9 @@ tags:
   - strategy
   - architecture
 lang: ja
+category: infra
 source: zenn
-accent: '#00A0E9'
+accent: '#FF6B00'
 ---
 
 <!-- generated from articles/old-zenn/2026-08-16-cloudflare-free-strategy-moat.md by scripts/import-articles.ts - do not edit -->

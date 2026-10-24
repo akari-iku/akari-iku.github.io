@@ -10,6 +10,7 @@ tags:
   - notes
 lang: ja
 pair: base64-fell-in-with-the-wrong-crowd
+category: security
 source: zenn
 accent: '#E51A14'
 ---

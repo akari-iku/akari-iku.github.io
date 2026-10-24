@@ -12,6 +12,7 @@ tags:
   - aigovernance
 lang: ja
 pair: ai-chatbot-developers-whats-the-other-safety-we-should-be-th
+category: security
 source: zenn
 accent: '#E51A14'
 ---
