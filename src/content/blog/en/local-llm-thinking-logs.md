@@ -50,6 +50,11 @@ Here's the testing environment, with runs conducted on 18-19 October 2026.
 | GPU | RTX 5060 (8 GB VRAM) |
 | Runtime | Ollama 0.40.5 |
 | Quantisation | Q4_K_M (both) |
+| KV cache | q8_0 (`OLLAMA_KV_CACHE_TYPE`) |
+| Flash Attention | On (`OLLAMA_FLASH_ATTENTION=1`) |
+| Context length | 16384 (`OLLAMA_CONTEXT_LENGTH`) |
+
+The q8_0 KV cache affects how precisely the model can refer back to tokens it has already generated. Since this article is about values that were right in the thought log and went wrong in the answer, it belongs here as a stated condition. I did not compare it against the default f16.
 
 Both models were pulled straight from the Ollama library. With official tags available, there was no need to fiddle with manual conversions or weights.
 
