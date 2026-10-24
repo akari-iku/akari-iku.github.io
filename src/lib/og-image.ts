@@ -1,7 +1,7 @@
 /**
  * Build-time OGP image generation (1200x630).
  * Renders a miniature of the article databook hero: accent background,
- * black ink typography, breadcrumb + article number, vertical Latin label.
+ * black ink typography, breadcrumb, vertical Latin label.
  * Fonts are subset-fetched from Google Fonts (only the glyphs we render).
  */
 import satori from 'satori';
@@ -18,18 +18,15 @@ export interface OgProps {
   breadcrumb: string;
   accent: string;
   vertical: string;
-  num?: string;
   date?: string;
 }
 
 /** getStaticPaths body shared by the ja/en OGP endpoints (mirrors blog/[slug]). */
 export async function ogBlogPaths(lang: 'ja' | 'en') {
-  const posts = (await getCollection('blog', (p) => p.data.lang === lang)).sort(
-    (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-  );
-  return posts.map((post, i) => ({
+  const posts = await getCollection('blog', (p) => p.data.lang === lang);
+  return posts.map((post) => ({
     params: { slug: post.id.replace(/^(ja|en)\//, '') },
-    props: { post, num: i + 1 },
+    props: { post },
   }));
 }
 
@@ -95,6 +92,11 @@ function el(style: Record<string, unknown>, children?: Node[] | string): Node {
   return { type: 'div', props: { style: { display: 'flex', ...style }, children } };
 }
 
+// Hiragana, Katakana, and CJK ideographs
+function hasJapanese(text: string): boolean {
+  return /[぀-ヿ㐀-鿿]/.test(text);
+}
+
 function markup(p: OgProps): Node {
   const mono = {
     fontFamily: 'JetBrains Mono',
@@ -108,7 +110,8 @@ function markup(p: OgProps): Node {
       background: p.accent,
       color: INK,
       border: `8px solid ${INK}`,
-      padding: '52px 56px',
+      // extra bottom padding keeps the footer row above X's title overlay
+      padding: '52px 56px 96px',
       position: 'relative',
     },
     [
@@ -131,15 +134,14 @@ function markup(p: OgProps): Node {
       ),
       // content column, kept clear of the vertical-label lane on the right
       el({ flexDirection: 'column', width: 860, height: '100%' }, [
-        el({ justifyContent: 'space-between', width: '100%', ...mono }, [
-          el({}, p.breadcrumb),
-          el({}, p.num ?? ''),
-        ]),
+        el({ width: '100%', ...mono }, p.breadcrumb),
         el(
           {
             display: 'block',
             marginTop: 36,
-            fontFamily: 'Abril Fatface',
+            // Mixed-script lines mis-measure at the Abril/Noto boundary (Latin words
+            // overlap), so JP titles render entirely in Noto Serif JP.
+            fontFamily: hasJapanese(p.title) ? 'Noto Serif JP' : 'Abril Fatface',
             fontWeight: 700,
             fontSize: p.title.length > 40 ? 50 : 60,
             lineHeight: 1.45,
