@@ -29,5 +29,6 @@
   "cloudflare-design-philosophy": "cloudflare-design-philosophy",
   "clef-decision-models": "clef-decision-models",
   "fate-ai-industry": "fate-ai-industry",
-  "fate-local-llm": "fate-local-llm"
+  "fate-local-llm": "fate-local-llm",
+  "local-llm-thinking-logs": "local-llm-thinking-logs"
 }

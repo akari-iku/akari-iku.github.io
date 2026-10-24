@@ -11,6 +11,7 @@ tags:
   - ollama
   - qwen
 lang: ja
+pair: local-llm-thinking-logs
 source: zenn
 accent: '#E5007F'
 ---
