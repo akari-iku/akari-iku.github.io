@@ -1,7 +1,5 @@
 ---
-title: >-
-  Does a Longer Thinking Log Make a Local LLM More Accurate? I Asked Qwen3 and
-  Muse Glimmer 18 Times and Read Every Log
+title: 'Longer Thinking Logs, Better Answers? 18 Runs with Qwen3 and Muse Glimmer'
 description: >-
   A field log from an 8GB VRAM PC running Ollama. I sent the same questions to
   Qwen3 30B-A3B and Meta's Muse Glimmer 30B and compared the length of their
