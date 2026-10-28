@@ -11,6 +11,7 @@ tags:
   - cpp
   - gamedev
 lang: ja
+pair: goose-no-serializer
 category: tools
 source: zenn
 accent: '#00A0E9'
