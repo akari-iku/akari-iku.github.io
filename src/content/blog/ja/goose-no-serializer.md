@@ -119,7 +119,7 @@ goose build samples/01_tour.goose
 
 
 <a class="link-card" href="https://github.com/akari-iku/goose-playground" target="_blank" rel="noopener">
-<img class="link-card-thumb" src="https://opengraph.githubassets.com/9190dbc733132f240f1cfbcf33e345cb08a34ad7461967d31e1c7619b736858e/akari-iku/goose-playground" alt="" loading="lazy" referrerpolicy="no-referrer" />
+<img class="link-card-thumb" src="https://raw.githubusercontent.com/akari-iku/goose-playground/main/notes/images/lsystem-plant-5.svg" alt="" loading="lazy" referrerpolicy="no-referrer" />
 <span class="link-card-body">
 <span class="link-card-domain">github.com</span>
 <span class="link-card-title">GitHub - akari-iku/goose-playground: Experiments with the Goose language (by the author of FlatBuffers): lifetime errors, an L-system in Goose/Rust/C++, and a game save file round-trip with no serializer.</span>
@@ -555,7 +555,7 @@ Goose は、いろいろな言語の良いところを集めた言語ではあ�
 
 
 <a class="link-card" href="https://github.com/akari-iku/goose-playground" target="_blank" rel="noopener">
-<img class="link-card-thumb" src="https://opengraph.githubassets.com/9190dbc733132f240f1cfbcf33e345cb08a34ad7461967d31e1c7619b736858e/akari-iku/goose-playground" alt="" loading="lazy" referrerpolicy="no-referrer" />
+<img class="link-card-thumb" src="https://raw.githubusercontent.com/akari-iku/goose-playground/main/notes/images/lsystem-plant-5.svg" alt="" loading="lazy" referrerpolicy="no-referrer" />
 <span class="link-card-body">
 <span class="link-card-domain">github.com</span>
 <span class="link-card-title">GitHub - akari-iku/goose-playground: Experiments with the Goose language (by the author of FlatBuffers): lifetime errors, an L-system in Goose/Rust/C++, and a game save file round-trip with no serializer.</span>

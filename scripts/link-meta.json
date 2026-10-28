@@ -594,7 +594,7 @@
   },
   "https://github.com/akari-iku/goose-playground": {
     "title": "GitHub - akari-iku/goose-playground: Experiments with the Goose language (by the author of FlatBuffers): lifetime errors, an L-system in Goose/Rust/C++, and a game save file round-trip with no serializer.",
-    "image": "https://opengraph.githubassets.com/9190dbc733132f240f1cfbcf33e345cb08a34ad7461967d31e1c7619b736858e/akari-iku/goose-playground"
+    "image": "https://raw.githubusercontent.com/akari-iku/goose-playground/main/notes/images/lsystem-plant-5.svg"
   },
   "https://github.com/aardappel/goose": {
     "title": "GitHub - aardappel/goose: The Goose Programming Language",
