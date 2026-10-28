@@ -29,6 +29,7 @@
   "gws-cli-design-philosophy": "tools",
   "diagramming-tools": "tools",
   "token-efficiency-diagramming": "tools",
+  "goose-no-serializer": "tools",
 
   "rag-architecture-patterns": "web",
   "typescript7-not-yet": "web",

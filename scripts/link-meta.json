@@ -581,5 +581,27 @@
   "https://akari-iku.github.io/en/blog/qwen38-27b-8gb-vram/": {
     "title": "I Squeezed a 27B Into 1-bit on 8GB of VRAM. The 8B at 4-bit Won Anyway | akari.log",
     "image": "https://akari-iku.github.io/og/en/blog/qwen38-27b-8gb-vram.png"
+  },
+  "https://aardappel.github.io/goose/": {
+    "title": "The Goose Programming Language · Goose"
+  },
+  "https://flatbuffers.dev/": {
+    "title": "FlatBuffers Docs"
+  },
+  "https://unity.com/dots": {
+    "title": "DOTS - Unity’s Data-Oriented Technology Stack",
+    "image": "https://cdn.sanity.io/images/fuvbjjlp/production/4265f7ade2a6efabc2fdca55793b96d166384904-768x381.jpg"
+  },
+  "https://github.com/akari-iku/goose-playground": {
+    "title": "GitHub - akari-iku/goose-playground: Experiments with the Goose language (by the author of FlatBuffers): lifetime errors, an L-system in Goose/Rust/C++, and a game save file round-trip with no serializer.",
+    "image": "https://opengraph.githubassets.com/9190dbc733132f240f1cfbcf33e345cb08a34ad7461967d31e1c7619b736858e/akari-iku/goose-playground"
+  },
+  "https://github.com/aardappel/goose": {
+    "title": "GitHub - aardappel/goose: The Goose Programming Language",
+    "image": "https://opengraph.githubassets.com/fc8f491e1a6cdb6f836db8cbab52f3aee05c0c7b1b172f5b9c2b03a5bff47c08/aardappel/goose"
+  },
+  "https://www.youtube.com/watch?v=rX0ItVEVjHc": null,
+  "https://www.dataorienteddesign.com/dodbook/": {
+    "title": "Data-Oriented Design"
   }
 }
